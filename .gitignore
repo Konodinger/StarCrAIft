@@ -27,7 +27,7 @@ x86/
 [Aa][Rr][Mm]/
 [Aa][Rr][Mm]64/
 bld/
-[Bb]in/
+windows/bin/*
 [Oo]bj/
 [Ll]og/
 [Ll]ogs/
@@ -398,3 +398,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+
+
+# Custom files
+!windows/bin/RunStarterBotAndStarcraft.bat
+starcraft
