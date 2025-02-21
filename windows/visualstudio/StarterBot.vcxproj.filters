@@ -93,6 +93,12 @@
     <ClCompile Include="..\..\src\starterbot\BT\BT_COND_LESSER_THAN.cpp">
       <Filter>BT</Filter>
     </ClCompile>
+    <ClCompile Include="UnitAgent.cpp">
+      <Filter>UtilitySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Task.cpp">
+      <Filter>UtilitySystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\starterbot\Grid.hpp" />
@@ -193,6 +199,12 @@
     <ClInclude Include="..\..\src\starterbot\BT\BT_COND_LESSER_THAN.h">
       <Filter>BT</Filter>
     </ClInclude>
+    <ClInclude Include="UnitAgent.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Task.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">
@@ -200,6 +212,9 @@
     </Filter>
     <Filter Include="BT\BT_STARCRAFT">
       <UniqueIdentifier>{f7d3a676-4252-4269-9d78-432aabc0f416}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UtilitySystem">
+      <UniqueIdentifier>{74aa9ebd-0b56-436c-9100-17f5e3ea42f5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

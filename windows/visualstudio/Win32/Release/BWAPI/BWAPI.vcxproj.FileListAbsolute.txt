@@ -1,2 +1,3 @@
 C:\Users\berge\Documents\Cours\IGD\INF584A\X_INF584A_2024_2025_StarCraftBot_TEMPLATE\windows\visualstudio\Win32\Release\BWAPI\BWAPI.lib
 C:\Users\berge\Documents\Cours\IGD\INF584A\StarCrAIft\windows\visualstudio\Win32\Release\BWAPI\BWAPI.lib
+C:\Users\Toan\Mon Drive\Prog\IGD\Cpp-RealTimeAI\StarCrAIft\windows\visualstudio\Win32\Release\BWAPI\BWAPI.lib

@@ -55,6 +55,8 @@
     <ClInclude Include="..\..\src\starterbot\ReplayParser.h" />
     <ClInclude Include="..\..\src\starterbot\StarterBot.h" />
     <ClInclude Include="..\..\src\starterbot\Tools.h" />
+    <ClInclude Include="Task.h" />
+    <ClInclude Include="UnitAgent.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\starterbot\BT\BT_ACTION.cpp" />
@@ -91,6 +93,8 @@
     <ClCompile Include="..\..\src\starterbot\ReplayParser.cpp" />
     <ClCompile Include="..\..\src\starterbot\StarterBot.cpp" />
     <ClCompile Include="..\..\src\starterbot\Tools.cpp" />
+    <ClCompile Include="Task.cpp" />
+    <ClCompile Include="UnitAgent.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>StarterBot</ProjectName>
