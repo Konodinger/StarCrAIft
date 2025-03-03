@@ -99,6 +99,16 @@
     <ClCompile Include="Task.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
+    <ClCompile Include="PMRBot.cpp" />
+    <ClCompile Include="TaskEmitter.cpp">
+      <Filter>UtilitySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="EventManagerTE.cpp">
+      <Filter>UtilitySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkerTE.cpp">
+      <Filter>UtilitySystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\starterbot\Grid.hpp" />
@@ -203,6 +213,16 @@
       <Filter>UtilitySystem</Filter>
     </ClInclude>
     <ClInclude Include="Task.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="PMRBot.h" />
+    <ClInclude Include="TaskEmitter.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="EventManagerTE.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerTE.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
   </ItemGroup>

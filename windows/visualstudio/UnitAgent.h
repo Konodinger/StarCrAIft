@@ -1,4 +1,4 @@
-#pragma once
+	#pragma once
 
 class UnitAgent;
 enum UnitAgentType;
@@ -9,6 +9,7 @@ enum UnitAgentState;
 #include "BWAPI/Unit.h"
 #include "BT.h"
 #include "Task.h"
+#include "Data.h"
 
 
 enum UnitAgentState
@@ -36,7 +37,7 @@ public:
 	UnitAgentState getState() const { return m_state; }
 
 	// Called by [] in order to check if the unit is available
-	virtual void checkFlee() = 0;
+	virtual bool checkFlee(Data* pData) = 0;
 
 	virtual void executeBehaviorTree() = 0;
 

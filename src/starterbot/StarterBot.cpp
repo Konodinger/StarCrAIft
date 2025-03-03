@@ -169,6 +169,9 @@ void StarterBot::onUnitDestroy(BWAPI::Unit unit)
 {
     //if the unit is farming then remove it from data structure
     if (pData->unitsFarmingMinerals.contains(unit)) pData->unitsFarmingMinerals.erase(unit);
+
+    //Remove the UnitAgent affiliated.
+
 }
 
 // Called whenever a unit is morphed, with a pointer to the unit

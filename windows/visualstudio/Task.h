@@ -10,6 +10,7 @@ class Task;
 
 #include "UnitAgent.h"
 
+// À compléter pour chaque catégorie de tâche
 enum TaskType
 {
 	BUILD,
@@ -30,8 +31,14 @@ public:
 
 	bool isCompatible(UnitAgentType type) const { return (std::find(m_compatibility.begin(), m_compatibility.end(), type) != m_compatibility.end()); }
 
-	bool setExecutor(std::shared_ptr<UnitAgent> executor) { m_executor = executor; }
+	// For now, we should not be able to replace the executor. It could be useful if the current executor died, but this should be checked before.
+	bool setExecutor(std::shared_ptr<UnitAgent> executor) {
+		assert(m_executor == nullptr && ("Can't set a new executor on task " + m_name + std::string(m_id)));
+		m_executor = executor;
+	}
 	std::shared_ptr<UnitAgent> getExecutor() { return m_executor; }
+	// Should be called only if the executor died.
+	void removeExecutor() { m_executor = nullptr; }
 
 
 	bool ongoing() const;
