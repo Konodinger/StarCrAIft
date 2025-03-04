@@ -1,8 +1,6 @@
 #include "PMRBot.h"
 #include "Tools.h"
 
-#include "WorkerTE.h"
-
 #define LOCAL_SPEED 10
 #define FRAME_SKIP 0
 

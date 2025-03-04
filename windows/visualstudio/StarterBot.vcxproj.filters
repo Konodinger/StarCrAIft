@@ -93,20 +93,20 @@
     <ClCompile Include="..\..\src\starterbot\BT\BT_COND_LESSER_THAN.cpp">
       <Filter>BT</Filter>
     </ClCompile>
-    <ClCompile Include="UnitAgent.cpp">
-      <Filter>UtilitySystem</Filter>
-    </ClCompile>
-    <ClCompile Include="Task.cpp">
-      <Filter>UtilitySystem</Filter>
-    </ClCompile>
     <ClCompile Include="PMRBot.cpp" />
-    <ClCompile Include="TaskEmitter.cpp">
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\UnitAgent.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
-    <ClCompile Include="EventManagerTE.cpp">
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\Task.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
-    <ClCompile Include="WorkerTE.cpp">
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\TaskEmitter.cpp">
+      <Filter>UtilitySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\EventManagerTE.cpp">
+      <Filter>UtilitySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\WorkerTE.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -209,20 +209,20 @@
     <ClInclude Include="..\..\src\starterbot\BT\BT_COND_LESSER_THAN.h">
       <Filter>BT</Filter>
     </ClInclude>
-    <ClInclude Include="UnitAgent.h">
-      <Filter>UtilitySystem</Filter>
-    </ClInclude>
-    <ClInclude Include="Task.h">
-      <Filter>UtilitySystem</Filter>
-    </ClInclude>
     <ClInclude Include="PMRBot.h" />
-    <ClInclude Include="TaskEmitter.h">
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\UnitAgent.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
-    <ClInclude Include="EventManagerTE.h">
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\Task.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
-    <ClInclude Include="WorkerTE.h">
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\TaskEmitter.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\EventManagerTE.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\WorkerTE.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
   </ItemGroup>

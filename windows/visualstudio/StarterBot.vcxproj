@@ -55,12 +55,12 @@
     <ClInclude Include="..\..\src\starterbot\ReplayParser.h" />
     <ClInclude Include="..\..\src\starterbot\StarterBot.h" />
     <ClInclude Include="..\..\src\starterbot\Tools.h" />
-    <ClInclude Include="EventManagerTE.h" />
-    <ClInclude Include="PMRBot.h" />
-    <ClInclude Include="Task.h" />
-    <ClInclude Include="TaskEmitter.h" />
-    <ClInclude Include="UnitAgent.h" />
-    <ClInclude Include="WorkerTE.h" />
+    <ClInclude Include="..\..\src\starterbot\PMRBot.h" />	
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\EventManagerTE.h" />
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\Task.h" />
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\TaskEmitter.h" />
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\UnitAgent.h" />
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\WorkerTE.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\starterbot\BT\BT_ACTION.cpp" />
@@ -97,12 +97,12 @@
     <ClCompile Include="..\..\src\starterbot\ReplayParser.cpp" />
     <ClCompile Include="..\..\src\starterbot\StarterBot.cpp" />
     <ClCompile Include="..\..\src\starterbot\Tools.cpp" />
-    <ClCompile Include="EventManagerTE.cpp" />
-    <ClCompile Include="PMRBot.cpp" />
-    <ClCompile Include="Task.cpp" />
-    <ClCompile Include="TaskEmitter.cpp" />
-    <ClCompile Include="UnitAgent.cpp" />
-    <ClCompile Include="WorkerTE.cpp" />
+    <ClCompile Include="..\..\src\starterbot\PMRBot.cpp" />
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\EventManagerTE.cpp" />
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\Task.cpp" />
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\TaskEmitter.cpp" />
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\UnitAgent.cpp" />
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\WorkerTE.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>StarterBot</ProjectName>

@@ -1,7 +1,7 @@
 #include <BWAPI.h>
 #include <BWAPI/Client.h>
 #include "StarterBot.h"
-#include "../../windows/visualstudio/PMRBot.h"
+#include "PMRBot.h"
 #include "ReplayParser.h"
 #include <iostream>
 #include <thread>
