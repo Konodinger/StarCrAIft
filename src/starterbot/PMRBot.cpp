@@ -14,6 +14,8 @@ PMRBot::PMRBot() {
     pData->thresholdSupply = THRESHOLD1_UNUSED_SUPPLY;
     pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
     pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
+
+    pIdleManagerBT = new BT_ACTION_IDLE("IDLEManagerRoot", nullptr);
 }
 
 void PMRBot::runBotLoop() {
@@ -24,7 +26,6 @@ void PMRBot::runBotLoop() {
     m_WorkerTE.computeTaskReward();
     // Same for other TE...
     // 
-    
 
     // Attribute IDLE behaviour
     if (pIdleManagerBT != nullptr && pIdleManagerBT->Evaluate(pData) != BT_NODE::SUCCESS)
@@ -53,7 +54,6 @@ void PMRBot::runBotLoop() {
     for (auto unitAgent : unitAgentsList) {
         unitAgent->executeBehaviorTree();
     }
-
 }
 
 void PMRBot::taskAttribuer() {

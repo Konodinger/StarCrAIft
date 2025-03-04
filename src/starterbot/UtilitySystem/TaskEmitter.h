@@ -9,6 +9,7 @@ public:
 	void computeTaskReward();
 protected:
 	TaskEmitter() {};
-	BT_NODE* pTaskEmitterBT;
+	std::string m_name{};
+	BT_NODE* pTaskEmitterBT = nullptr;
 	std::vector<std::shared_ptr<Task>> m_taskEmitted;
 };

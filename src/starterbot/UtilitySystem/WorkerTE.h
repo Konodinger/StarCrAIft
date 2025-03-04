@@ -4,5 +4,5 @@
 
 class WorkerTE : public TaskEmitter {
 public:
-	WorkerTE() {};
+	WorkerTE() { m_name = "WorkerTE"; };
 };

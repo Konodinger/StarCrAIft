@@ -1,2 +1,0 @@
-C:\Users\Caffin\OneDrive\桌面\inf584a\git\windows\visualstudio\Win32\Debug\BWAPI\BWAPI.lib
-C:\Users\berge\Documents\Cours\IGD\INF584A\X_INF584A_2024_2025_StarCraftBot_TEMPLATE\windows\visualstudio\Win32\Debug\BWAPI\BWAPI.lib

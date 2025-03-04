@@ -4,7 +4,7 @@
 
 class EventManagerTE : public TaskEmitter {
 public:
-	EventManagerTE() {};
+	EventManagerTE() { m_name = "Event Manager"; };
 
 	// LOT TO BE DONE: methods for task generation, reattribution, suppression, modification...
 };
