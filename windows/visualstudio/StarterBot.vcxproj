@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClInclude Include="..\..\src\starterbot\BT\BT.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_ACTION.h" />
+	<ClInclude Include="..\..\src\starterbot\BT\BT_ACTION_EMPTY_BT.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_ACTION_IDLE.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_ACTION_LOG.h" />
     <ClInclude Include="..\..\src\starterbot\BT\BT_ACTION_WAIT.h" />
@@ -64,6 +65,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\starterbot\BT\BT_ACTION.cpp" />
+    <ClCompile Include="..\..\src\starterbot\BT\BT_ACTION_EMPTY_BT.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_ACTION_IDLE.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_ACTION_LOG.cpp" />
     <ClCompile Include="..\..\src\starterbot\BT\BT_ACTION_WAIT.cpp" />

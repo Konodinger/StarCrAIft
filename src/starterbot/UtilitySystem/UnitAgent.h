@@ -15,6 +15,7 @@ class Data;
 enum UnitAgentState
 {
 	IDLING,
+	//WAITINGFORSQUAD,
 	WORKING,
 	FLEEING
 };
