@@ -17,6 +17,8 @@ PMRBot::PMRBot() {
     pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
 
     pIdleManagerBT = new BT_ACTION_IDLE("IDLEManagerRoot", nullptr);
+
+    m_EventTE.setData(pData);
 }
 
 void PMRBot::runBotLoop() {
@@ -77,6 +79,8 @@ void PMRBot::onStart()
     // Call MapTools OnStart
     m_mapTools.onStart();
 
+    m_EventTE.onStart();
+
 }
 
 // Called on each frame of the game
@@ -98,6 +102,8 @@ void PMRBot::onFrame()
 
     // Draw some relevent information to the screen to help us debug the bot
     drawDebugInformation();
+
+    m_EventTE.onFrame();
 }
 
 // Draw some relevent information to the screen to help us debug the bot
@@ -111,23 +117,24 @@ void PMRBot::drawDebugInformation()
 void PMRBot::onEnd(bool isWinner)
 {
     std::cout << "We " << (isWinner ? "won!" : "lost!") << "\n";
+
+    m_EventTE.onEnd(isWinner);
 }
 
 // Called whenever a unit is destroyed, with a pointer to the unit
 void PMRBot::onUnitDestroy(BWAPI::Unit unit)
 {
-    //if the unit is farming then remove it from data structure
-    if (pData->unitsFarmingMinerals.contains(unit)) pData->unitsFarmingMinerals.erase(unit);
 
     //Remove the UnitAgent affiliated.
 
+    m_EventTE.onUnitDestroy(unit);
 }
 
 // Called whenever a unit is morphed, with a pointer to the unit
 // Zerg units morph when they turn into other units
 void PMRBot::onUnitMorph(BWAPI::Unit unit)
 {
-
+    m_EventTE.onUnitMorph(unit);
 }
 
 // Called whenever a text is sent to the game by a user
@@ -137,6 +144,8 @@ void PMRBot::onSendText(std::string text)
     {
         m_mapTools.toggleDraw();
     }
+
+    m_EventTE.onSendText(text);
 }
 
 // Called whenever a unit is created, with a pointer to the destroyed unit
@@ -147,31 +156,33 @@ void PMRBot::onUnitCreate(BWAPI::Unit unit)
     // SIMPLIFIED, WILL NEED TO ADD UNITAGENTTYPES...
     // std::shared_ptr<UnitAgent> pUnitAgent = std::make_shared<UnitAgent>();
     // unitAgentsList.insert(pUnitAgent);
+
+    m_EventTE.onUnitCreate(unit);
 }
 
 // Called whenever a unit finished construction, with a pointer to the unit
 void PMRBot::onUnitComplete(BWAPI::Unit unit)
 {
-
+    m_EventTE.onUnitComplete(unit);
 }
 
 // Called whenever a unit appears, with a pointer to the destroyed unit
 // This is usually triggered when units appear from fog of war and become visible
 void PMRBot::onUnitShow(BWAPI::Unit unit)
 {
-
+    m_EventTE.onUnitShow(unit);
 }
 
 // Called whenever a unit gets hidden, with a pointer to the destroyed unit
 // This is usually triggered when units enter the fog of war and are no longer visible
 void PMRBot::onUnitHide(BWAPI::Unit unit)
 {
-
+    m_EventTE.onUnitHide(unit);
 }
 
 // Called whenever a unit switches player control
 // This usually happens when a dark archon takes control of a unit
 void PMRBot::onUnitRenegade(BWAPI::Unit unit)
 {
-
+    m_EventTE.onUnitRenegade(unit);
 }
