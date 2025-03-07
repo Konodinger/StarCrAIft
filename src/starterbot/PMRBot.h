@@ -2,18 +2,17 @@
 
 #include <BWAPI.h>
 #include "MapTools.h"
-#include "Data.h"
 #include "UtilitySystem/Task.h"
 #include "UtilitySystem/TaskEmitter.h"
 #include "UtilitySystem/EventManagerTE.h"
 #include "UtilitySystem/WorkerTE.h"
 
+class Data;
+
 class PMRBot {
 private:
 	MapTools m_mapTools;
 	Data* pData;
-	std::vector<std::shared_ptr<Task>> m_taskList;
-	std::unordered_set<std::shared_ptr<UnitAgent>> unitAgentsList;
 	TaskEmitter m_WorkerTE = WorkerTE(); // Empty TE for now, should serve as a model for the others.
 	//TaskEmitter m_ArmyTE;
 	//...

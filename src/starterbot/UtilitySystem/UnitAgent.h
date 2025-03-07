@@ -3,13 +3,13 @@
 class UnitAgent;
 enum UnitAgentType;
 enum UnitAgentState;
+class Data;
 
 #include <memory>
 
 #include "BWAPI/Unit.h"
 #include "BT.h"
 #include "Task.h"
-#include "Data.h"
 
 
 enum UnitAgentState

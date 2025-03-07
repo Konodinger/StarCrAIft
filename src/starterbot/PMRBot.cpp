@@ -1,5 +1,6 @@
 #include "PMRBot.h"
 #include "Tools.h"
+#include "Data.h"
 
 #define LOCAL_SPEED 10
 #define FRAME_SKIP 0
@@ -34,14 +35,14 @@ void PMRBot::runBotLoop() {
     }
 
     // Check if units should flee and compute their interest in available tasks.
-    for (auto unitAgent : unitAgentsList) {
+    for (auto unitAgent : pData->unitAgentsList) {
         unitAgent->checkFlee(pData);
         if (unitAgent->getState() == UnitAgentState::IDLING) {
-            for (auto task : m_taskList)
+            for (auto task : pData->m_taskList)
                 m_taskToAgentInterest[task][unitAgent] = unitAgent->computeInterest(task);
         }
         else {
-            for (auto task : m_taskList) {
+            for (auto task : pData->m_taskList) {
                 m_taskToAgentInterest[task].erase(unitAgent);
             }
         }
@@ -51,7 +52,7 @@ void PMRBot::runBotLoop() {
     taskAttribuer();
 
     // Execute agents behaviour tree
-    for (auto unitAgent : unitAgentsList) {
+    for (auto unitAgent : pData->unitAgentsList) {
         unitAgent->executeBehaviorTree();
     }
 }
