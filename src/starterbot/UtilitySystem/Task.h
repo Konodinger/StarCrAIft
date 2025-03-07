@@ -8,13 +8,15 @@ class Task;
 #include <memory>
 #include <vector>
 
+#include "../BT/BT.h"
 #include "UnitAgent.h"
 
 // À compléter pour chaque catégorie de tâche
 enum TaskType
 {
 	BUILD,
-
+	SCOUT,
+	FLEE
 };
 
 class Task
