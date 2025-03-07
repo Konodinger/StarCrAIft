@@ -1,6 +1,5 @@
 #include "ScoutTask.h"
-#include "BT.h"
 
 ScoutTask::ScoutTask() {
-
+	// Construct the m_taskBT according to the MIRO
 }

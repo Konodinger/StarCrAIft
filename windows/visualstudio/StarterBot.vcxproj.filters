@@ -3,7 +3,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\src\starterbot\main.cpp" />
     <ClCompile Include="..\..\src\starterbot\MapTools.cpp" />
-	<ClCompile Include="..\..\src\starterbot\PMRBot.cpp" />
+    <ClCompile Include="..\..\src\starterbot\PMRBot.cpp" />
     <ClCompile Include="..\..\src\starterbot\ReplayParser.cpp" />
     <ClCompile Include="..\..\src\starterbot\StarterBot.cpp" />
     <ClCompile Include="..\..\src\starterbot\Tools.cpp" />
@@ -112,11 +112,13 @@
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\WorkerTE.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
+    <ClCompile Include="ScoutTask.cpp">
+      <Filter>UtilitySystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\starterbot\Grid.hpp" />
     <ClInclude Include="..\..\src\starterbot\MapTools.h" />
-	<ClCompile Include="..\..\src\starterbot\PMRBot.h" />
     <ClInclude Include="..\..\src\starterbot\ReplayParser.h" />
     <ClInclude Include="..\..\src\starterbot\StarterBot.h" />
     <ClInclude Include="..\..\src\starterbot\Tools.h" />
@@ -229,6 +231,10 @@
       <Filter>UtilitySystem</Filter>
     </ClInclude>
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\WorkerTE.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\PMRBot.h" />
+    <ClInclude Include="ScoutTask.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
   </ItemGroup>
