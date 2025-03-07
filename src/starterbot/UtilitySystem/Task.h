@@ -56,6 +56,7 @@ private:
 
 	std::vector<UnitAgentType> m_compatibility;
 	std::shared_ptr<UnitAgent> m_executor = nullptr;
+	std::shared_ptr<BT_NODE> m_taskBT = std::make_shared<BT_ACTION_EMPTY_BT>("IDLEManagerRoot", nullptr);
 
 	// prérequis / 
 

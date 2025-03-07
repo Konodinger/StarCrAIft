@@ -36,6 +36,7 @@
 
 ///Actions
 #include "BT_ACTION_IDLE.h"
+#include "BT_ACTION_EMPTY_BT.h"
 #include "BT_ACTION_WAIT.h"
 #include "BT_ACTION_LOG.h"
 

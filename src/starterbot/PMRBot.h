@@ -1,5 +1,7 @@
 #pragma once
 
+class PMRBot;
+
 #include <BWAPI.h>
 #include "MapTools.h"
 #include "Data.h"

@@ -15,6 +15,7 @@ enum UnitAgentState;
 enum UnitAgentState
 {
 	IDLING,
+	//WAITINGFORSQUAD,
 	WORKING,
 	FLEEING
 };
