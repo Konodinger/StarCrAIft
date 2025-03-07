@@ -1,1 +1,2 @@
 C:\Users\Caffin\OneDrive\桌面\inf584a\git\windows\visualstudio\x64\Debug\BWAPI\BWAPI.lib
+C:\TELECOM3A\AIVideoGame\StarCrAIft\windows\visualstudio\x64\Debug\BWAPI\BWAPI.lib
