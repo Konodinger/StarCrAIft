@@ -7,6 +7,7 @@ class Task;
 #include <algorithm>
 #include <memory>
 #include <vector>
+#include "TaskEmitter.h"
 
 #include "UnitAgent.h"
 
@@ -40,6 +41,10 @@ public:
 	// Should be called only if the executor died.
 	void removeExecutor() { m_executor = nullptr; }
 
+	const std::shared_ptr<BT_NODE> getBT() { return m_taskBT; }
+	void setBT(std::shared_ptr<BT_NODE> const bt) { m_taskBT = bt; }
+	const std::string getName() { return m_name; }
+	const std::shared_ptr<TaskEmitter> getTaskEmitter() { return m_taskEmitter; }
 
 	bool ongoing() const;
 
@@ -56,12 +61,9 @@ private:
 
 	std::vector<UnitAgentType> m_compatibility;
 	std::shared_ptr<UnitAgent> m_executor = nullptr;
-	std::shared_ptr<BT_NODE> m_taskBT = std::make_shared<BT_ACTION_EMPTY_BT>("IDLEManagerRoot", nullptr);
+	std::shared_ptr<BT_NODE> m_taskBT = std::make_shared<BT_ACTION_EMPTY_BT>("Default task BT", nullptr);
+	std::shared_ptr<TaskEmitter> m_taskEmitter = nullptr;
 
 	// prérequis / 
-
-
-
-
 };
 

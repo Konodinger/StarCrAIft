@@ -16,7 +16,7 @@ PMRBot::PMRBot() {
     pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
     pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
 
-    pIdleManagerBT = new BT_ACTION_IDLE("IDLEManagerRoot", nullptr);
+    pIdleManagerBT = std::make_shared<BT_ACTION_IDLE>("IDLEManagerRoot", nullptr);
 
     m_EventTE.setData(pData);
 }
@@ -55,7 +55,7 @@ void PMRBot::runBotLoop() {
 
     // Execute agents behaviour tree
     for (auto unitAgent : pData->unitAgentsList) {
-        unitAgent->executeBehaviorTree();
+        unitAgent->execute(pData);
     }
 }
 

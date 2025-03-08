@@ -20,7 +20,7 @@ private:
 	//...
 
 	EventManagerTE m_EventTE = EventManagerTE();
-	BT_NODE* pIdleManagerBT;
+	std::shared_ptr <BT_NODE> pIdleManagerBT;
 	std::map<std::shared_ptr<Task>, std::map<std::shared_ptr<UnitAgent>, float>> m_taskToAgentInterest;
 
 	void runBotLoop();
