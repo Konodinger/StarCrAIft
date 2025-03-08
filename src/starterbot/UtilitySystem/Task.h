@@ -9,13 +9,15 @@ class Task;
 #include <vector>
 #include "TaskEmitter.h"
 
+#include "../BT/BT.h"
 #include "UnitAgent.h"
 
 // À compléter pour chaque catégorie de tâche
 enum TaskType
 {
 	BUILD,
-
+	SCOUT,
+	FLEE
 };
 
 class Task
