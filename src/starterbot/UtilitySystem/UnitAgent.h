@@ -1,4 +1,4 @@
-	#pragma once
+#pragma once
 
 class UnitAgent;
 enum UnitAgentType;
@@ -30,11 +30,17 @@ class UnitAgent
 {
 public:
 	UnitAgent() = delete;
+	UnitAgent(BWAPI::Unit unit)
+		: m_unit(unit)
+	{
+	}
+
 	UnitAgent(BWAPI::Unit unit, std::shared_ptr<BT_NODE> fleeingBT)
 		: m_unit(unit), m_fleeingBT(fleeingBT)
-	{ }
+	{
+	}
 
-	BWAPI::Unit getUnit() { return m_unit; }
+	BWAPI::Unit getUnit() const { return m_unit; }
 	UnitAgentState getState() const { return m_state; }
 
 	const std::shared_ptr<BT_NODE> getIdlingBT() { return m_idlingBT; }
@@ -46,7 +52,8 @@ public:
 	void execute(Data* pData);
 
 	virtual float computeInterest(std::shared_ptr<Task> task /*pData*/) = 0;
-
+public:
+	static std::shared_ptr<UnitAgent> getUnitAgent(BWAPI::Unit unit);
 
 private:
 	bool m_isSquad = false;

@@ -7,18 +7,22 @@ void EventManagerTE::onStart() {
 
 // Called on each frame of the game
 void EventManagerTE::onFrame() {
- 
+
 }
 
 // Called whenever the game ends and tells you if you won or not
 void EventManagerTE::onEnd(bool isWinner) {
-    
+
 }
 
 // Called whenever a unit is destroyed, with a pointer to the unit
 void EventManagerTE::onUnitDestroy(BWAPI::Unit unit) {
-    //if the unit is farming then remove it from data structure
-    if (pData->unitsFarmingMinerals.contains(unit)) pData->unitsFarmingMinerals.erase(unit);
+	//if the unit is farming then remove it from data structure
+	if (pData->unitsFarmingMinerals.contains(unit))
+		pData->unitsFarmingMinerals.erase(unit);
+
+	if (pData->unitAgentsList.contains(unit->getID()))
+		pData->unitAgentsList.erase(unit->getID());
 }
 
 // Called whenever a unit is morphed, with a pointer to the unit
@@ -36,10 +40,10 @@ void EventManagerTE::onSendText(std::string text) {
 // Units are created in buildings like barracks before they are visible, 
 // so this will trigger when you issue the build command for most units
 void EventManagerTE::onUnitCreate(BWAPI::Unit unit) {
-    // SIMPLIFIED, WILL NEED TO ADD UNITAGENTTYPES...
-     
-    std::shared_ptr<UnitAgent> pUnitAgent = std::make_shared<UnitAgent>();
-    pData->unitAgentsList.insert(pUnitAgent); // Warning, the unit isn't constructed yet
+	// SIMPLIFIED, WILL NEED TO ADD UNITAGENTTYPES...
+
+	auto pUnitAgent = UnitAgent::getUnitAgent(unit);
+	pData->unitAgentsList[pUnitAgent->getUnit()->getID()] = pUnitAgent; // Warning, the unit isn't necessarily constructed yet
 }
 
 // Called whenever a unit finished construction, with a pointer to the unit

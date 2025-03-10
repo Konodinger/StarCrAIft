@@ -1,5 +1,6 @@
 #pragma once
 #include <unordered_set>
+#include <map>
 #include <BWAPI.h>
 #include "UtilitySystem/UnitAgent.h"
 #include "UtilitySystem/Task.h"
@@ -24,5 +25,5 @@ public:
 	std::unordered_set<BWAPI::Unit> unitsFarmingMinerals;
 
 	std::vector<std::shared_ptr<Task>> m_taskList;
-	std::unordered_set<std::shared_ptr<UnitAgent>> unitAgentsList;
+	std::map<int, std::shared_ptr<UnitAgent>> unitAgentsList;
 };
