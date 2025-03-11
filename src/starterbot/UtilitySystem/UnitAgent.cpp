@@ -1,6 +1,8 @@
 #include "UnitAgent.h"
 
 #include "GenericUnitAgent.h"
+#include "BuildingUnitAgent.h"
+#include "MovingUnitAgent.h"
 
 
 void UnitAgent::execute(Data* pData) {
@@ -32,7 +34,9 @@ void UnitAgent::execute(Data* pData) {
 	}
 }
 
-std::shared_ptr<UnitAgent> UnitAgent::getUnitAgent(BWAPI::Unit unit)
-{
-	return std::make_shared<GenericUnitAgent>(unit);
+std::shared_ptr<UnitAgent> UnitAgent::getUnitAgent(BWAPI::Unit unit) {
+	if (unit->getType().isBuilding())
+		return std::make_shared<BuildingUnitAgent>(unit);
+	else
+		return std::make_shared<MovingUnitAgent>(unit);
 }

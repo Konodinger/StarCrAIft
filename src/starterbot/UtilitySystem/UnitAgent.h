@@ -52,7 +52,10 @@ public:
 	void execute(Data* pData);
 
 	virtual float computeInterest(std::shared_ptr<Task> task /*pData*/) = 0;
+
+	virtual void drawDebug() = 0;
 public:
+	// Create a UnitAgent from a BWAPI::Unit using the correct class
 	static std::shared_ptr<UnitAgent> getUnitAgent(BWAPI::Unit unit);
 
 private:

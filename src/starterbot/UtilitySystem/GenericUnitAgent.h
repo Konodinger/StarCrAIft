@@ -15,8 +15,12 @@ public:
 		return false;
 	}
 
-	virtual float computeInterest(std::shared_ptr<Task> task) {
+	virtual float computeInterest(std::shared_ptr<Task> task) override {
 		return 0;
+	}
+
+	virtual void drawDebug() {
+		BWAPI::Broodwar->drawCircleMap(getUnit()->getPosition(), 10, BWAPI::Colors::Green);
 	}
 private:
 };

@@ -8,7 +8,7 @@ class EventManagerTE : public TaskEmitter {
 private:
 	Data* pData;
 public:
-	EventManagerTE() { 
+	EventManagerTE() {
 		m_name = "Event Manager";
 	};
 
@@ -18,6 +18,9 @@ public:
 
 	// LOT TO BE DONE: methods for task generation, reattribution, suppression, modification...
 
+	// 
+
+	void drawDebugInformation();
 
 	// functions that are triggered by various BWAPI events from main.cpp
 	void onStart();

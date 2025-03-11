@@ -1,5 +1,13 @@
 #include "EventManagerTE.h"
 
+void EventManagerTE::drawDebugInformation() {
+	// Draw circles around all units that have been created (pData->unitAgentsList)
+
+	for (auto& unitAgent : pData->unitAgentsList) {
+		unitAgent.second->drawDebug();
+	}
+}
+
 // Called when the bot starts!
 void EventManagerTE::onStart() {
 
@@ -7,7 +15,7 @@ void EventManagerTE::onStart() {
 
 // Called on each frame of the game
 void EventManagerTE::onFrame() {
-
+	drawDebugInformation();
 }
 
 // Called whenever the game ends and tells you if you won or not
@@ -42,8 +50,10 @@ void EventManagerTE::onSendText(std::string text) {
 void EventManagerTE::onUnitCreate(BWAPI::Unit unit) {
 	// SIMPLIFIED, WILL NEED TO ADD UNITAGENTTYPES...
 
-	auto pUnitAgent = UnitAgent::getUnitAgent(unit);
-	pData->unitAgentsList[pUnitAgent->getUnit()->getID()] = pUnitAgent; // Warning, the unit isn't necessarily constructed yet
+	if (unit->getPlayer() == BWAPI::Broodwar->self()) {
+		auto pUnitAgent = UnitAgent::getUnitAgent(unit);
+		pData->unitAgentsList[pUnitAgent->getUnit()->getID()] = pUnitAgent; // Warning, the unit isn't necessarily constructed yet
+	}
 }
 
 // Called whenever a unit finished construction, with a pointer to the unit
