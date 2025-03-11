@@ -1,6 +1,7 @@
 #include "PMRBot.h"
 #include "Tools.h"
 #include "Data.h"
+#include <algorithm>
 
 #define LOCAL_SPEED 10
 #define FRAME_SKIP 0
@@ -38,7 +39,7 @@ void PMRBot::runBotLoop() {
 
 	// Check if units should flee and compute their interest in available tasks.
 	for (auto& id_unitAgent_pair : pData->unitAgentsList) {
-		auto unitAgent = id_unitAgent_pair.second;
+		auto& unitAgent = id_unitAgent_pair.second;
 		unitAgent->checkFlee(pData);
 		if (unitAgent->getState() == UnitAgentState::IDLING) {
 			for (auto& task : pData->m_taskList)
@@ -61,7 +62,40 @@ void PMRBot::runBotLoop() {
 }
 
 void PMRBot::taskAttribuer() {
-	//TODO
+
+	// Sort tasks by reward in descending order
+	std::sort(pData->m_taskList.begin(), pData->m_taskList.end(), [this](const std::shared_ptr<Task>& task1, const std::shared_ptr<Task>& task2) {
+		return task1->reward() > task2->reward();
+		});
+
+	// For each task, attribute it to the best suited agent
+	for (std::shared_ptr<Task>& task : pData->m_taskList) {
+		std::shared_ptr<UnitAgent> bestSuited = nullptr;
+		float bestInterest = -1;
+		for (auto& id_unitAgent_pair : pData->unitAgentsList) {
+			auto& unitAgent = id_unitAgent_pair.second;
+
+			if (unitAgent->getState() != UnitAgentState::IDLING)
+				continue;
+
+			float interest = unitAgent->computeInterest(task);
+
+			if (!bestSuited || interest > bestInterest) {
+				bestInterest = interest;
+				bestSuited = unitAgent;
+			}
+		}
+
+		if (bestSuited) {
+			bestSuited->setTask(task);
+			task->setExecutor(bestSuited);
+		}
+	}
+
+	// Remove from the list tasks that have been attributed
+	pData->m_taskList.erase(std::remove_if(pData->m_taskList.begin(), pData->m_taskList.end(), [](const std::shared_ptr<Task>& task) {
+		return task->getExecutor() != nullptr;
+		}), pData->m_taskList.end());
 }
 
 

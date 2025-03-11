@@ -1,4 +1,5 @@
 #include "Task.h"
+#include "UnitAgent.h"
 
 bool Task::ongoing() const
 {

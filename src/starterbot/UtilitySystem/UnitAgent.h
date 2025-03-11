@@ -4,12 +4,12 @@ class UnitAgent;
 enum UnitAgentType;
 enum UnitAgentState;
 class Data;
+class Task;
 
 #include <memory>
 
 #include "BWAPI/Unit.h"
 #include "BT.h"
-#include "Task.h"
 
 
 enum UnitAgentState
@@ -54,6 +54,11 @@ public:
 	virtual float computeInterest(std::shared_ptr<Task> task /*pData*/) = 0;
 
 	virtual void drawDebug() = 0;
+
+	void setTask(std::shared_ptr<Task> task) {
+		m_state = UnitAgentState::WORKING;
+		m_task = task;
+	}
 public:
 	// Create a UnitAgent from a BWAPI::Unit using the correct class
 	static std::shared_ptr<UnitAgent> getUnitAgent(BWAPI::Unit unit);

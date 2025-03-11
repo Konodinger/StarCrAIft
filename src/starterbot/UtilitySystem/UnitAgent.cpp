@@ -4,6 +4,8 @@
 #include "BuildingUnitAgent.h"
 #include "MovingUnitAgent.h"
 
+#include "Task.h"
+
 
 void UnitAgent::execute(Data* pData) {
 	// Check if not in a squad.

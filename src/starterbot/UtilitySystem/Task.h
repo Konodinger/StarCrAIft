@@ -10,7 +10,8 @@ class Task;
 #include "TaskEmitter.h"
 
 #include "../BT/BT.h"
-#include "UnitAgent.h"
+
+class UnitAgent;
 
 // À compléter pour chaque catégorie de tâche
 enum TaskType
@@ -24,7 +25,7 @@ class Task
 {
 public:
 	Task() = delete;
-	
+
 	Task(std::string name)
 		: m_name(name)
 	{
@@ -36,8 +37,10 @@ public:
 
 	// For now, we should not be able to replace the executor. It could be useful if the current executor died, but this should be checked before.
 	bool setExecutor(std::shared_ptr<UnitAgent> executor) {
-		assert(m_executor == nullptr && ("Can't set a new executor on task " + m_name + std::string(m_id)));
+		assert(m_executor == nullptr && ("Can't set a new executor on task " + m_name + std::to_string(m_id)));
 		m_executor = executor;
+
+		return true;
 	}
 	std::shared_ptr<UnitAgent> getExecutor() { return m_executor; }
 	// Should be called only if the executor died.
