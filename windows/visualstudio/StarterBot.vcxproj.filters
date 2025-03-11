@@ -234,6 +234,12 @@
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\GenericUnitAgent.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\BuildingUnitAgent.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\MovingUnitAgent.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">

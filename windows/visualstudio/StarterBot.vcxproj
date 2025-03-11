@@ -57,8 +57,10 @@
     <ClInclude Include="..\..\src\starterbot\StarterBot.h" />
     <ClInclude Include="..\..\src\starterbot\Tools.h" />
     <ClInclude Include="..\..\src\starterbot\PMRBot.h" />
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\BuildingUnitAgent.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\EventManagerTE.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\GenericUnitAgent.h" />
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\MovingUnitAgent.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\Task.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\TaskEmitter.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\UnitAgent.h" />
