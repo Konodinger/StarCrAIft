@@ -10,8 +10,8 @@ It's an **essential** task for now as it will be used for almost all the other t
 ## PMRBot
 
 
- - [ ] (**Essential**) Develop a task attribuer algorithm.
- - [ ] (**Essential**) Create UnitAgent on Unit creation.
+ - [x] (**Essential**) Develop a task attribuer algorithm.
+ - [x] (**Essential**) Create UnitAgent on Unit creation.
  - [ ] Communicate useful events to the event manager.
  - [ ] Develop the IDLE manager.
 
