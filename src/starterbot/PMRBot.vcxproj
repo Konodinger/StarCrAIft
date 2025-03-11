@@ -63,6 +63,7 @@
     <ClInclude Include=".\UtilitySystem\TaskEmitter.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\WorkerTE.h" />
+    <ClInclude Include="UtilitySystem\BuildingTask.h" />
     <ClInclude Include="UtilitySystem\BuildingUnitAgent.h" />
     <ClInclude Include="UtilitySystem\MovingUnitAgent.h" />
     <ClInclude Include="UtilitySystem\ScoutTask.h" />
@@ -109,6 +110,7 @@
     <ClCompile Include=".\UtilitySystem\TaskEmitter.cpp" />
     <ClCompile Include=".\UtilitySystem\UnitAgent.cpp" />
     <ClCompile Include=".\UtilitySystem\WorkerTE.cpp" />
+    <ClCompile Include="UtilitySystem\BuildingTask.cpp" />
     <ClCompile Include="UtilitySystem\ScoutTask.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
