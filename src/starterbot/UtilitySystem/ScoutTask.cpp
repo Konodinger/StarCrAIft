@@ -1,8 +1,8 @@
 #include "ScoutTask.h"
 
 ScoutTask::ScoutTask(int& enemyBasePosListSize) : Task("Scout") {
-	m_taskBT = std::make_shared<BT_NODE>(BT_DECORATOR("EntryPoint", nullptr));
-	BT_NODE* pScoutMainSelector = new BT_SELECTOR("Scout", m_taskBT, 2); // 2 children
+	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("EntryPoint", nullptr));
+	BT_NODE* pScoutMainSelector = new BT_SELECTOR("Scout", m_taskBT.get(), 2); // 2 children
 
 	// Searching for enemy bases
 	BT_NODE* pSearchEnemyBaseSequencer = new BT_SEQUENCER("Search for enemy base", pScoutMainSelector, 2);

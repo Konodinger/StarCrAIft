@@ -3,17 +3,16 @@
 class Task;
 
 #include <string>
-#include <assert.h>
+#include "assert.h"
 #include <algorithm>
 #include <memory>
 #include <vector>
 #include "TaskEmitter.h"
 
-#include "../BT/BT.h"
+#include "BT/BT.h"
+#include "UnitAgent.h"
 
-class UnitAgent;
-
-// À compléter pour chaque catégorie de tâche
+// ï¿½ complï¿½ter pour chaque catï¿½gorie de tï¿½che
 enum TaskType
 {
 	BUILD,
@@ -29,7 +28,7 @@ public:
 	Task(std::string name)
 		: m_name(name)
 	{
-		assert(count < std::UINT_MAX && "task id overflow : Tasks.h");
+		assert(count < UINT_MAX && "task id overflow : Tasks.h");
 		m_id = count++;
 	}
 
@@ -37,7 +36,7 @@ public:
 
 	// For now, we should not be able to replace the executor. It could be useful if the current executor died, but this should be checked before.
 	bool setExecutor(std::shared_ptr<UnitAgent> executor) {
-		assert(m_executor == nullptr && ("Can't set a new executor on task " + m_name + std::to_string(m_id)));
+		assert(m_executor == nullptr && ("Can't set a new executor on task " + m_name + std::to_string(m_id)).c_str());
 		m_executor = executor;
 
 		return true;
@@ -69,6 +68,6 @@ protected:
 	std::shared_ptr<BT_NODE> m_taskBT = std::make_shared<BT_ACTION_EMPTY_BT>("Default task BT", nullptr);
 	std::shared_ptr<TaskEmitter> m_taskEmitter = nullptr;
 
-	// prérequis / 
+	// prï¿½requis / 
 };
 
