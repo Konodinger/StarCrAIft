@@ -59,6 +59,7 @@
     <ClInclude Include="..\..\src\starterbot\PMRBot.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\EventManagerTE.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\GenericUnitAgent.h" />
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\ScoutTask.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\Task.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\TaskEmitter.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\UnitAgent.h" />
@@ -102,6 +103,7 @@
     <ClCompile Include="..\..\src\starterbot\Tools.cpp" />
     <ClCompile Include="..\..\src\starterbot\PMRBot.cpp" />
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\EventManagerTE.cpp" />
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\ScoutTask.cpp" />
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\Task.cpp" />
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\TaskEmitter.cpp" />
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\UnitAgent.cpp" />

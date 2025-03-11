@@ -112,6 +112,9 @@
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\WorkerTE.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\ScoutTask.cpp">
+      <Filter>UtilitySystem</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\starterbot\Grid.hpp" />
@@ -232,6 +235,9 @@
     </ClInclude>
     <ClInclude Include="..\..\src\starterbot\PMRBot.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\GenericUnitAgent.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\starterbot\UtilitySystem\ScoutTask.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
   </ItemGroup>
