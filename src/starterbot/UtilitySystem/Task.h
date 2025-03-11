@@ -56,7 +56,7 @@ public:
 	virtual float reward(/*pData*/) = 0;
 
 
-private:
+protected:
 	static unsigned int count;
 
 	std::string m_name{};

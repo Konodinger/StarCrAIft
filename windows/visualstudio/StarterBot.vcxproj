@@ -104,6 +104,7 @@
     <ClCompile Include="..\..\src\starterbot\Tools.cpp" />
     <ClCompile Include="..\..\src\starterbot\PMRBot.cpp" />
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\EventManagerTE.cpp" />
+    <ClCompile Include="..\..\src\starterbot\UtilitySystem\ScoutTask.cpp" />
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\Task.cpp" />
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\TaskEmitter.cpp" />
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\UnitAgent.cpp" />
