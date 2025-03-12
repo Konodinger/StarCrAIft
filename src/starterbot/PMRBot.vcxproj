@@ -59,14 +59,19 @@
     <ClInclude Include=".\PMRBot.h" />
     <ClInclude Include=".\UtilitySystem\EventManagerTE.h" />
     <ClInclude Include=".\UtilitySystem\GenericUnitAgent.h" />
-    <ClInclude Include=".\UtilitySystem\Task.h" />
+    <ClInclude Include="UtilitySystem\Tasks\Task.h" />
     <ClInclude Include=".\UtilitySystem\TaskEmitter.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\WorkerTE.h" />
-    <ClInclude Include="UtilitySystem\BuildingTask.h" />
+    <ClInclude Include="UtilitySystem\Tasks\SoldierAttackBaseTask.h" />
+    <ClInclude Include="UtilitySystem\Tasks\SoldierDefendBaseTask.h" />
+    <ClInclude Include="UtilitySystem\Tasks\SoldierFleeTask.h" />
+    <ClInclude Include="UtilitySystem\Tasks\SoldierIdleTask.h" />
+    <ClInclude Include="UtilitySystem\Tasks\BuildingTask.h" />
     <ClInclude Include="UtilitySystem\BuildingUnitAgent.h" />
     <ClInclude Include="UtilitySystem\MovingUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\ScoutTask.h" />
+    <ClInclude Include="UtilitySystem\Tasks\ScoutTask.h" />
+    <ClInclude Include="UtilitySystem\Tasks\WorkerFleeTask.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".\BT\BT_ACTION.cpp" />
@@ -106,12 +111,17 @@
     <ClCompile Include=".\Tools.cpp" />
     <ClCompile Include=".\PMRBot.cpp" />
     <ClCompile Include=".\UtilitySystem\EventManagerTE.cpp" />
-    <ClCompile Include=".\UtilitySystem\Task.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\Task.cpp" />
     <ClCompile Include=".\UtilitySystem\TaskEmitter.cpp" />
     <ClCompile Include=".\UtilitySystem\UnitAgent.cpp" />
     <ClCompile Include=".\UtilitySystem\WorkerTE.cpp" />
-    <ClCompile Include="UtilitySystem\BuildingTask.cpp" />
-    <ClCompile Include="UtilitySystem\ScoutTask.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\SoldierAttackBaseTask.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\SoldierDefendBaseTask.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\SoldierFleeTask.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\SoldierIdleTask.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\BuildingTask.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\ScoutTask.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\WorkerFleeTask.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>StarterBot</ProjectName>
