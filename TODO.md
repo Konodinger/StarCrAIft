@@ -16,7 +16,8 @@ It's an **essential** task for now as it will be used for almost all the other t
  - [ ] Develop the IDLE manager.
 
 ## Task
- - [ ] (**Essential**) Create a few basic tasks for testing.
+ - [x] (**Essential**) Create a few basic tasks for testing.
+ - [ ] (**Essential**) Implement the different conditions and actions for the tasks
  - [ ] Decide on a reward estimation algorithm.
 
 ## Task emitters
