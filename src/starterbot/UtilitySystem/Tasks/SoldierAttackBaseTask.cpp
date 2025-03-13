@@ -1,7 +1,10 @@
 #include "SoldierAttackBaseTask.h"
 
 SoldierAttackBaseTask::SoldierAttackBaseTask() : Task("Soldier Attack Base Task") {
-	m_taskBT = std::make_shared<BT_NODE>(BT_DECORATOR("Entry Point", nullptr));
+	
+	m_compatibilityUnitAgentType = { GROUNDMOBILE, FLYINGMOBILE };
+
+	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("Entry Point", nullptr));
 
 	BT_NODE* pAttackBaseMainSelector = new BT_SELECTOR("Attack base sequencer", m_taskBT.get(), 6);
 

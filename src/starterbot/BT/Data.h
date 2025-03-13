@@ -2,8 +2,8 @@
 #include <unordered_set>
 #include <map>
 #include <BWAPI.h>
-#include "UtilitySystem/UnitAgent.h"
-#include "UtilitySystem/Task.h"
+#include "UnitAgent.h"
+#include "Task.h"
 //#include "../../windows/visualstudio/UnitAgent.h"
 
 #define THRESHOLD1_MINERALS 200

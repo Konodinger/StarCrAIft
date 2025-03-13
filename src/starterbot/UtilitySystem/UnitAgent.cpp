@@ -36,7 +36,7 @@ void UnitAgent::execute(Data* pData) {
 	}
 }
 
-std::shared_ptr<UnitAgent> UnitAgent::getUnitAgent(BWAPI::Unit unit) {
+std::shared_ptr<UnitAgent> UnitAgent::createUnitAgent(BWAPI::Unit unit) {
 	if (unit->getType().isBuilding())
 		return std::make_shared<BuildingUnitAgent>(unit);
 	else

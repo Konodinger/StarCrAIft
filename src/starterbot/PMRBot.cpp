@@ -56,7 +56,7 @@ void PMRBot::runBotLoop() {
 	taskAttribuer();
 
 	// Execute agents behaviour tree
-	for (auto id_unitAgent_pair : pData->unitAgentsList) {
+	for (auto &id_unitAgent_pair : pData->unitAgentsList) {
 		id_unitAgent_pair.second->execute(pData);
 	}
 }

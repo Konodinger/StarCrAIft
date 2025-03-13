@@ -32,7 +32,13 @@ public:
 		m_id = count++;
 	}
 
-	bool isCompatible(UnitAgentType type) const { return (std::find(m_compatibility.begin(), m_compatibility.end(), type) != m_compatibility.end()); }
+	bool isCompatible(std::shared_ptr<UnitAgent> unitAgent) const { 
+		if (m_compatibilityUnitType.size() != 0)
+			return (std::find(m_compatibilityUnitType.begin(), m_compatibilityUnitType.end(), unitAgent->getUnit()->getType()) != m_compatibilityUnitType.end());
+		if (m_compatibilityUnitAgentType.size() != 0)
+			return (std::find(m_compatibilityUnitAgentType.begin(), m_compatibilityUnitAgentType.end(), unitAgent->getType()) != m_compatibilityUnitAgentType.end());
+		return true;
+	}
 
 	// For now, we should not be able to replace the executor. It could be useful if the current executor died, but this should be checked before.
 	bool setExecutor(std::shared_ptr<UnitAgent> executor) {
@@ -63,7 +69,8 @@ protected:
 
 	float m_intrinsicReward = 0.f;
 
-	std::vector<UnitAgentType> m_compatibility;
+	std::vector<BWAPI::UnitType> m_compatibilityUnitType;
+	std::vector<UnitAgentType> m_compatibilityUnitAgentType;
 	std::shared_ptr<UnitAgent> m_executor = nullptr;
 	std::shared_ptr<BT_NODE> m_taskBT = std::make_shared<BT_ACTION_EMPTY_BT>("Default task BT", nullptr);
 	std::shared_ptr<TaskEmitter> m_taskEmitter = nullptr;

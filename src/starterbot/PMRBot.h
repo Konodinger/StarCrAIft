@@ -4,10 +4,10 @@ class PMRBot;
 
 #include <BWAPI.h>
 #include "MapTools.h"
-#include "UtilitySystem/Task.h"
-#include "UtilitySystem/TaskEmitter.h"
-#include "UtilitySystem/EventManagerTE.h"
-#include "UtilitySystem/WorkerTE.h"
+#include "Task.h"
+#include "TaskEmitter.h"
+#include "EventManagerTE.h"
+#include "WorkerTE.h"
 
 class Data;
 

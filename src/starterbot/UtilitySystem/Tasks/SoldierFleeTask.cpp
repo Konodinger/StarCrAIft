@@ -1,7 +1,10 @@
 #include "SoldierFleeTask.h"
 
 SoldierFleeTask::SoldierFleeTask() : Task("Soldier Flee Task") {
-	m_taskBT = std::make_shared<BT_NODE>(BT_DECORATOR("Entry Point", nullptr));
+	
+	m_compatibilityUnitAgentType = { GROUNDMOBILE, FLYINGMOBILE };
+
+	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("Entry Point", nullptr));
 
 	BT_NODE* pFleeMainSelector = new BT_SELECTOR("Flee selector", m_taskBT.get(), 2);
 

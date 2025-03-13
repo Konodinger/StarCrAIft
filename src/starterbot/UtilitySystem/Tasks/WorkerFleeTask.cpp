@@ -2,7 +2,9 @@
 
 WorkerFleeTask::WorkerFleeTask() : Task("Worker Flee") {
 
-	m_taskBT = std::make_shared<BT_NODE>(BT_DECORATOR("EntryPoint", nullptr));
+	m_compatibilityUnitAgentType = { WORKER };
+
+	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("EntryPoint", nullptr));
 
 	BT_NODE* pFleeMainSelector = new BT_SELECTOR("Flee", m_taskBT.get(), 3);
 

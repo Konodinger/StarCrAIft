@@ -1,7 +1,10 @@
 #include "SoldierIdleTask.h"
 
 SoldierIdleTask::SoldierIdleTask() : Task("Soldier Idle Task") {
-	m_taskBT = std::make_shared<BT_NODE>(BT_DECORATOR("Entry Point", nullptr));
+	
+	m_compatibilityUnitAgentType = { GROUNDMOBILE, FLYINGMOBILE };
+
+	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("Entry Point", nullptr));
 
 	BT_NODE* pSoldierIdleSelector = new BT_SELECTOR("Soldier Idle", m_taskBT.get(), 2);
 

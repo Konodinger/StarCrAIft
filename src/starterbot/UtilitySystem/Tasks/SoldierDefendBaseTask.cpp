@@ -1,7 +1,10 @@
 #include "SoldierDefendBaseTask.h"
 
 SoldierDefendBaseTask::SoldierDefendBaseTask() : Task("Soldier Defend Base Task") {
-	m_taskBT = std::make_shared<BT_NODE>(BT_DECORATOR("Entry Point", nullptr));
+	
+	m_compatibilityUnitAgentType = { GROUNDMOBILE, FLYINGMOBILE };
+
+	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("Entry Point", nullptr));
 
 	BT_NODE* pRepeatUntilSeesEnemy = new BT_REPEATER_UNTIL_SEES_ENEMY("Repeat until sees enemy", m_taskBT.get(), ...); // => REPEATER TO CREATE
 

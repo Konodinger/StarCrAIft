@@ -51,7 +51,7 @@ void EventManagerTE::onUnitCreate(BWAPI::Unit unit) {
 	// SIMPLIFIED, WILL NEED TO ADD UNITAGENTTYPES...
 
 	if (unit->getPlayer() == BWAPI::Broodwar->self()) {
-		auto pUnitAgent = UnitAgent::getUnitAgent(unit);
+		auto pUnitAgent = UnitAgent::createUnitAgent(unit);
 		pData->unitAgentsList[pUnitAgent->getUnit()->getID()] = pUnitAgent; // Warning, the unit isn't necessarily constructed yet
 	}
 }
