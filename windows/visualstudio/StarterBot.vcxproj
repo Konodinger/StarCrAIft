@@ -63,6 +63,8 @@
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\TaskEmitter.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\UnitAgent.h" />
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\WorkerTE.h" />
+    <ClInclude Include="MineralGatheringTask.h" />
+    <ClInclude Include="VespeneGatheringTask.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\src\starterbot\BT\BT_ACTION.cpp" />
@@ -106,6 +108,8 @@
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\TaskEmitter.cpp" />
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\UnitAgent.cpp" />
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\WorkerTE.cpp" />
+    <ClCompile Include="MineralGatheringTask.cpp" />
+    <ClCompile Include="VespeneGatheringTask.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>StarterBot</ProjectName>

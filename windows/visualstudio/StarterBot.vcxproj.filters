@@ -112,6 +112,10 @@
     <ClCompile Include="..\..\src\starterbot\UtilitySystem\WorkerTE.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
+    <ClCompile Include="MineralGatheringTask.cpp">
+      <Filter>UtilitySystem</Filter>
+    </ClCompile>
+    <ClCompile Include="VespeneGatheringTask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\src\starterbot\Grid.hpp" />
@@ -234,6 +238,10 @@
     <ClInclude Include="..\..\src\starterbot\UtilitySystem\GenericUnitAgent.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
+    <ClInclude Include="MineralGatheringTask.h">
+      <Filter>UtilitySystem</Filter>
+    </ClInclude>
+    <ClInclude Include="VespeneGatheringTask.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">
