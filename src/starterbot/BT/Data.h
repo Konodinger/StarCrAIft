@@ -1,17 +1,21 @@
 #pragma once
+
+class Data;
 #include <unordered_set>
 #include <map>
-#include <BWAPI.h>
-#include "UnitAgents/UnitAgent.h"
+#include "UnitAgent.h"
 #include "Task.h"
-#include "TaskEmitter.h"
-//#include "../../windows/visualstudio/UnitAgent.h"
+#include "EventManagerTE.h"
+
 
 #define THRESHOLD1_MINERALS 200
 #define THRESHOLD1_UNUSED_SUPPLY 2
 
 #define NWANTED_WORKERS_TOTAL 20
 #define NWANTED_WORKERS_FARMING_MINERALS 10
+
+class TaskEmitter;
+enum class EmitterType;
 
 class Data {
 public:
@@ -29,6 +33,7 @@ public:
 	std::map<int, std::shared_ptr<UnitAgent>> unitAgentsList;
 
 	std::map<EmitterType, TaskEmitter> m_task_emitter_map;
+	EventManagerTE m_eventManagerTE;
 
 	int goalMineralGatheringWorkforce = 10;
 	int goalVespeneGatheringWorkforce = 4;

@@ -1,11 +1,9 @@
 #pragma once
 
-class TaskEmitter;
+class Task;
+class Data;
 
-#include "Data.h"
-#include "Task.h"
-
-enum EmitterType {
+enum class EmitterType {
 	WORKER,
 	EVENT,
 	SCOUT,
@@ -15,6 +13,7 @@ enum EmitterType {
 
 class TaskEmitter {
 public:
+
 	void ExecuteTaskEmissionBT(Data *pData);
 	void computeTaskReward();
 

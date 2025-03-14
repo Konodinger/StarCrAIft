@@ -8,7 +8,7 @@
 
 StarterBot::StarterBot()
 {
-    pData = new Data();
+    //pData = new Data();
     pData->currMinerals = 0;
     pData->thresholdMinerals = THRESHOLD1_MINERALS;
     pData->currSupply = 0;

@@ -7,6 +7,7 @@
 #include "VespeneGatheringTask.h"
 
 #include "ScoutTask.h"
+#include "Data.h"
 
 void WorkerTE::createBT()
 {
@@ -37,17 +38,16 @@ void WorkerTE::createBT()
 bool WorkerTE::checkIfEnoughMineralGathering(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
-	auto taskList = data->m_task_emitter_map[WORKER].m_taskEmitted;
+	auto taskList = data->m_task_emitter_map[EmitterType::WORKER].m_taskEmitted;
 	int count = 0;
 	for (std::shared_ptr<Task> task : taskList)
 	{
 		// if(task.isInstanceOf(MineralGatheringTask)) { count++; }
-	//}
+	}
 
 	return count < data->goalMineralGatheringWorkforce;
 }
 
-// d'ailleurs ça on peut surement en faire un template au niveau de TaskEmitter
 BT_NODE::State WorkerTE::emitMineralGatheringTask(void* pData)
 {
 	// Task t = std::make_shared<MineralGatheringTask>();
@@ -59,7 +59,7 @@ BT_NODE::State WorkerTE::emitMineralGatheringTask(void* pData)
 bool WorkerTE::checkIfEnoughVespeneGathering(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
-	auto taskList = data->m_task_emitter_map[WORKER].m_taskEmitted;
+	auto taskList = data->m_task_emitter_map[EmitterType::WORKER].m_taskEmitted;
 	int count = 0;
 	for (std::shared_ptr<Task> task : taskList)
 	{
@@ -82,7 +82,7 @@ BT_NODE::State WorkerTE::emitVespeneGatheringTask(void* pData)
 bool WorkerTE::checkIfEnoughScout(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
-	auto taskList = data->m_task_emitter_map[WORKER].m_taskEmitted;
+	auto taskList = data->m_task_emitter_map[EmitterType::WORKER].m_taskEmitted;
 	int count = 0;
 	for (std::shared_ptr<Task> task : taskList)
 	{
@@ -96,6 +96,6 @@ BT_NODE::State WorkerTE::emitScoutingTask(void* pData)
 {
 	std::shared_ptr<Task> t = std::make_shared<ScoutTask>();
 	Data* data = static_cast<Data*>(pData);
-	data->m_task_emitter_map[WORKER].emitTask(pData, t);
+	data->m_task_emitter_map[EmitterType::WORKER].emitTask(pData, t);
 	return BT_NODE::State::SUCCESS;
 }

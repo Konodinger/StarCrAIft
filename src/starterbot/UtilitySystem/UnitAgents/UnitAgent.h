@@ -12,28 +12,28 @@ class Task;
 #include "BT.h"
 #include <set>
 
-
-enum UnitAgentState
-{
-	IDLING,
-	//WAITINGFORSQUAD,
-	WORKING,
-	FLEEING
-};
-
-enum UnitAgentType
-{
-	WORKER,
-	OBSERVER,
-	GROUNDMOBILE,
-	FLYINGMOBILE,
-	BUILDING,
-	NONE_TYPE
-};
-
 class UnitAgent
 {
 public:
+
+	enum UnitAgentType
+	{
+		WORKER,
+		OBSERVER,
+		GROUNDMOBILE,
+		FLYINGMOBILE,
+		BUILDING,
+		NONE_TYPE
+	};
+
+	enum UnitAgentState
+	{
+		IDLING,
+		//WAITINGFORSQUAD,
+		WORKING,
+		FLEEING
+	};
+
 	UnitAgent() = delete;
 	UnitAgent(BWAPI::Unit unit)
 		: m_unit(unit)
@@ -85,7 +85,7 @@ private:
 private:
 	static UnitAgentType getUnitAgentType(BWAPI::Unit unit) {
 		if (unit->getType() == BWAPI::UnitTypes::Protoss_Probe) {
-			return WORKER;
+			return UnitAgentType::WORKER;
 		}
 		if (unit->getType() == BWAPI::UnitTypes::Protoss_Observer) {
 			return OBSERVER;

@@ -9,20 +9,22 @@ class Task;
 #include <vector>
 #include "TaskEmitter.h"
 
-#include "BT/BT.h"
-#include "UnitAgents/UnitAgent.h"
+#include "BT.h"
+#include "UnitAgent.h"
 
-// � compl�ter pour chaque cat�gorie de t�che
-enum TaskType
-{
-	BUILD,
-	SCOUT,
-	FLEE
-};
+class TaskEmitter;
 
 class Task
 {
 public:
+	// � compl�ter pour chaque cat�gorie de t�che
+	enum TaskType
+	{
+		BUILD,
+		SCOUT,
+		FLEE
+	};
+
 	Task() = delete;
 
 	Task(std::string name)
@@ -58,7 +60,7 @@ public:
 
 	bool ongoing() const;
 
-	virtual float reward(/*pData*/) = 0;
+	float reward(/*pData*/) { return 0.f; };
 
 
 protected:
@@ -70,7 +72,7 @@ protected:
 	float m_intrinsicReward = 0.f;
 
 	std::vector<BWAPI::UnitType> m_compatibilityUnitType;
-	std::vector<UnitAgentType> m_compatibilityUnitAgentType;
+	std::vector<UnitAgent::UnitAgentType> m_compatibilityUnitAgentType;
 	std::shared_ptr<UnitAgent> m_executor = nullptr;
 	std::shared_ptr<BT_NODE> m_taskBT = std::make_shared<BT_ACTION_EMPTY_BT>("Default task BT", nullptr);
 	std::shared_ptr<TaskEmitter> m_taskEmitter = nullptr;

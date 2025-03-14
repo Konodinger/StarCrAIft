@@ -1,5 +1,8 @@
 #include "EventManagerTE.h"
 
+#include "Data.h"
+#include "Task.h"
+
 void EventManagerTE::drawDebugInformation() {
 	// Draw circles around all units that have been created (pData->unitAgentsList)
 

@@ -8,13 +8,10 @@ class EventManagerTE : public TaskEmitter {
 private:
 	Data* pData;
 public:
-	EventManagerTE() {
+	EventManagerTE(Data* pData) : TaskEmitter() {
+		this->pData = pData;
 		m_name = "Event Manager";
 	};
-
-	void setData(Data* pData) {
-		this->pData = pData;
-	}
 
 	// LOT TO BE DONE: methods for task generation, reattribution, suppression, modification...
 
