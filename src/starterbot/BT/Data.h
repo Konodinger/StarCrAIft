@@ -2,7 +2,7 @@
 #include <unordered_set>
 #include <map>
 #include <BWAPI.h>
-#include "UnitAgent.h"
+#include "UnitAgents/UnitAgent.h"
 #include "Task.h"
 //#include "../../windows/visualstudio/UnitAgent.h"
 

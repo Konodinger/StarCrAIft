@@ -10,7 +10,7 @@ class Task;
 #include "TaskEmitter.h"
 
 #include "BT/BT.h"
-#include "UnitAgent.h"
+#include "UnitAgents/UnitAgent.h"
 
 // � compl�ter pour chaque cat�gorie de t�che
 enum TaskType
@@ -32,7 +32,7 @@ public:
 		m_id = count++;
 	}
 
-	bool isCompatible(std::shared_ptr<UnitAgent> unitAgent) const { 
+	bool isCompatible(std::shared_ptr<UnitAgent> unitAgent) const {
 		if (m_compatibilityUnitType.size() != 0)
 			return (std::find(m_compatibilityUnitType.begin(), m_compatibilityUnitType.end(), unitAgent->getUnit()->getType()) != m_compatibilityUnitType.end());
 		if (m_compatibilityUnitAgentType.size() != 0)

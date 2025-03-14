@@ -7,19 +7,7 @@
     <ClCompile Include=".\ReplayParser.cpp" />
     <ClCompile Include=".\StarterBot.cpp" />
     <ClCompile Include=".\Tools.cpp" />
-    <ClCompile Include=".\UtilitySystem\UnitAgent.cpp">
-      <Filter>UtilitySystem</Filter>
-    </ClCompile>
-    <ClCompile Include="UtilitySystem\Tasks\Task.cpp">
-      <Filter>UtilitySystem</Filter>
-    </ClCompile>
-    <ClCompile Include="UtilitySystem\TaskEmitters\TaskEmitter.cpp">
-      <Filter>UtilitySystem</Filter>
-    </ClCompile>
-    <ClCompile Include="UtilitySystem\TaskEmitters\EventManagerTE.cpp">
-      <Filter>UtilitySystem</Filter>
-    </ClCompile>
-    <ClCompile Include="UtilitySystem\TaskEmitters\WorkerTE.cpp">
+    <ClCompile Include="UtilitySystem\UnitAgents\UnitAgent.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
     <ClCompile Include=".\BT\BT_ACTION.cpp" />
@@ -61,6 +49,10 @@
     <ClCompile Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.cpp" />
     <ClCompile Include=".\UtilitySystem\Tasks\MineralGatheringTask.cpp" />
     <ClCompile Include=".\UtilitySystem\Tasks\VespeneGatheringTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\TaskEmitters\EventManagerTE.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\Task.cpp" />
+    <ClCompile Include=".\UtilitySystem\TaskEmitters\TaskEmitter.cpp" />
+    <ClCompile Include=".\UtilitySystem\TaskEmitters\WorkerTE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\Grid.hpp" />
@@ -68,23 +60,11 @@
     <ClInclude Include=".\ReplayParser.h" />
     <ClInclude Include=".\StarterBot.h" />
     <ClInclude Include=".\Tools.h" />
-    <ClInclude Include=".\UtilitySystem\UnitAgent.h">
-      <Filter>UtilitySystem</Filter>
-    </ClInclude>
-    <ClInclude Include="UtilitySystem\Tasks\Task.h">
-      <Filter>UtilitySystem</Filter>
-    </ClInclude>
-    <ClInclude Include="UtilitySystem\TaskEmitters\TaskEmitter.h">
-      <Filter>UtilitySystem</Filter>
-    </ClInclude>
-    <ClInclude Include="UtilitySystem\TaskEmitters\EventManagerTE.h">
-      <Filter>UtilitySystem</Filter>
-    </ClInclude>
-    <ClInclude Include="UtilitySystem\TaskEmitters\WorkerTE.h">
+    <ClInclude Include="UtilitySystem\UnitAgents\UnitAgent.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
     <ClInclude Include=".\PMRBot.h" />
-    <ClInclude Include=".\UtilitySystem\GenericUnitAgent.h">
+    <ClInclude Include="UtilitySystem\UnitAgents\GenericUnitAgent.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
     <ClInclude Include=".\BT\BT.h" />
@@ -119,8 +99,8 @@
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS_FARMING_MINERALS.h" />
     <ClInclude Include=".\BT\Data.h" />
-    <ClInclude Include=".\UtilitySystem\BuildingUnitAgent.h" />
-    <ClInclude Include=".\UtilitySystem\MovingUnitAgent.h" />
+    <ClInclude Include="UtilitySystem\UnitAgents\BuildingUnitAgent.h" />
+    <ClInclude Include="UtilitySystem\UnitAgents\MovingUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\ScoutTask.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\BuildingTask.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\WorkerFleeTask.h" />
@@ -130,6 +110,14 @@
     <ClInclude Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\MineralGatheringTask.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\VespeneGatheringTask.h" />
+    <ClInclude Include=".\UtilitySystem\TaskEmitters\EventManagerTE.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\Task.h" />
+    <ClInclude Include=".\UtilitySystem\TaskEmitters\TaskEmitter.h" />
+    <ClInclude Include=".\UtilitySystem\TaskEmitters\WorkerTE.h" />
+    <ClInclude Include="UtilitySystem\UnitAgents\FarmerUnitAgent.h" />
+    <ClInclude Include="UtilitySystem\UnitAgents\ObserverUnitAgent.h" />
+    <ClInclude Include="UtilitySystem\UnitAgents\GroundWarriorUnitAgent.h" />
+    <ClInclude Include="UtilitySystem\UnitAgents\FlyingWarriorUnitAgent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">
