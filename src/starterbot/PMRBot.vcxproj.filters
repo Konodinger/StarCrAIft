@@ -53,6 +53,8 @@
     <ClCompile Include=".\UtilitySystem\Tasks\Task.cpp" />
     <ClCompile Include=".\UtilitySystem\TaskEmitters\TaskEmitter.cpp" />
     <ClCompile Include=".\UtilitySystem\TaskEmitters\WorkerTE.cpp" />
+    <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
+    <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\Grid.hpp" />
@@ -60,11 +62,11 @@
     <ClInclude Include=".\ReplayParser.h" />
     <ClInclude Include=".\StarterBot.h" />
     <ClInclude Include=".\Tools.h" />
-    <ClInclude Include="UtilitySystem\UnitAgents\UnitAgent.h">
+    <ClInclude Include=".\UtilitySystem\UnitAgents\UnitAgent.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
     <ClInclude Include=".\PMRBot.h" />
-    <ClInclude Include="UtilitySystem\UnitAgents\GenericUnitAgent.h">
+    <ClInclude Include=".\UtilitySystem\UnitAgents\GenericUnitAgent.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
     <ClInclude Include=".\BT\BT.h" />
@@ -99,8 +101,8 @@
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS_FARMING_MINERALS.h" />
     <ClInclude Include=".\BT\Data.h" />
-    <ClInclude Include="UtilitySystem\UnitAgents\BuildingUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\UnitAgents\MovingUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\BuildingUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\MovingUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\ScoutTask.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\BuildingTask.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\WorkerFleeTask.h" />
@@ -118,6 +120,8 @@
     <ClInclude Include="UtilitySystem\UnitAgents\ObserverUnitAgent.h" />
     <ClInclude Include="UtilitySystem\UnitAgents\GroundWarriorUnitAgent.h" />
     <ClInclude Include="UtilitySystem\UnitAgents\FlyingWarriorUnitAgent.h" />
+    <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.h" />
+    <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">

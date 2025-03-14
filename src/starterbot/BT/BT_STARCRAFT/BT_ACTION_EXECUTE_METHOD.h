@@ -1,6 +1,7 @@
 #pragma once
 
 #include <functional>
+#include "BT_ACTION.h"
 
 class BT_ACTION_EXECUTE_METHOD : public BT_ACTION
 {
@@ -12,4 +13,4 @@ private:
 	std::string GetDescription() override;
 
 	std::function<State(void*)> m_actionMethod;
-}
+};
