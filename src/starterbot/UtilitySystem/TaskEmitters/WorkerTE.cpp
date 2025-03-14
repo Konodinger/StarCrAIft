@@ -42,7 +42,7 @@ bool WorkerTE::checkIfEnoughMineralGathering(void* pData)
 	int count = 0;
 	for (std::shared_ptr<Task> task : taskList)
 	{
-		// if(task.isInstanceOf(MineralGatheringTask)) { count++; }
+		//if(task.isInstanceOf(MineralGatheringTask)) { count++; }
 	}
 
 	return count < data->goalMineralGatheringWorkforce;
@@ -50,9 +50,9 @@ bool WorkerTE::checkIfEnoughMineralGathering(void* pData)
 
 BT_NODE::State WorkerTE::emitMineralGatheringTask(void* pData)
 {
-	// Task t = std::make_shared<MineralGatheringTask>();
-	// data->m_taskList.push_back(t);
-	// m_taskEmitted.push_back(t);
+	std::shared_ptr<Task> t = std::make_shared<MineralGatheringTask>();
+	Data* data = static_cast<Data*>(pData);
+	data->m_task_emitter_map[EmitterType::WORKER].emitTask(pData, t);
 	return BT_NODE::State::SUCCESS;
 }
 
@@ -71,9 +71,9 @@ bool WorkerTE::checkIfEnoughVespeneGathering(void* pData)
 
 BT_NODE::State WorkerTE::emitVespeneGatheringTask(void* pData)
 {
-	// Task t = std::make_shared<VespeneGatheringTask>();
-	// data->m_taskList.push_back(t);
-	// m_taskEmitted.push_back(t);
+	std::shared_ptr<Task> t = std::make_shared<VespeneGatheringTask>();
+	Data* data = static_cast<Data*>(pData);
+	data->m_task_emitter_map[EmitterType::WORKER].emitTask(pData, t);
 	return BT_NODE::State::SUCCESS;
 }
 
