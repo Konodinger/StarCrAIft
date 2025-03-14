@@ -5,6 +5,14 @@ class TaskEmitter;
 #include "Data.h"
 #include "Task.h"
 
+enum EmitterType {
+	WORKER,
+	EVENT,
+	SCOUT,
+	ARMY,
+	TECHTREE,
+};
+
 class TaskEmitter {
 public:
 	void ExecuteTaskEmissionBT(Data *pData);
@@ -15,5 +23,5 @@ protected:
 	TaskEmitter() {};
 	std::string m_name{};
 	BT_NODE* pTaskEmitterBT = nullptr;
-	static std::vector<std::shared_ptr<Task>> m_taskEmitted; // bon il faudrait surement passer ça au sein de chaque sous classe plutôt car là tout est au même endroit (et en double en plus car il les faut aussi dans le pdata)
+	std::vector<std::shared_ptr<Task>> m_taskEmitted; // bon il faudrait surement passer ça au sein de chaque sous classe plutôt car là tout est au même endroit (et en double en plus car il les faut aussi dans le pdata)
 };

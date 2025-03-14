@@ -402,5 +402,6 @@ FodyWeavers.xsd
 # Custom files
 !windows/bin/RunStarterBotAndStarcraft.bat
 starcraft
+windows/starcraft
 windows/visualstudio/Win32
 windows/visualstudio/x64

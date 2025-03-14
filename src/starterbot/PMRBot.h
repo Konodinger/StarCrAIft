@@ -15,11 +15,8 @@ class PMRBot {
 private:
 	MapTools m_mapTools;
 	Data* pData;
-	TaskEmitter m_WorkerTE = WorkerTE(); // Empty TE for now, should serve as a model for the others.
-	//TaskEmitter m_ArmyTE;
-	//...
 
-	EventManagerTE m_EventTE = EventManagerTE();
+
 	std::shared_ptr <BT_NODE> pIdleManagerBT;
 	std::map<std::shared_ptr<Task>, std::map<std::shared_ptr<UnitAgent>, float>> m_taskToAgentInterest;
 

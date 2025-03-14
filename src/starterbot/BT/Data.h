@@ -27,6 +27,8 @@ public:
 	std::vector<std::shared_ptr<Task>> m_taskList;
 	std::map<int, std::shared_ptr<UnitAgent>> unitAgentsList;
 
+	std::map<EmitterType, TaskEmitter> m_task_emitter_map;
+
 	int goalMineralGatheringWorkforce = 10;
 	int goalVespeneGatheringWorkforce = 4;
 	int goalScoutWorkforce = 1;
