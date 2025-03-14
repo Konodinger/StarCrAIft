@@ -30,15 +30,14 @@ void WorkerTE::createBT()
 	BT_SEQUENCER* pSequencerScout = new BT_SEQUENCER("SequencerScout", pWhileScoutNotEnough, 2);
 	BT_CONDITION* pTestIfEnoughScout = new BT_CONDITION("TestIfEnoughScout", pSequencerScout, checkIfEnoughScout);
 	BT_ACTION_EXECUTE_METHOD* pEmitScoutTask = new BT_ACTION_EXECUTE_METHOD("EmitScoutTask", pSequencerScout, emitScoutingTask);
-
 }
 
 bool WorkerTE::checkIfEnoughMineralGathering(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
 	int count = 0;
-	//for(std::shared_ptr<Task> task : m_taskEmitted)
-	//{
+	for(std::shared_ptr<Task> task : data->m_taskList)
+	{
 		// if(task.isInstanceOf(MineralGatheringTask)) { count++; }
 	//}
 
@@ -58,7 +57,7 @@ bool WorkerTE::checkIfEnoughVespeneGathering(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
 	int count = 0;
-	for (std::shared_ptr<Task> task : m_taskEmitted)
+	for (std::shared_ptr<Task> task : data->m_taskList)
 	{
 		// if(task.isInstanceOf(VespeneGatheringTask)) { count++; }
 	}

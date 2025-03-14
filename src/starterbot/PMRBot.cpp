@@ -17,17 +17,21 @@ PMRBot::PMRBot() {
 	pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
 	pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
 
+	pData->m_task_emitter_map[EmitterType::WORKER] = WorkerTE();
+	pData->m_task_emitter_map[EmitterType::EVENT] = EventManagerTE();
+	static_cast<EventManagerTE>(pData->m_task_emitter_map[EmitterType::EVENT])->setData(pData);
+	// etc
+
 	pIdleManagerBT = std::make_shared<BT_ACTION_IDLE>("IDLEManagerRoot", nullptr);
 
-	m_EventTE.setData(pData);
 }
 
 void PMRBot::runBotLoop() {
-	m_WorkerTE.ExecuteTaskEmissionBT(pData);
+	pData->m_task_emitter_map[EmitterType::WORKER].ExecuteTaskEmissionBT(pData);
 	// Same for other TE...
 
 
-	m_WorkerTE.computeTaskReward();
+	pData->m_task_emitter_map[EmitterType::WORKER].computeTaskReward();
 	// Same for other TE...
 	// 
 
@@ -114,7 +118,7 @@ void PMRBot::onStart()
 	// Call MapTools OnStart
 	m_mapTools.onStart();
 
-	m_EventTE.onStart();
+	pData->m_task_emitter_map[EmitterType::EVENT].onStart();
 
 }
 
@@ -138,7 +142,7 @@ void PMRBot::onFrame()
 	// Draw some relevent information to the screen to help us debug the bot
 	drawDebugInformation();
 
-	m_EventTE.onFrame();
+	pData->m_task_emitter_map[EmitterType::EVENT].onFrame();
 }
 
 // Draw some relevent information to the screen to help us debug the bot
@@ -153,7 +157,7 @@ void PMRBot::onEnd(bool isWinner)
 {
 	std::cout << "We " << (isWinner ? "won!" : "lost!") << "\n";
 
-	m_EventTE.onEnd(isWinner);
+	pData->m_task_emitter_map[EmitterType::EVENT].onEnd(isWinner);
 }
 
 // Called whenever a unit is destroyed, with a pointer to the unit
@@ -162,14 +166,14 @@ void PMRBot::onUnitDestroy(BWAPI::Unit unit)
 
 	//Remove the UnitAgent affiliated.
 
-	m_EventTE.onUnitDestroy(unit);
+	pData->m_task_emitter_map[EmitterType::EVENT].onUnitDestroy(unit);
 }
 
 // Called whenever a unit is morphed, with a pointer to the unit
 // Zerg units morph when they turn into other units
 void PMRBot::onUnitMorph(BWAPI::Unit unit)
 {
-	m_EventTE.onUnitMorph(unit);
+	pData->m_task_emitter_map[EmitterType::EVENT].onUnitMorph(unit);
 }
 
 // Called whenever a text is sent to the game by a user
@@ -180,7 +184,7 @@ void PMRBot::onSendText(std::string text)
 		m_mapTools.toggleDraw();
 	}
 
-	m_EventTE.onSendText(text);
+	pData->m_task_emitter_map[EmitterType::EVENT].onSendText(text);
 }
 
 // Called whenever a unit is created, with a pointer to the destroyed unit
@@ -192,32 +196,32 @@ void PMRBot::onUnitCreate(BWAPI::Unit unit)
 	// std::shared_ptr<UnitAgent> pUnitAgent = std::make_shared<UnitAgent>();
 	// unitAgentsList.insert(pUnitAgent);
 
-	m_EventTE.onUnitCreate(unit);
+	pData->m_task_emitter_map[EmitterType::EVENT].onUnitCreate(unit);
 }
 
 // Called whenever a unit finished construction, with a pointer to the unit
 void PMRBot::onUnitComplete(BWAPI::Unit unit)
 {
-	m_EventTE.onUnitComplete(unit);
+	pData->m_task_emitter_map[EmitterType::EVENT].onUnitComplete(unit);
 }
 
 // Called whenever a unit appears, with a pointer to the destroyed unit
 // This is usually triggered when units appear from fog of war and become visible
 void PMRBot::onUnitShow(BWAPI::Unit unit)
 {
-	m_EventTE.onUnitShow(unit);
+	pData->m_task_emitter_map[EmitterType::EVENT].onUnitShow(unit);
 }
 
 // Called whenever a unit gets hidden, with a pointer to the destroyed unit
 // This is usually triggered when units enter the fog of war and are no longer visible
 void PMRBot::onUnitHide(BWAPI::Unit unit)
 {
-	m_EventTE.onUnitHide(unit);
+	pData->m_task_emitter_map[EmitterType::EVENT].onUnitHide(unit);
 }
 
 // Called whenever a unit switches player control
 // This usually happens when a dark archon takes control of a unit
 void PMRBot::onUnitRenegade(BWAPI::Unit unit)
 {
-	m_EventTE.onUnitRenegade(unit);
+	pData->m_task_emitter_map[EmitterType::EVENT].onUnitRenegade(unit);
 }

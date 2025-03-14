@@ -5,6 +5,14 @@ class TaskEmitter;
 #include "Data.h"
 #include "Task.h"
 
+enum EmitterType {
+	WORKER,
+	EVENT,
+	SCOUT,
+	ARMY,
+	TECHTREE,
+};
+
 class TaskEmitter {
 public:
 	void ExecuteTaskEmissionBT(Data *pData);
