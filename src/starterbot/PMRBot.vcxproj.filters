@@ -13,13 +13,13 @@
     <ClCompile Include="UtilitySystem\Tasks\Task.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
-    <ClCompile Include=".\UtilitySystem\TaskEmitter.cpp">
+    <ClCompile Include="UtilitySystem\TaskEmitters\TaskEmitter.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
-    <ClCompile Include=".\UtilitySystem\EventManagerTE.cpp">
+    <ClCompile Include="UtilitySystem\TaskEmitters\EventManagerTE.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
-    <ClCompile Include=".\UtilitySystem\WorkerTE.cpp">
+    <ClCompile Include="UtilitySystem\TaskEmitters\WorkerTE.cpp">
       <Filter>UtilitySystem</Filter>
     </ClCompile>
     <ClCompile Include=".\BT\BT_ACTION.cpp" />
@@ -52,13 +52,15 @@
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_SUPPLY.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS_FARMING_MINERALS.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\ScoutTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\BuildingTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\WorkerFleeTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\SoldierIdleTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\SoldierFleeTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\SoldierDefendBaseTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\SoldierAttackBaseTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\ScoutTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\BuildingTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\WorkerFleeTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierIdleTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierFleeTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierDefendBaseTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\MineralGatheringTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\VespeneGatheringTask.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\Grid.hpp" />
@@ -72,13 +74,13 @@
     <ClInclude Include="UtilitySystem\Tasks\Task.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
-    <ClInclude Include=".\UtilitySystem\TaskEmitter.h">
+    <ClInclude Include="UtilitySystem\TaskEmitters\TaskEmitter.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
-    <ClInclude Include=".\UtilitySystem\EventManagerTE.h">
+    <ClInclude Include="UtilitySystem\TaskEmitters\EventManagerTE.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
-    <ClInclude Include=".\UtilitySystem\WorkerTE.h">
+    <ClInclude Include="UtilitySystem\TaskEmitters\WorkerTE.h">
       <Filter>UtilitySystem</Filter>
     </ClInclude>
     <ClInclude Include=".\PMRBot.h" />
@@ -117,15 +119,17 @@
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS_FARMING_MINERALS.h" />
     <ClInclude Include=".\BT\Data.h" />
-    <ClInclude Include="UtilitySystem\BuildingUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\MovingUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\Tasks\ScoutTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\BuildingTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\WorkerFleeTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\SoldierIdleTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\SoldierFleeTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\SoldierDefendBaseTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\SoldierAttackBaseTask.h" />
+    <ClInclude Include=".\UtilitySystem\BuildingUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\MovingUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\ScoutTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\BuildingTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\WorkerFleeTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierIdleTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierFleeTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierDefendBaseTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\MineralGatheringTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\VespeneGatheringTask.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">

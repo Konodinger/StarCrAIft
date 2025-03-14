@@ -3,7 +3,8 @@
 #include "BT.h"
 #include "BT_ACTION_EXECUTE_METHOD.h"
 
-// #include "UtilitySystem/MineralGatheringTask"
+#include "MineralGatheringTask.h"
+#include "VespeneGatheringTask.h"
 
 void WorkerTE::createBT()
 {

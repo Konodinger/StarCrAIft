@@ -57,21 +57,23 @@
     <ClInclude Include=".\StarterBot.h" />
     <ClInclude Include=".\Tools.h" />
     <ClInclude Include=".\PMRBot.h" />
-    <ClInclude Include=".\UtilitySystem\EventManagerTE.h" />
+    <ClInclude Include=".\UtilitySystem\TaskEmitters\EventManagerTE.h" />
     <ClInclude Include=".\UtilitySystem\GenericUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\Tasks\Task.h" />
-    <ClInclude Include=".\UtilitySystem\TaskEmitter.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\MineralGatheringTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\Task.h" />
+    <ClInclude Include=".\UtilitySystem\TaskEmitters\TaskEmitter.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgent.h" />
-    <ClInclude Include=".\UtilitySystem\WorkerTE.h" />
-    <ClInclude Include="UtilitySystem\Tasks\SoldierAttackBaseTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\SoldierDefendBaseTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\SoldierFleeTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\SoldierIdleTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\BuildingTask.h" />
-    <ClInclude Include="UtilitySystem\BuildingUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\MovingUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\Tasks\ScoutTask.h" />
-    <ClInclude Include="UtilitySystem\Tasks\WorkerFleeTask.h" />
+    <ClInclude Include=".\UtilitySystem\TaskEmitters\WorkerTE.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierDefendBaseTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierFleeTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierIdleTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\BuildingTask.h" />
+    <ClInclude Include=".\UtilitySystem\BuildingUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\MovingUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\ScoutTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\VespeneGatheringTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\WorkerFleeTask.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".\BT\BT_ACTION.cpp" />
@@ -110,18 +112,20 @@
     <ClCompile Include=".\StarterBot.cpp" />
     <ClCompile Include=".\Tools.cpp" />
     <ClCompile Include=".\PMRBot.cpp" />
-    <ClCompile Include=".\UtilitySystem\EventManagerTE.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\Task.cpp" />
-    <ClCompile Include=".\UtilitySystem\TaskEmitter.cpp" />
+    <ClCompile Include=".\UtilitySystem\TaskEmitters\EventManagerTE.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\MineralGatheringTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\Task.cpp" />
+    <ClCompile Include=".\UtilitySystem\TaskEmitters\TaskEmitter.cpp" />
     <ClCompile Include=".\UtilitySystem\UnitAgent.cpp" />
-    <ClCompile Include=".\UtilitySystem\WorkerTE.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\SoldierAttackBaseTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\SoldierDefendBaseTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\SoldierFleeTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\SoldierIdleTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\BuildingTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\ScoutTask.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\WorkerFleeTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\TaskEmitters\WorkerTE.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierDefendBaseTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierFleeTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierIdleTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\BuildingTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\ScoutTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\VespeneGatheringTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\WorkerFleeTask.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>StarterBot</ProjectName>
@@ -227,7 +231,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.;..\bwem\include;.\BT\BT_STARCRAFT;.\BT;.\UtilitySystem;.\UtilitySystem\Tasks;../bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\bwem\include;.\BT\BT_STARCRAFT;.\BT;.\UtilitySystem;.\UtilitySystem\Tasks;.\UtilitySystem\TaskEmitters;../bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -252,7 +256,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>.;..\bwem\include;.\BT\BT_STARCRAFT;.\BT;.\UtilitySystem;.\UtilitySystem\Tasks;../bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\bwem\include;.\BT\BT_STARCRAFT;.\BT;.\UtilitySystem;.\UtilitySystem\Tasks;.\UtilitySystem\TaskEmitters;../bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>false</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -277,7 +281,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>.;..\bwem\include;.\BT\BT_STARCRAFT;.\BT;.\UtilitySystem;.\UtilitySystem\Tasks;../bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\bwem\include;.\BT\BT_STARCRAFT;.\BT;.\UtilitySystem;.\UtilitySystem\Tasks;.\UtilitySystem\TaskEmitters;../bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -315,7 +319,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>.;..\bwem\include;.\BT\BT_STARCRAFT;.\BT;.\UtilitySystem;.\UtilitySystem\Tasks;../bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>.;..\bwem\include;.\BT\BT_STARCRAFT;.\BT;.\UtilitySystem;.\UtilitySystem\Tasks;.\UtilitySystem\TaskEmitters;../bwapi/include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;_USRDLL;EXAMPLEAIMODULE_EXPORTS;NOMINMAX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>
