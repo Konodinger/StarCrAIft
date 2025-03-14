@@ -4,6 +4,7 @@
 #include <BWAPI.h>
 #include "UnitAgents/UnitAgent.h"
 #include "Task.h"
+#include "TaskEmitter.h"
 //#include "../../windows/visualstudio/UnitAgent.h"
 
 #define THRESHOLD1_MINERALS 200

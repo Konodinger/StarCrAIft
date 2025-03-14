@@ -18,10 +18,13 @@ public:
 	void ExecuteTaskEmissionBT(Data *pData);
 	void computeTaskReward();
 
+	void emitTask(void* pData, std::shared_ptr<Task> task);
+
 	void onTaskFinished(std::shared_ptr<Task> task);
+	std::vector<std::shared_ptr<Task>> m_taskEmitted;
 protected:
 	TaskEmitter() {};
 	std::string m_name{};
 	BT_NODE* pTaskEmitterBT = nullptr;
-	std::vector<std::shared_ptr<Task>> m_taskEmitted; // bon il faudrait surement passer ça au sein de chaque sous classe plutôt car là tout est au même endroit (et en double en plus car il les faut aussi dans le pdata)
+
 };

@@ -26,3 +26,10 @@ void TaskEmitter::computeTaskReward() {
         task->reward();
     }
 }
+
+void TaskEmitter::emitTask(void* pData, std::shared_ptr<Task> task)
+{
+    Data* data = static_cast<Data*>(pData);
+    m_taskEmitted.push_back(task);
+    data->m_taskList.push_back(task);
+}
