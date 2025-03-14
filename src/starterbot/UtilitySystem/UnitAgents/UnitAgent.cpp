@@ -1,8 +1,10 @@
 #include "UnitAgent.h"
 
-#include "GenericUnitAgent.h"
+#include "FarmerUnitAgent.h"
+#include "ObserverUnitAgent.h"
+#include "GroundWarriorUnitAgent.h"
+#include "FlyingWarriorUnitAgent.h"
 #include "BuildingUnitAgent.h"
-#include "MovingUnitAgent.h"
 
 #include "Task.h"
 
@@ -37,8 +39,36 @@ void UnitAgent::execute(Data* pData) {
 }
 
 std::shared_ptr<UnitAgent> UnitAgent::createUnitAgent(BWAPI::Unit unit) {
-	if (unit->getType().isBuilding())
-		return std::make_shared<BuildingUnitAgent>(unit);
-	else
-		return std::make_shared<MovingUnitAgent>(unit);
+
+	assert(unit != nullptr && "Error: the unit is null");
+
+	const UnitAgentType type = getUnitAgentType(unit);
+
+	std::shared_ptr<UnitAgent> agent = nullptr;
+
+	switch (type) {
+	case WORKER:
+		agent = std::make_shared<FarmerUnitAgent>(unit);
+		break;
+	case OBSERVER:
+		agent = std::make_shared<ObserverUnitAgent>(unit);
+		break;
+	case GROUNDMOBILE:
+		agent = std::make_shared<GroundWarriorUnitAgent>(unit);
+		break;
+	case FLYINGMOBILE:
+		agent = std::make_shared<FlyingWarriorUnitAgent>(unit);
+		break;
+	case BUILDING:
+		agent = std::make_shared<BuildingUnitAgent>(unit);
+		break;
+	case NONE_TYPE:
+		BWAPI::Broodwar->printf(("Error: the unit " + std::to_string(unit->getID()).append(" (") + (unit->getType().getName()) + ") is not a reckognized Protoss unit, and thus should not be assciated to a UnitAgent").c_str());
+		break;
+	}
+
+	if (agent != nullptr)
+		agent->m_type = type;
+
+	return agent;
 }
