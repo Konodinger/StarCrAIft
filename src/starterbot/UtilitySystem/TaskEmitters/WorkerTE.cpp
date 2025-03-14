@@ -37,10 +37,10 @@ bool WorkerTE::checkIfEnoughMineralGathering(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
 	int count = 0;
-	for(std::shared_ptr<Task> task : m_taskEmitted)
-	{
+	//for(std::shared_ptr<Task> task : m_taskEmitted)
+	//{
 		// if(task.isInstanceOf(MineralGatheringTask)) { count++; }
-	}
+	//}
 
 	return count < data->goalMineralGatheringWorkforce;
 }
