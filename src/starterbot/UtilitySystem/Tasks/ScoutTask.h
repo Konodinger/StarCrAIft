@@ -2,6 +2,7 @@
 #include "Task.h"
 
 class ScoutTask : public Task {
+public:
 	ScoutTask();
 
 };

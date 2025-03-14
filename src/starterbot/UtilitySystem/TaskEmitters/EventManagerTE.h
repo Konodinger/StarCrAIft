@@ -2,6 +2,9 @@
 
 #include "TaskEmitter.h"
 
+#include <string>
+#include "BT.h"
+
 class Data;
 
 class EventManagerTE : public TaskEmitter {

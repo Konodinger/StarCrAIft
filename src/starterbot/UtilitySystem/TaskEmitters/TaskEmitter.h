@@ -1,5 +1,11 @@
 #pragma once
 
+#include <vector>
+#include <memory>
+#include <string>
+
+#include "BT.h"
+
 class Task;
 class Data;
 
@@ -13,8 +19,9 @@ enum class EmitterType {
 
 class TaskEmitter {
 public:
+	TaskEmitter() = default;
 
-	void ExecuteTaskEmissionBT(Data *pData);
+	void ExecuteTaskEmissionBT(Data* pData);
 	void computeTaskReward();
 
 	void emitTask(void* pData, std::shared_ptr<Task> task);
@@ -22,7 +29,6 @@ public:
 	void onTaskFinished(std::shared_ptr<Task> task);
 	std::vector<std::shared_ptr<Task>> m_taskEmitted;
 protected:
-	TaskEmitter() {};
 	std::string m_name{};
 	BT_NODE* pTaskEmitterBT = nullptr;
 

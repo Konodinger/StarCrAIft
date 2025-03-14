@@ -19,6 +19,7 @@ enum class EmitterType;
 
 class Data {
 public:
+	Data() = default;
 	int currMinerals;
 	int thresholdMinerals;
 	int currSupply;
@@ -33,7 +34,7 @@ public:
 	std::map<int, std::shared_ptr<UnitAgent>> unitAgentsList;
 
 	std::map<EmitterType, TaskEmitter> m_task_emitter_map;
-	EventManagerTE m_eventManagerTE;
+	EventManagerTE m_eventManagerTE{ this };
 
 	int goalMineralGatheringWorkforce = 10;
 	int goalVespeneGatheringWorkforce = 4;
