@@ -7,9 +7,6 @@
     <ClCompile Include=".\ReplayParser.cpp" />
     <ClCompile Include=".\StarterBot.cpp" />
     <ClCompile Include=".\Tools.cpp" />
-    <ClCompile Include="UtilitySystem\UnitAgents\UnitAgent.cpp">
-      <Filter>UtilitySystem</Filter>
-    </ClCompile>
     <ClCompile Include=".\BT\BT_ACTION.cpp" />
     <ClCompile Include=".\BT\BT_ACTION_EMPTY_BT.cpp" />
     <ClCompile Include=".\BT\BT_ACTION_IDLE.cpp" />
@@ -55,6 +52,7 @@
     <ClCompile Include=".\UtilitySystem\TaskEmitters\WorkerTE.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
+    <ClCompile Include=".\UtilitySystem\UnitAgents\UnitAgent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\Grid.hpp" />
@@ -116,12 +114,12 @@
     <ClInclude Include=".\UtilitySystem\Tasks\Task.h" />
     <ClInclude Include=".\UtilitySystem\TaskEmitters\TaskEmitter.h" />
     <ClInclude Include=".\UtilitySystem\TaskEmitters\WorkerTE.h" />
-    <ClInclude Include="UtilitySystem\UnitAgents\FarmerUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\UnitAgents\ObserverUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\UnitAgents\GroundWarriorUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\UnitAgents\FlyingWarriorUnitAgent.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\FarmerUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\FlyingWarriorUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\GroundWarriorUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\ObserverUnitAgent.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">

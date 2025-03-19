@@ -59,7 +59,9 @@ void PMRBot::runBotLoop() {
 	taskAttribuer();
 
 	// Execute agents behaviour tree
+	int a = 0;
 	for (auto &id_unitAgent_pair : pData->unitAgentsList) {
+		//BWAPI::Broodwar->printf(std::to_string(a++).c_str());
 		id_unitAgent_pair.second->execute(pData);
 	}
 }
@@ -70,6 +72,9 @@ void PMRBot::taskAttribuer() {
 	std::sort(pData->m_taskList.begin(), pData->m_taskList.end(), [this](const std::shared_ptr<Task>& task1, const std::shared_ptr<Task>& task2) {
 		return task1->reward() > task2->reward();
 		});
+
+	if (pData->m_taskList.size() > 0)
+		BWAPI::Broodwar->printf(("NB task: " + std::to_string(pData->m_taskList.size()) + ".").c_str());
 
 	// For each task, attribute it to the best suited agent
 	for (std::shared_ptr<Task>& task : pData->m_taskList) {

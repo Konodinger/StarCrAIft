@@ -3,12 +3,12 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PMRBot", "src/starterbot/PMRBot.vcxproj", "{B2D2AD6C-D98B-42D0-8E4B-3C79D9DB27B7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "PMRBot", "src/PMRBot/PMRBot.vcxproj", "{B2D2AD6C-D98B-42D0-8E4B-3C79D9DB27B7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{16402859-D8EA-435E-9DA9-7E8D47E54D4A} = {16402859-D8EA-435E-9DA9-7E8D47E54D4A}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BWAPI", "src/starterbot/BWAPI.vcxproj", "{16402859-D8EA-435E-9DA9-7E8D47E54D4A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BWAPI", "src/PMRBot/BWAPI.vcxproj", "{16402859-D8EA-435E-9DA9-7E8D47E54D4A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

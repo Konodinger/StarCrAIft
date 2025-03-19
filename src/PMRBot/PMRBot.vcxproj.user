@@ -3,22 +3,22 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LocalDebuggerWorkingDirectory>$(ProjectDir)\..\..\bin</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommand>$(SolutionDir)\bin\RunStarterBotAndStarcraftDebug.bat</LocalDebuggerCommand>
+    <LocalDebuggerCommand>$(SolutionDir)\bin\RunPMRBotAndStarcraftDebug.bat</LocalDebuggerCommand>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LocalDebuggerWorkingDirectory>$(ProjectDir)\..\..\bin</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommand>$(SolutionDir)\bin\RunStarterBotAndStarcraft.bat</LocalDebuggerCommand>
+    <LocalDebuggerCommand>$(SolutionDir)\bin\RunPMRBotAndStarcraft.bat</LocalDebuggerCommand>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LocalDebuggerWorkingDirectory>$(ProjectDir)\..\..\bin</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommand>$(SolutionDir)\bin\RunStarterBotAndStarcraftDebug.bat</LocalDebuggerCommand>
+    <LocalDebuggerCommand>$(SolutionDir)\bin\RunPMRBotAndStarcraftDebug.bat</LocalDebuggerCommand>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <LocalDebuggerWorkingDirectory>$(ProjectDir)\..\..\bin</LocalDebuggerWorkingDirectory>
     <DebuggerFlavor>WindowsLocalDebugger</DebuggerFlavor>
-    <LocalDebuggerCommand>$(SolutionDir)\bin\RunStarterBotAndStarcraft.bat</LocalDebuggerCommand>
+    <LocalDebuggerCommand>$(SolutionDir)\bin\RunPMRBotAndStarcraft.bat</LocalDebuggerCommand>
   </PropertyGroup>
   <PropertyGroup>
     <ShowAllFiles>true</ShowAllFiles>

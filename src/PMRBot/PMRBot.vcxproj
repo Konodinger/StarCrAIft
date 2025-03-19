@@ -136,7 +136,7 @@
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>StarterBot</ProjectName>
+    <ProjectName>PMRBot</ProjectName>
     <ProjectGuid>{B2D2AD6C-D98B-42D0-8E4B-3C79D9DB27B7}</ProjectGuid>
     <RootNamespace>ExampleAIModule</RootNamespace>
     <Keyword>Win32Proj</Keyword>
