@@ -1,6 +1,6 @@
 #include "BuildingTask.h"
 
-BuildingTask::BuildingTask() : Task("Building") {
+BuildingTask::BuildingTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task("Building Task", taskEmitter) {
 
 	m_compatibilityUnitAgentType = { UnitAgent::WORKER };
 

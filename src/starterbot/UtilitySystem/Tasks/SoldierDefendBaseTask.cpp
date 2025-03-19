@@ -1,7 +1,7 @@
 #include "SoldierDefendBaseTask.h"
 #include "BT_ACTION_ATTACK_CLOSEST_ENEMY.h"
 
-SoldierDefendBaseTask::SoldierDefendBaseTask() : Task("Soldier Defend Base Task") {
+SoldierDefendBaseTask::SoldierDefendBaseTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task("Soldier Defend Base Task", taskEmitter) {
 	
 	m_compatibilityUnitType = { BWAPI::UnitTypes::Protoss_Photon_Cannon, 
 			BWAPI::UnitTypes::Protoss_Dark_Archon,

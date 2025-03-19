@@ -3,9 +3,9 @@
 
 class VespeneGatheringTask : public Task {
 public:
-	VespeneGatheringTask();
+	VespeneGatheringTask(std::shared_ptr<TaskEmitter> taskEmitter);
 
-	static BT_NODE::State gatherNearestVespene(void* pData, std::shared_ptr<UnitAgent> unitAgent);
+	static BT_NODE::State gatherNearestVespene(void* pData, VespeneGatheringTask* task);
 
 };
 

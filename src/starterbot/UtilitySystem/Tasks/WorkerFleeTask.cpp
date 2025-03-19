@@ -1,6 +1,6 @@
 #include "WorkerFleeTask.h"
 
-WorkerFleeTask::WorkerFleeTask() : Task("Worker Flee") {
+WorkerFleeTask::WorkerFleeTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task("Worker Flee Task", taskEmitter) {
 
 	m_compatibilityUnitAgentType = { UnitAgent::WORKER };
 

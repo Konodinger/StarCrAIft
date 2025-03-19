@@ -1,6 +1,6 @@
 #include "ScoutTask.h"
 
-ScoutTask::ScoutTask() : Task("Scout") {
+ScoutTask::ScoutTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task("Scout Task", taskEmitter) {
 
 	m_compatibilityUnitAgentType = { UnitAgent::WORKER, UnitAgent::OBSERVER };
 

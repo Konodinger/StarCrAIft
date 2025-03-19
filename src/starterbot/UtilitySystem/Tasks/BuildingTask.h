@@ -5,6 +5,6 @@ class BuildingTask :
     public Task
 {
 public:
-    BuildingTask();
+    BuildingTask(std::shared_ptr<TaskEmitter> taskEmitter);
 };
 

@@ -27,8 +27,8 @@ public:
 
 	Task() = delete;
 
-	Task(std::string name)
-		: m_name(name)
+	Task(std::string name, std::shared_ptr<TaskEmitter> taskEmitter)
+		: m_name(name), m_taskEmitter(taskEmitter)
 	{
 		assert(count < UINT_MAX && "task id overflow : Tasks.h");
 		m_id = count++;
@@ -75,7 +75,7 @@ protected:
 	std::vector<UnitAgent::UnitAgentType> m_compatibilityUnitAgentType;
 	std::shared_ptr<UnitAgent> m_executor = nullptr;
 	std::shared_ptr<BT_NODE> m_taskBT = std::make_shared<BT_ACTION_EMPTY_BT>("Default task BT", nullptr);
-	std::shared_ptr<TaskEmitter> m_taskEmitter = nullptr;
+	std::shared_ptr<TaskEmitter> m_taskEmitter;
 
 	// pr�requis / 
 };

@@ -1,6 +1,6 @@
 #include "SoldierFleeTask.h"
 
-SoldierFleeTask::SoldierFleeTask() : Task("Soldier Flee Task") {
+SoldierFleeTask::SoldierFleeTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task("Soldier Flee Task", taskEmitter) {
 	
 	m_compatibilityUnitAgentType = { UnitAgent::GROUNDMOBILE, UnitAgent::FLYINGMOBILE };
 

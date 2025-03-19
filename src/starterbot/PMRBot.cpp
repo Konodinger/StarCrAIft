@@ -17,8 +17,8 @@ PMRBot::PMRBot() {
 	pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
 	pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
 
-	pData->m_task_emitter_map[EmitterType::WORKER] = WorkerTE();
-	pData->m_eventManagerTE = EventManagerTE(pData);
+	pData->m_task_emitter_map[EmitterType::WORKER] = std::make_shared<WorkerTE>();
+	pData->m_eventManagerTE = std::make_shared<EventManagerTE>(pData);
 	// etc
 
 	pIdleManagerBT = std::make_shared<BT_ACTION_IDLE>("IDLEManagerRoot", nullptr);
@@ -26,16 +26,16 @@ PMRBot::PMRBot() {
 }
 
 void PMRBot::runBotLoop() {
-	pData->m_task_emitter_map[EmitterType::WORKER].ExecuteTaskEmissionBT(pData);
+	pData->m_task_emitter_map[EmitterType::WORKER]->ExecuteTaskEmissionBT(pData);
 	// Same for other TE...
 
 
-	pData->m_task_emitter_map[EmitterType::WORKER].computeTaskReward();
+	pData->m_task_emitter_map[EmitterType::WORKER]->computeTaskReward();
 	// Same for other TE...
 	// 
 
 	// Attribute IDLE behaviour
-	if (pIdleManagerBT != nullptr && pIdleManagerBT->Evaluate(pData) != BT_NODE::SUCCESS)
+	if (pIdleManagerBT != nullptr && pIdleManagerBT->Evaluate(pData) == BT_NODE::FAILURE)
 	{
 		BWAPI::Broodwar->printf("Warning: the IDLE Manager ended incorrectly...");
 	}
@@ -117,7 +117,7 @@ void PMRBot::onStart()
 	// Call MapTools OnStart
 	m_mapTools.onStart();
 
-	pData->m_eventManagerTE.onStart();
+	pData->m_eventManagerTE->onStart();
 
 }
 
@@ -141,7 +141,7 @@ void PMRBot::onFrame()
 	// Draw some relevent information to the screen to help us debug the bot
 	drawDebugInformation();
 
-	pData->m_eventManagerTE.onFrame();
+	pData->m_eventManagerTE->onFrame();
 }
 
 // Draw some relevent information to the screen to help us debug the bot
@@ -156,7 +156,7 @@ void PMRBot::onEnd(bool isWinner)
 {
 	std::cout << "We " << (isWinner ? "won!" : "lost!") << "\n";
 
-	pData->m_eventManagerTE.onEnd(isWinner);
+	pData->m_eventManagerTE->onEnd(isWinner);
 }
 
 // Called whenever a unit is destroyed, with a pointer to the unit
@@ -165,14 +165,14 @@ void PMRBot::onUnitDestroy(BWAPI::Unit unit)
 
 	//Remove the UnitAgent affiliated.
 
-	pData->m_eventManagerTE.onUnitDestroy(unit);
+	pData->m_eventManagerTE->onUnitDestroy(unit);
 }
 
 // Called whenever a unit is morphed, with a pointer to the unit
 // Zerg units morph when they turn into other units
 void PMRBot::onUnitMorph(BWAPI::Unit unit)
 {
-	pData->m_eventManagerTE.onUnitMorph(unit);
+	pData->m_eventManagerTE->onUnitMorph(unit);
 }
 
 // Called whenever a text is sent to the game by a user
@@ -183,7 +183,7 @@ void PMRBot::onSendText(std::string text)
 		m_mapTools.toggleDraw();
 	}
 
-	pData->m_eventManagerTE.onSendText(text);
+	pData->m_eventManagerTE->onSendText(text);
 }
 
 // Called whenever a unit is created, with a pointer to the destroyed unit
@@ -195,32 +195,32 @@ void PMRBot::onUnitCreate(BWAPI::Unit unit)
 	// std::shared_ptr<UnitAgent> pUnitAgent = std::make_shared<UnitAgent>();
 	// unitAgentsList.insert(pUnitAgent);
 
-	pData->m_eventManagerTE.onUnitCreate(unit);
+	pData->m_eventManagerTE->onUnitCreate(unit);
 }
 
 // Called whenever a unit finished construction, with a pointer to the unit
 void PMRBot::onUnitComplete(BWAPI::Unit unit)
 {
-	pData->m_eventManagerTE.onUnitComplete(unit);
+	pData->m_eventManagerTE->onUnitComplete(unit);
 }
 
 // Called whenever a unit appears, with a pointer to the destroyed unit
 // This is usually triggered when units appear from fog of war and become visible
 void PMRBot::onUnitShow(BWAPI::Unit unit)
 {
-	pData->m_eventManagerTE.onUnitShow(unit);
+	pData->m_eventManagerTE->onUnitShow(unit);
 }
 
 // Called whenever a unit gets hidden, with a pointer to the destroyed unit
 // This is usually triggered when units enter the fog of war and are no longer visible
 void PMRBot::onUnitHide(BWAPI::Unit unit)
 {
-	pData->m_eventManagerTE.onUnitHide(unit);
+	pData->m_eventManagerTE->onUnitHide(unit);
 }
 
 // Called whenever a unit switches player control
 // This usually happens when a dark archon takes control of a unit
 void PMRBot::onUnitRenegade(BWAPI::Unit unit)
 {
-	pData->m_eventManagerTE.onUnitRenegade(unit);
+	pData->m_eventManagerTE->onUnitRenegade(unit);
 }

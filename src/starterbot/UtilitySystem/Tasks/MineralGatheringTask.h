@@ -3,9 +3,9 @@
 
 class MineralGatheringTask : public Task {
 public:
-	MineralGatheringTask();
+	MineralGatheringTask(std::shared_ptr<TaskEmitter> taskEmitter);
 
-	static BT_NODE::State gatherNearestMineral(void* pData, std::shared_ptr<UnitAgent> unitAgent);
+	static BT_NODE::State gatherNearestMineral(void* pData, MineralGatheringTask* task);
 
 };
 

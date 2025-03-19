@@ -4,6 +4,6 @@ class SoldierFleeTask :
     public Task
 {
 public:
-    SoldierFleeTask();
+    SoldierFleeTask(std::shared_ptr<TaskEmitter> taskEmitter);
 };
 

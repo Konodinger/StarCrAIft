@@ -4,6 +4,6 @@ class SoldierDefendBaseTask :
     public Task
 {
 public:
-    SoldierDefendBaseTask();
+    SoldierDefendBaseTask(std::shared_ptr<TaskEmitter> taskEmitter);
 };
 

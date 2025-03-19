@@ -20,7 +20,7 @@ void WorkerTE::createBT()
 	BT_DECO_UNTIL_FAILURE* pWhileMineralGatheringNotEnough = new BT_DECO_UNTIL_FAILURE("WhileMineralGatheringNotEnough", pSequencer);
 	BT_SEQUENCER* pSequencerMineralGathering = new BT_SEQUENCER("SequencerMineralGathering", pWhileMineralGatheringNotEnough, 2);
 	BT_CONDITION* pTestIfEnoughMineralGathering = new BT_CONDITION("TestIfEnoughMineralGathering", pSequencerMineralGathering, checkIfEnoughMineralGathering);
-	BT_ACTION_EXECUTE_METHOD* pEmitMineralGatheringTask = new BT_ACTION_EXECUTE_METHOD("EmitMineralGatheringTask", pTestIfEnoughMineralGathering, emitMineralGatheringTask);
+	BT_ACTION_EXECUTE_METHOD* pEmitMineralGatheringTask = new BT_ACTION_EXECUTE_METHOD("EmitMineralGatheringTask", pSequencerMineralGathering, emitMineralGatheringTask);
 
 	// vespene
 	BT_DECO_UNTIL_FAILURE* pWhileVespeneGatheringNotEnough = new BT_DECO_UNTIL_FAILURE("WhileVespeneGatheringNotEnough", pSequencer);
@@ -38,32 +38,34 @@ void WorkerTE::createBT()
 bool WorkerTE::checkIfEnoughMineralGathering(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
-	auto taskList = data->m_task_emitter_map[EmitterType::WORKER].m_taskEmitted;
+	auto& taskList = data->m_task_emitter_map[EmitterType::WORKER]->m_taskEmitted;
 	int count = 0;
 	for (std::shared_ptr<Task> task : taskList)
 	{
-		//if(task.isInstanceOf(MineralGatheringTask)) { count++; }
+		if (task->getName() == "Mineral Gathering Task")
+			count++;
 	}
-
 	return count < data->goalMineralGatheringWorkforce;
 }
 
 BT_NODE::State WorkerTE::emitMineralGatheringTask(void* pData)
 {
-	std::shared_ptr<Task> t = std::make_shared<MineralGatheringTask>();
 	Data* data = static_cast<Data*>(pData);
-	data->m_task_emitter_map[EmitterType::WORKER].emitTask(pData, t);
+	std::shared_ptr<TaskEmitter> te = data->m_task_emitter_map[EmitterType::WORKER];
+	std::shared_ptr<Task> t = std::make_shared<MineralGatheringTask>(te);
+	te->emitTask(pData, t);
 	return BT_NODE::State::SUCCESS;
 }
 
 bool WorkerTE::checkIfEnoughVespeneGathering(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
-	auto taskList = data->m_task_emitter_map[EmitterType::WORKER].m_taskEmitted;
+	auto& taskList = data->m_task_emitter_map[EmitterType::WORKER]->m_taskEmitted;
 	int count = 0;
 	for (std::shared_ptr<Task> task : taskList)
 	{
-		// if(task.isInstanceOf(VespeneGatheringTask)) { count++; }
+		if (task->getName() == "Vespene Gathering Task")
+			count++;
 	}
 
 	return count < data->goalVespeneGatheringWorkforce;
@@ -71,9 +73,10 @@ bool WorkerTE::checkIfEnoughVespeneGathering(void* pData)
 
 BT_NODE::State WorkerTE::emitVespeneGatheringTask(void* pData)
 {
-	std::shared_ptr<Task> t = std::make_shared<VespeneGatheringTask>();
 	Data* data = static_cast<Data*>(pData);
-	data->m_task_emitter_map[EmitterType::WORKER].emitTask(pData, t);
+	std::shared_ptr<TaskEmitter> te = data->m_task_emitter_map[EmitterType::WORKER];
+	std::shared_ptr<Task> t = std::make_shared<VespeneGatheringTask>(te);
+	te->emitTask(pData, t);
 	return BT_NODE::State::SUCCESS;
 }
 
@@ -82,11 +85,12 @@ BT_NODE::State WorkerTE::emitVespeneGatheringTask(void* pData)
 bool WorkerTE::checkIfEnoughScout(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
-	auto taskList = data->m_task_emitter_map[EmitterType::WORKER].m_taskEmitted;
+	auto& taskList = data->m_task_emitter_map[EmitterType::WORKER]->m_taskEmitted;
 	int count = 0;
 	for (std::shared_ptr<Task> task : taskList)
 	{
-		// if task == scouter : count++;
+		if (task->getName() == "Scout Task")
+			count++;
 	}
 
 	return count >= data->goalMineralGatheringWorkforce;
@@ -94,8 +98,9 @@ bool WorkerTE::checkIfEnoughScout(void* pData)
 
 BT_NODE::State WorkerTE::emitScoutingTask(void* pData)
 {
-	std::shared_ptr<Task> t = std::make_shared<ScoutTask>();
 	Data* data = static_cast<Data*>(pData);
-	data->m_task_emitter_map[EmitterType::WORKER].emitTask(pData, t);
+	std::shared_ptr<TaskEmitter> te = data->m_task_emitter_map[EmitterType::WORKER];
+	std::shared_ptr<Task> t = std::make_shared<ScoutTask>(te);
+	te->emitTask(pData, t);
 	return BT_NODE::State::SUCCESS;
 }

@@ -33,8 +33,8 @@ public:
 	std::vector<std::shared_ptr<Task>> m_taskList;
 	std::map<int, std::shared_ptr<UnitAgent>> unitAgentsList;
 
-	std::map<EmitterType, TaskEmitter> m_task_emitter_map;
-	EventManagerTE m_eventManagerTE{ this };
+	std::map<EmitterType, std::shared_ptr<TaskEmitter>> m_task_emitter_map;
+	std::shared_ptr<EventManagerTE> m_eventManagerTE;
 
 	int goalMineralGatheringWorkforce = 10;
 	int goalVespeneGatheringWorkforce = 4;

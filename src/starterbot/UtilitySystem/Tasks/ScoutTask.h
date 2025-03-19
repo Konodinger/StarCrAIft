@@ -3,6 +3,6 @@
 
 class ScoutTask : public Task {
 public:
-	ScoutTask();
+	ScoutTask(std::shared_ptr<TaskEmitter> taskEmitter);
 
 };
