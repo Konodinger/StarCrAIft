@@ -23,6 +23,7 @@ void UnitAgent::execute(Data* pData) {
 		return;
 	}
 	BT_NODE::State state = bt->Evaluate(pData);
+	bt->Reset();
 	if (state == BT_NODE::FAILURE)
 	{
 		BWAPI::Broodwar->printf(("Warning: the Unit Agent " + std::to_string(m_unit->getID()) + " ended incorrectly while executing behaviour tree...").c_str());
@@ -35,6 +36,7 @@ void UnitAgent::execute(Data* pData) {
 			m_task->getTaskEmitter()->onTaskFinished(m_task);
 		}
 		m_task.reset();
+		m_state = IDLING;
 	}
 }
 
@@ -69,6 +71,5 @@ std::shared_ptr<UnitAgent> UnitAgent::createUnitAgent(BWAPI::Unit unit) {
 
 	if (agent != nullptr)
 		agent->m_type = type;
-
 	return agent;
 }

@@ -21,7 +21,7 @@ BT_NODE::State BT_SEQUENCER::Evaluate(void* data) {
     if (CurrentChildIndex == ChildrenCount)
         return Success();
     else
-        return Running();
+        return Evaluate(data);
 }
 
 void BT_SEQUENCER::Reset()

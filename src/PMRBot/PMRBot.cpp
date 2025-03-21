@@ -29,24 +29,26 @@ void PMRBot::runBotLoop() {
 	pData->m_task_emitter_map[EmitterType::WORKER]->ExecuteTaskEmissionBT(pData);
 	// Same for other TE...
 
-
 	pData->m_task_emitter_map[EmitterType::WORKER]->computeTaskReward();
 	// Same for other TE...
 	// 
 
 	// Attribute IDLE behaviour
-	if (pIdleManagerBT != nullptr && pIdleManagerBT->Evaluate(pData) == BT_NODE::FAILURE)
+	if (pIdleManagerBT->Evaluate(pData) == BT_NODE::FAILURE)
 	{
 		BWAPI::Broodwar->printf("Warning: the IDLE Manager ended incorrectly...");
 	}
+	pIdleManagerBT->Reset();
 
 	// Check if units should flee and compute their interest in available tasks.
 	for (auto& id_unitAgent_pair : pData->unitAgentsList) {
 		auto& unitAgent = id_unitAgent_pair.second;
 		unitAgent->checkFlee(pData);
 		if (unitAgent->getState() == UnitAgent::IDLING) {
-			for (auto& task : pData->m_taskList)
+			for (auto& task : pData->m_taskList) {
+
 				m_taskToAgentInterest[task][unitAgent] = unitAgent->computeInterest(task);
+			}
 		}
 		else {
 			for (auto& task : pData->m_taskList) {
