@@ -80,7 +80,7 @@ private:
 	std::shared_ptr<Task> m_task;
 
 	UnitAgentType m_type;
-	UnitAgentState m_state;
+	UnitAgentState m_state = IDLING;
 
 private:
 	static UnitAgentType getUnitAgentType(BWAPI::Unit unit) {

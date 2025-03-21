@@ -3,7 +3,7 @@
 #include "BT.h"
 #include "BT_ACTION_EXECUTE_METHOD.h"
 
-#include "MineralGatheringTask.h"
+#include "MineralGatheringTaskIdle.h"
 #include "VespeneGatheringTask.h"
 
 #include "ScoutTask.h"
@@ -52,7 +52,7 @@ BT_NODE::State WorkerTE::emitMineralGatheringTask(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
 	std::shared_ptr<TaskEmitter> te = data->m_task_emitter_map[EmitterType::WORKER];
-	std::shared_ptr<Task> t = std::make_shared<MineralGatheringTask>(te);
+	std::shared_ptr<Task> t = std::make_shared<MineralGatheringTaskIdle>(te);
 	te->emitTask(pData, t);
 	return BT_NODE::State::SUCCESS;
 }

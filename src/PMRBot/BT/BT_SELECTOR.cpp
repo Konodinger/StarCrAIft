@@ -18,7 +18,7 @@ BT_NODE::State BT_SELECTOR::Evaluate(void* data) {
     if (CurrentChildIndex == ChildrenCount)
         return Failure();
     else
-        return Running();
+        return Evaluate(data);
 }
 
 void BT_SELECTOR::Reset()
