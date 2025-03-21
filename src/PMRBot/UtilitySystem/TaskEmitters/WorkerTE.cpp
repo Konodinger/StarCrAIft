@@ -11,7 +11,7 @@
 void WorkerTE::createBT()
 {
 	pTaskEmitterBT = new BT_DECORATOR("EntryPoint", nullptr);
-	BT_SEQUENCER* pSequencer = new BT_SEQUENCER("sequencer", pTaskEmitterBT, 3);
+	BT_SEQUENCER* pSequencer = new BT_SEQUENCER("sequencer", pTaskEmitterBT, 1);
 
 	// change si le bt marche pas ça doit être possible de faire beaucoup plus simple, ça devrait suffir de juste créer (n_max - n) taches
 
@@ -22,10 +22,10 @@ void WorkerTE::createBT()
 	//BT_ACTION_EXECUTE_METHOD* pEmitMineralGatheringTask = new BT_ACTION_EXECUTE_METHOD("EmitMineralGatheringTask", pSequencerMineralGathering, emitMineralGatheringTask);
 
 	// vespene
-	BT_DECO_UNTIL_FAILURE* pWhileVespeneGatheringNotEnough = new BT_DECO_UNTIL_FAILURE("WhileVespeneGatheringNotEnough", pSequencer);
-	BT_SEQUENCER* pSequencerVespeneGathering = new BT_SEQUENCER("SequencerVespeneGathering", pWhileVespeneGatheringNotEnough, 2);
-	BT_CONDITION* pTestIfEnoughVespeneGathering = new BT_CONDITION("TestIfEnoughVespeneGathering", pSequencerVespeneGathering, checkIfEnoughVespeneGathering);
-	BT_ACTION_EXECUTE_METHOD* pEmitVespeneGatheringTask = new BT_ACTION_EXECUTE_METHOD("EmitVespeneGatheringTask", pSequencerVespeneGathering, emitVespeneGatheringTask);
+	//BT_DECO_UNTIL_FAILURE* pWhileVespeneGatheringNotEnough = new BT_DECO_UNTIL_FAILURE("WhileVespeneGatheringNotEnough", pSequencer);
+	//BT_SEQUENCER* pSequencerVespeneGathering = new BT_SEQUENCER("SequencerVespeneGathering", pWhileVespeneGatheringNotEnough, 2);
+	//BT_CONDITION* pTestIfEnoughVespeneGathering = new BT_CONDITION("TestIfEnoughVespeneGathering", pSequencerVespeneGathering, checkIfEnoughVespeneGathering);
+	//BT_ACTION_EXECUTE_METHOD* pEmitVespeneGatheringTask = new BT_ACTION_EXECUTE_METHOD("EmitVespeneGatheringTask", pSequencerVespeneGathering, emitVespeneGatheringTask);
 
 	// scouting
 	BT_DECO_UNTIL_FAILURE* pWhileScoutNotEnough = new BT_DECO_UNTIL_FAILURE("WhileScoutNotEnough", pSequencer);
@@ -34,18 +34,18 @@ void WorkerTE::createBT()
 	BT_ACTION_EXECUTE_METHOD* pEmitScoutTask = new BT_ACTION_EXECUTE_METHOD("EmitScoutTask", pSequencerScout, emitScoutingTask);
 }
 
-bool WorkerTE::checkIfEnoughMineralGathering(void* pData)
-{
-	Data* data = static_cast<Data*>(pData);
-	auto& taskList = data->m_task_emitter_map[EmitterType::WORKER]->m_taskEmitted;
-	int count = 0;
-	for (std::shared_ptr<Task> task : taskList)
-	{
-		if (task->getName() == "Mineral Gathering Task")
-			count++;
-	}
-	return count < data->goalMineralGatheringWorkforce;
-}
+//bool WorkerTE::checkIfEnoughMineralGathering(void* pData)
+//{
+//	Data* data = static_cast<Data*>(pData);
+//	auto& taskList = data->m_task_emitter_map[EmitterType::WORKER]->m_taskEmitted;
+//	int count = 0;
+//	for (std::shared_ptr<Task> task : taskList)
+//	{
+//		if (task->getName() == "Mineral Gathering Task")
+//			count++;
+//	}
+//	return count < data->goalMineralGatheringWorkforce;
+//}
 
 //BT_NODE::State WorkerTE::emitMineralGatheringTask(void* pData)
 //{
