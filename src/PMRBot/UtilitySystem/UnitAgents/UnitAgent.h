@@ -49,9 +49,6 @@ public:
 	UnitAgentState getState() const { return m_state; }
 	UnitAgentType getType() const { return m_type; }
 
-	const std::shared_ptr<BT_NODE> getIdlingBT() { return m_idlingBT; }
-	void setIdlingBT(std::shared_ptr<BT_NODE> const bt) { m_idlingBT = bt; }
-
 	// Called by [] in order to check if the unit is available
 	virtual bool checkFlee(Data* pData) = 0;
 
@@ -73,7 +70,6 @@ private:
 	bool m_isSquad = false;
 
 	std::shared_ptr<BT_NODE> m_fleeingBT = std::make_shared<BT_ACTION_EMPTY_BT>("Default fleeing BT", nullptr);
-	std::shared_ptr<BT_NODE> m_idlingBT = std::make_shared<BT_ACTION_EMPTY_BT>("Default idling BT", nullptr);
 
 	BWAPI::Unit m_unit;
 	std::vector<BWAPI::Unit> m_squadUnit;
