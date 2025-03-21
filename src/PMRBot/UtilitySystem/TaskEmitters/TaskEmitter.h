@@ -11,6 +11,7 @@ class Data;
 
 enum class EmitterType {
 	WORKER,
+	UNITPRODUCER,
 	EVENT,
 	SCOUT,
 	ARMY,

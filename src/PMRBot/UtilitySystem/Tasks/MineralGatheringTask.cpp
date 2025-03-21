@@ -1,16 +1,16 @@
-#include "MineralGatheringTaskIdle.h"
+#include "MineralGatheringTask.h"
 #include "Tools.h"
 #include "BT_ACTION_EXECUTE_METHOD.h"
 #include <functional>
 
-MineralGatheringTaskIdle::MineralGatheringTaskIdle(std::shared_ptr<TaskEmitter> taskEmitter) : Task("Mineral Gathering Task", taskEmitter) {
+MineralGatheringTask::MineralGatheringTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task("Mineral Gathering Task", taskEmitter) {
 	m_compatibilityUnitAgentType = { UnitAgent::WORKER };
 
 	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("Entry Point", nullptr));
     BT_NODE* pActionGatherNearestMineral = new BT_ACTION_EXECUTE_METHOD("Action execute gatherNearestMaterial", m_taskBT.get(), std::bind(gatherNearestMineral, std::placeholders::_1, this));
 }
 
-BT_NODE::State MineralGatheringTaskIdle::gatherNearestMineral(void* pData, MineralGatheringTask* task)
+BT_NODE::State MineralGatheringTask::gatherNearestMineral(void* pData, MineralGatheringTask* task)
 {
     auto unit = task->getExecutor()->getUnit();
     if (!unit->isGatheringMinerals()) {

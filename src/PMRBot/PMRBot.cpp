@@ -2,6 +2,8 @@
 #include "Tools.h"
 #include "Data.h"
 #include <algorithm>
+#include "WorkerTE.h"
+#include "UnitProducerTE.h"
 
 #define LOCAL_SPEED 10
 #define FRAME_SKIP 0
@@ -16,8 +18,10 @@ PMRBot::PMRBot() {
 	pData->thresholdSupply = THRESHOLD1_UNUSED_SUPPLY;
 	pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
 	pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
+	pData->askForNewPylons = false;
 
 	pData->m_task_emitter_map[EmitterType::WORKER] = std::make_shared<WorkerTE>();
+	pData->m_task_emitter_map[EmitterType::UNITPRODUCER] = std::make_shared<UnitProducerTE>();
 	pData->m_eventManagerTE = std::make_shared<EventManagerTE>(pData);
 	// etc
 
@@ -108,6 +112,10 @@ void PMRBot::taskAttribuer() {
 		}), pData->m_taskList.end());
 }
 
+void PMRBot::updateData() {
+	pData->currMinerals = BWAPI::Broodwar->self()->minerals();
+	pData->currSupply = Tools::GetUnusedSupply(true);
+}
 
 
 
@@ -134,9 +142,8 @@ void PMRBot::onFrame()
 	// Update our MapTools information
 	m_mapTools.onFrame();
 
-	pData->currMinerals = BWAPI::Broodwar->self()->minerals();
-	pData->currSupply = Tools::GetUnusedSupply(true);
-
+	// Update relevant informations on pData
+	updateData();
 
 	// Run the bot Loop
 	runBotLoop();

@@ -16,6 +16,7 @@
 #include "BT_DECO_CONDITION.h"
 #include "BT_DECO_COND_GREATER_THAN.h"
 #include "BT_DECO_COND_LESSER_THAN.h"
+#include "BT_DECO_MULTIPLEXER.h"
 
 #include "BT_DECO_INVERTER.h"
 #include "BT_DECO_REPEATER.h"

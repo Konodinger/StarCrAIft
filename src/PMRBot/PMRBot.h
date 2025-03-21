@@ -7,7 +7,6 @@ class PMRBot;
 #include "Task.h"
 #include "TaskEmitter.h"
 #include "EventManagerTE.h"
-#include "WorkerTE.h"
 
 class Data;
 
@@ -26,7 +25,7 @@ public:
 	PMRBot();
 
 
-
+	void updateData();
 	void drawDebugInformation();
 
 	// functions that are triggered by various BWAPI events from main.cpp

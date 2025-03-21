@@ -8,7 +8,7 @@ class BT_ACTION_EXECUTE_METHOD : public BT_ACTION
 public:
 	BT_ACTION_EXECUTE_METHOD(std::string name, BT_NODE* parent, std::function<State(void*)> actionMethod);
 
-private:
+protected:
 	State Evaluate(void* data) override;
 	std::string GetDescription() override;
 

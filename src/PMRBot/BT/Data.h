@@ -28,6 +28,8 @@ public:
 	int nWantedWorkersTotal;
 	int nWantedWorkersFarmingMinerals;
 
+	bool askForNewPylons;
+
 	std::unordered_set<BWAPI::Unit> unitsFarmingMinerals;
 
 	std::vector<std::shared_ptr<Task>> m_taskList;

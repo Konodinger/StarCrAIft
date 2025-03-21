@@ -21,12 +21,12 @@ It's an **essential** task for now as it will be used for almost all the other t
  - [ ] Decide on a reward estimation algorithm.
 
 ## Task emitters
- - [ ] (**Essential**) Create a basic task emitter for testing (e.g. scouting).
+ - [x] (**Essential**) Create a basic task emitter for testing (e.g. scouting).
  - [ ] Decide on a role repartition for the different TEs.
  - [ ] Develop all necessary TEs.
 
 ## Units agents
- - [ ] (**Essential**) Develop a minimal decision tree handling fleeing, tasks and idling.
+ - [x] (**Essential**) Develop a unit execution method handling fleeing, working and idling.
  - [ ] Develop a BT deciding if the UnitAgent should flee.
  - [ ] Decide on a balancing for unit interest in tasks.
  - [ ] Develop the `computeInterest()` method.
@@ -35,7 +35,7 @@ It's an **essential** task for now as it will be used for almost all the other t
 
 The event manager is empty for now. It should be done but only once the other basic task emitters have been implemented, as it might need a lot of edge-case work and won't be useful for basic integration and tests.
 That said, here are the important task:
- - [ ] Task completion.
+ - [x] Task completion (NOTE: handled by every task emitter instead).
  - [ ] Mobile unit death.
 
 After that, here are other useful features:

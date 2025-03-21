@@ -12,6 +12,7 @@ void TaskEmitter::ExecuteTaskEmissionBT(Data* pData) {
 	{
 		BWAPI::Broodwar->printf(("Warning: the task emitter " + m_name + " ended incorrectly...").c_str());
 	}
+	pTaskEmitterBT->Reset();
 }
 
 void TaskEmitter::onTaskFinished(std::shared_ptr<Task> task) {

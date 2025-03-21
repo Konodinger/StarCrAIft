@@ -61,7 +61,9 @@
     <ClInclude Include=".\UtilitySystem\UnitAgents\FarmerUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgents\FlyingWarriorUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgents\GenericUnitAgent.h" />
-    <ClInclude Include=".\UtilitySystem\Tasks\MineralGatheringTask.h" />
+    <ClInclude Include="BT\BT_DECO_MULTIPLEXER.h" />
+    <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_EMIT_CREATE_PYLON_TASK.h" />
+    <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_ASK_FOR_NEW_PYLONS.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\Task.h" />
     <ClInclude Include=".\UtilitySystem\TaskEmitters\TaskEmitter.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgents\GroundWarriorUnitAgent.h" />
@@ -80,6 +82,10 @@
     <ClInclude Include=".\UtilitySystem\Tasks\WorkerFleeTask.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.h" />
+    <ClInclude Include="UtilitySystem\TaskEmitters\UnitProducerTE.h" />
+    <ClInclude Include="UtilitySystem\Tasks\CreateBuildingTask.h" />
+    <ClInclude Include="UtilitySystem\Tasks\CreateWorkerTask.h" />
+    <ClInclude Include="UtilitySystem\Tasks\MineralGatheringTask.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".\BT\BT_ACTION.cpp" />
@@ -119,7 +125,9 @@
     <ClCompile Include=".\Tools.cpp" />
     <ClCompile Include=".\PMRBot.cpp" />
     <ClCompile Include=".\UtilitySystem\TaskEmitters\EventManagerTE.cpp" />
-    <ClCompile Include=".\UtilitySystem\Tasks\MineralGatheringTask.cpp" />
+    <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_ASK_FOR_NEW_PYLONS.cpp" />
+    <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_EMIT_CREATE_PYLON_TASK.cpp" />
+    <ClCompile Include="BT\BT_DECO_MULTIPLEXER.cpp" />
     <ClCompile Include=".\UtilitySystem\Tasks\Task.cpp" />
     <ClCompile Include=".\UtilitySystem\TaskEmitters\TaskEmitter.cpp" />
     <ClCompile Include=".\UtilitySystem\UnitAgents\UnitAgent.cpp" />
@@ -134,6 +142,10 @@
     <ClCompile Include=".\UtilitySystem\Tasks\WorkerFleeTask.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
+    <ClCompile Include="UtilitySystem\TaskEmitters\UnitProducerTE.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\CreateBuildingTask.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\CreateWorkerTask.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\MineralGatheringTask.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>PMRBot</ProjectName>
