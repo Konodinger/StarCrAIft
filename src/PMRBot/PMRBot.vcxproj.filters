@@ -53,6 +53,7 @@
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
     <ClCompile Include=".\UtilitySystem\UnitAgents\UnitAgent.cpp" />
+    <ClCompile Include="IdleManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\Grid.hpp" />
@@ -120,6 +121,7 @@
     <ClInclude Include=".\UtilitySystem\UnitAgents\FlyingWarriorUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgents\GroundWarriorUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgents\ObserverUnitAgent.h" />
+    <ClInclude Include="IdleManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">

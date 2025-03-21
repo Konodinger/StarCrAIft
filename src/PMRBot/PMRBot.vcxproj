@@ -80,6 +80,7 @@
     <ClInclude Include=".\UtilitySystem\Tasks\WorkerFleeTask.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.h" />
+    <ClInclude Include="IdleManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".\BT\BT_ACTION.cpp" />
@@ -134,6 +135,7 @@
     <ClCompile Include=".\UtilitySystem\Tasks\WorkerFleeTask.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
+    <ClCompile Include="IdleManager.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>PMRBot</ProjectName>
