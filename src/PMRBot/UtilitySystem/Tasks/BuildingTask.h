@@ -1,10 +1,14 @@
 #pragma once
 #include "Task.h"
+#include <memory>
 
-class BuildingTask :
-    public Task
-{
+#include "ResourcesManager.h"
+
+class BuildingTask : public Task {
 public:
-    BuildingTask(std::shared_ptr<TaskEmitter> taskEmitter);
+	BuildingTask(std::shared_ptr<TaskEmitter> taskEmitter, BWAPI::UnitType type, std::shared_ptr<ResourcesManager> resourcesManager);
+
+private:
+	BWAPI::UnitType m_type;
 };
 

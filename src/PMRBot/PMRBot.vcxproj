@@ -79,6 +79,9 @@
     <ClInclude Include=".\UtilitySystem\Tasks\WorkerFleeTask.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.h" />
+    <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.h" />
+    <ClInclude Include="ResourcesManager.h" />
+    <ClInclude Include="UtilitySystem\TaskEmitters\BuildOrderTE.h" />
     <ClInclude Include="UtilitySystem\Idle\IdleManager.h" />
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +136,9 @@
     <ClCompile Include=".\UtilitySystem\Tasks\WorkerFleeTask.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
+    <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.cpp" />
+    <ClCompile Include="ResourcesManager.cpp" />
+    <ClCompile Include="UtilitySystem\TaskEmitters\BuildOrderTE.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>PMRBot</ProjectName>

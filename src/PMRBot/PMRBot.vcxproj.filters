@@ -52,6 +52,9 @@
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
     <ClCompile Include=".\UtilitySystem\UnitAgents\UnitAgent.cpp" />
+    <ClCompile Include="UtilitySystem\TaskEmitters\BuildOrderTE.cpp" />
+    <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.cpp" />
+    <ClCompile Include="ResourcesManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\Grid.hpp" />
@@ -119,6 +122,9 @@
     <ClInclude Include=".\UtilitySystem\UnitAgents\GroundWarriorUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgents\ObserverUnitAgent.h" />
     <ClInclude Include="UtilitySystem\Idle\IdleManager.h" />
+    <ClInclude Include="UtilitySystem\TaskEmitters\BuildOrderTE.h" />
+    <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.h" />
+    <ClInclude Include="ResourcesManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">

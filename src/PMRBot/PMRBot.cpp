@@ -18,18 +18,31 @@ PMRBot::PMRBot() {
 	pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
 
 	pData->m_task_emitter_map[EmitterType::WORKER] = std::make_shared<WorkerTE>();
+	pData->m_task_emitter_map[EmitterType::BUILDORDER] = std::make_shared<BuildOrderTE>();
 	pData->m_eventManagerTE = std::make_shared<EventManagerTE>(pData);
-	// etc
+
+	pData->resourcesManager = std::make_shared<ResourcesManager>();
 
 	m_IdleManager = std::make_shared<IdleManager>(pData);
 
 }
 
 void PMRBot::runBotLoop() {
-	pData->m_task_emitter_map[EmitterType::WORKER]->ExecuteTaskEmissionBT(pData);
+
+	// Update resources
+	pData->resourcesManager->updateResources();
+
+	// Loop over all task emitters and execute their behaviour tree
+	for (auto& emitter : pData->m_task_emitter_map) {
+		emitter.second->ExecuteTaskEmissionBT(pData);
+	}
+
 	// Same for other TE...
 
-	pData->m_task_emitter_map[EmitterType::WORKER]->computeTaskReward();
+	//pData->m_task_emitter_map[EmitterType::WORKER]->computeTaskReward();
+	for (auto& emitter : pData->m_task_emitter_map) {
+		emitter.second->computeTaskReward();
+	}
 	// Same for other TE...
 	// 
 
@@ -152,6 +165,7 @@ void PMRBot::drawDebugInformation()
 {
 	Tools::DrawUnitCommands();
 	Tools::DrawUnitBoundingBoxes();
+	pData->resourcesManager->drawDebugInformation();
 }
 
 // Called whenever the game ends and tells you if you won or not

@@ -10,7 +10,7 @@ void TaskEmitter::ExecuteTaskEmissionBT(Data* pData) {
 	}
 	if (pTaskEmitterBT->Evaluate(pData) == BT_NODE::FAILURE)
 	{
-		BWAPI::Broodwar->printf(("Warning: the task emitter " + m_name + " ended incorrectly...").c_str());
+		//BWAPI::Broodwar->printf(("Warning: the task emitter " + m_name + " ended incorrectly...").c_str());
 	}
 }
 

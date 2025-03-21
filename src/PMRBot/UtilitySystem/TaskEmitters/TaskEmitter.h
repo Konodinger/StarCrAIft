@@ -15,13 +15,14 @@ enum class EmitterType {
 	SCOUT,
 	ARMY,
 	TECHTREE,
+	BUILDORDER
 };
 
 class TaskEmitter {
 public:
 	TaskEmitter() = default;
 
-	void ExecuteTaskEmissionBT(Data* pData);
+	virtual void ExecuteTaskEmissionBT(Data* pData);
 	void computeTaskReward();
 
 	void emitTask(void* pData, std::shared_ptr<Task> task);

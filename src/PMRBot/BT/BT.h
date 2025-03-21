@@ -1,6 +1,6 @@
 #pragma once
 //#define BT_DEBUG_VERBOSE
- 
+
 #include "BT_NODE.h"
 #include "BT_LEAF.h"
 #include "BT_ACTION.h"
@@ -43,4 +43,5 @@
 #include "BT_ACTION_SEND_IDLE_WORKER_TO_MINERALS.h"
 #include "BT_ACTION_TRAIN_WORKER.h"
 #include "BT_ACTION_BUILD_SUPPLY_PROVIDER.h"
+#include "BT_ACTION_BUILD_BUILDING.h"
 

@@ -6,13 +6,14 @@ class Data;
 #include "UnitAgent.h"
 #include "Task.h"
 #include "EventManagerTE.h"
+#include "ResourcesManager.h"
 
 
 #define THRESHOLD1_MINERALS 200
 #define THRESHOLD1_UNUSED_SUPPLY 2
 
 #define NWANTED_WORKERS_TOTAL 20
-#define NWANTED_WORKERS_FARMING_MINERALS 10
+#define NWANTED_WORKERS_FARMING_MINERALS 16
 
 class TaskEmitter;
 enum class EmitterType;
@@ -35,6 +36,8 @@ public:
 
 	std::map<EmitterType, std::shared_ptr<TaskEmitter>> m_task_emitter_map;
 	std::shared_ptr<EventManagerTE> m_eventManagerTE;
+
+	std::shared_ptr<ResourcesManager> resourcesManager;
 
 	int goalMineralGatheringWorkforce = 10;
 	int goalVespeneGatheringWorkforce = 4;
