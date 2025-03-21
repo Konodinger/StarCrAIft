@@ -21,7 +21,7 @@ PMRBot::PMRBot() {
 	pData->m_eventManagerTE = std::make_shared<EventManagerTE>(pData);
 	// etc
 
-	pIdleManagerBT = std::make_shared<BT_ACTION_IDLE>("IDLEManagerRoot", nullptr);
+	m_IdleManager = std::make_shared<IdleManager>(pData);
 
 }
 
@@ -33,12 +33,6 @@ void PMRBot::runBotLoop() {
 	// Same for other TE...
 	// 
 
-	// Attribute IDLE behaviour
-	if (pIdleManagerBT->Evaluate(pData) == BT_NODE::FAILURE)
-	{
-		BWAPI::Broodwar->printf("Warning: the IDLE Manager ended incorrectly...");
-	}
-	pIdleManagerBT->Reset();
 
 	// Check if units should flee and compute their interest in available tasks.
 	for (auto& id_unitAgent_pair : pData->unitAgentsList) {
@@ -61,11 +55,13 @@ void PMRBot::runBotLoop() {
 	taskAttribuer();
 
 	// Execute agents behaviour tree
-	int a = 0;
-	for (auto &id_unitAgent_pair : pData->unitAgentsList) {
+	for (auto& id_unitAgent_pair : pData->unitAgentsList) {
 		//BWAPI::Broodwar->printf(std::to_string(a++).c_str());
 		id_unitAgent_pair.second->execute(pData);
 	}
+
+	// IDLE behaviour
+	m_IdleManager->Execute();
 }
 
 void PMRBot::taskAttribuer() {
@@ -79,7 +75,7 @@ void PMRBot::taskAttribuer() {
 		BWAPI::Broodwar->printf(("NB task: " + std::to_string(pData->m_taskList.size()) + ".").c_str());
 
 	// For each task, attribute it to the best suited agent
-	for (std::shared_ptr<Task>& task : pData->m_taskList) {
+	for (const std::shared_ptr<Task>& task : pData->m_taskList) {
 		std::shared_ptr<UnitAgent> bestSuited = nullptr;
 		float bestInterest = -1;
 		for (auto& id_unitAgent_pair : pData->unitAgentsList) {
@@ -88,7 +84,7 @@ void PMRBot::taskAttribuer() {
 			if (unitAgent->getState() != UnitAgent::IDLING)
 				continue;
 
-			float interest = unitAgent->computeInterest(task);
+			const float interest = unitAgent->computeInterest(task);
 
 			if (!bestSuited || interest > bestInterest) {
 				bestInterest = interest;

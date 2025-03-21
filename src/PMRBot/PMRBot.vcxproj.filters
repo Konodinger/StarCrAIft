@@ -44,7 +44,6 @@
     <ClCompile Include=".\UtilitySystem\Tasks\SoldierFleeTask.cpp" />
     <ClCompile Include=".\UtilitySystem\Tasks\SoldierDefendBaseTask.cpp" />
     <ClCompile Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.cpp" />
-    <ClCompile Include=".\UtilitySystem\Tasks\MineralGatheringTask.cpp" />
     <ClCompile Include=".\UtilitySystem\Tasks\VespeneGatheringTask.cpp" />
     <ClCompile Include=".\UtilitySystem\TaskEmitters\EventManagerTE.cpp" />
     <ClCompile Include=".\UtilitySystem\Tasks\Task.cpp" />
@@ -53,7 +52,6 @@
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
     <ClCompile Include=".\UtilitySystem\UnitAgents\UnitAgent.cpp" />
-    <ClCompile Include="IdleManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\Grid.hpp" />
@@ -109,7 +107,6 @@
     <ClInclude Include=".\UtilitySystem\Tasks\SoldierFleeTask.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\SoldierDefendBaseTask.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.h" />
-    <ClInclude Include=".\UtilitySystem\Tasks\MineralGatheringTask.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\VespeneGatheringTask.h" />
     <ClInclude Include=".\UtilitySystem\TaskEmitters\EventManagerTE.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\Task.h" />
@@ -121,7 +118,7 @@
     <ClInclude Include=".\UtilitySystem\UnitAgents\FlyingWarriorUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgents\GroundWarriorUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgents\ObserverUnitAgent.h" />
-    <ClInclude Include="IdleManager.h" />
+    <ClInclude Include="UtilitySystem\Idle\IdleManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">

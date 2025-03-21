@@ -3,7 +3,6 @@
 #include "BT.h"
 #include "BT_ACTION_EXECUTE_METHOD.h"
 
-#include "MineralGatheringTaskIdle.h"
 #include "VespeneGatheringTask.h"
 
 #include "ScoutTask.h"
@@ -16,11 +15,11 @@ void WorkerTE::createBT()
 
 	// change si le bt marche pas ça doit être possible de faire beaucoup plus simple, ça devrait suffir de juste créer (n_max - n) taches
 
-	// minerals
-	BT_DECO_UNTIL_FAILURE* pWhileMineralGatheringNotEnough = new BT_DECO_UNTIL_FAILURE("WhileMineralGatheringNotEnough", pSequencer);
-	BT_SEQUENCER* pSequencerMineralGathering = new BT_SEQUENCER("SequencerMineralGathering", pWhileMineralGatheringNotEnough, 2);
-	BT_CONDITION* pTestIfEnoughMineralGathering = new BT_CONDITION("TestIfEnoughMineralGathering", pSequencerMineralGathering, checkIfEnoughMineralGathering);
-	BT_ACTION_EXECUTE_METHOD* pEmitMineralGatheringTask = new BT_ACTION_EXECUTE_METHOD("EmitMineralGatheringTask", pSequencerMineralGathering, emitMineralGatheringTask);
+	//// minerals
+	//BT_DECO_UNTIL_FAILURE* pWhileMineralGatheringNotEnough = new BT_DECO_UNTIL_FAILURE("WhileMineralGatheringNotEnough", pSequencer);
+	//BT_SEQUENCER* pSequencerMineralGathering = new BT_SEQUENCER("SequencerMineralGathering", pWhileMineralGatheringNotEnough, 2);
+	//BT_CONDITION* pTestIfEnoughMineralGathering = new BT_CONDITION("TestIfEnoughMineralGathering", pSequencerMineralGathering, checkIfEnoughMineralGathering);
+	//BT_ACTION_EXECUTE_METHOD* pEmitMineralGatheringTask = new BT_ACTION_EXECUTE_METHOD("EmitMineralGatheringTask", pSequencerMineralGathering, emitMineralGatheringTask);
 
 	// vespene
 	BT_DECO_UNTIL_FAILURE* pWhileVespeneGatheringNotEnough = new BT_DECO_UNTIL_FAILURE("WhileVespeneGatheringNotEnough", pSequencer);
@@ -48,14 +47,14 @@ bool WorkerTE::checkIfEnoughMineralGathering(void* pData)
 	return count < data->goalMineralGatheringWorkforce;
 }
 
-BT_NODE::State WorkerTE::emitMineralGatheringTask(void* pData)
-{
-	Data* data = static_cast<Data*>(pData);
-	std::shared_ptr<TaskEmitter> te = data->m_task_emitter_map[EmitterType::WORKER];
-	std::shared_ptr<Task> t = std::make_shared<MineralGatheringTaskIdle>(te);
-	te->emitTask(pData, t);
-	return BT_NODE::State::SUCCESS;
-}
+//BT_NODE::State WorkerTE::emitMineralGatheringTask(void* pData)
+//{
+//	Data* data = static_cast<Data*>(pData);
+//	std::shared_ptr<TaskEmitter> te = data->m_task_emitter_map[EmitterType::WORKER];
+//	std::shared_ptr<Task> t = std::make_shared<MineralGatheringTaskIdle>(te);
+//	te->emitTask(pData, t);
+//	return BT_NODE::State::SUCCESS;
+//}
 
 bool WorkerTE::checkIfEnoughVespeneGathering(void* pData)
 {

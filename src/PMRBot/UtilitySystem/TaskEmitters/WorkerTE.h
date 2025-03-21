@@ -11,7 +11,7 @@ public:
 	};
 
 	static bool checkIfEnoughMineralGathering(void* pData);
-	static BT_NODE::State emitMineralGatheringTask(void* pData);
+	//static BT_NODE::State emitMineralGatheringTask(void* pData);
 
 	static bool checkIfEnoughVespeneGathering(void* pData);
 	static BT_NODE::State emitVespeneGatheringTask(void* pData);

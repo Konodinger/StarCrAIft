@@ -8,6 +8,7 @@ class PMRBot;
 #include "TaskEmitter.h"
 #include "EventManagerTE.h"
 #include "WorkerTE.h"
+#include "Idle/IdleManager.h"
 
 class Data;
 
@@ -16,7 +17,7 @@ private:
 	MapTools m_mapTools;
 	Data* pData;
 
-	std::shared_ptr <BT_NODE> pIdleManagerBT;
+	std::shared_ptr<IdleManager> m_IdleManager;
 	std::map<std::shared_ptr<Task>, std::map<std::shared_ptr<UnitAgent>, float>> m_taskToAgentInterest;
 
 	void runBotLoop();
