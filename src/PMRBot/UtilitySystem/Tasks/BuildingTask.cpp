@@ -8,7 +8,7 @@ BuildingTask::BuildingTask(std::shared_ptr<TaskEmitter> taskEmitter, BWAPI::Unit
 
 	m_taskBT = std::make_shared<BT_DECO_UNTIL_SUCCESS>("Building Task", nullptr);
 
-	BT_NODE* buildBuildinNode = new BT_ACTION_BUILD_BUILDING("Build at pos", m_taskBT.get(), m_type);
+	BT_NODE* buildBuildinNode = new BT_ACTION_BUILD_BUILDING("Build at pos", m_taskBT.get(), this);
 
 	//BT_NODE* pBuildAtPos = new BT_SEQUENCER("Build at pos", m_taskBT.get(), 2);
 
