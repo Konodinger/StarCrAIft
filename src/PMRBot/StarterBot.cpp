@@ -15,7 +15,7 @@ StarterBot::StarterBot()
     pData->thresholdSupply = THRESHOLD1_UNUSED_SUPPLY;
 
     pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
-    pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
+    pData->nWantedWorkersFarmingMineralsBeforeGas = NWANTED_WORKERS_FARMING_MINERALS_BEFORE_GAS;
 
     // Test BT
     pBtTest = nullptr;

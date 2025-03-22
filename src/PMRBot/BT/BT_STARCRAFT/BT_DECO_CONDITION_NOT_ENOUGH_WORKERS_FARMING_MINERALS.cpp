@@ -16,5 +16,5 @@ bool BT_DECO_CONDITION_NOT_ENOUGH_WORKERS_FARMING_MINERALS::IsThereNotEnoughWork
 {
     Data* pData = (Data*)data;
     
-    return (int)pData->unitsFarmingMinerals.size() <pData->nWantedWorkersFarmingMinerals;
+    return (int)pData->unitsFarmingMinerals.size() <pData->nWantedWorkersFarmingMineralsBeforeGas;
 }

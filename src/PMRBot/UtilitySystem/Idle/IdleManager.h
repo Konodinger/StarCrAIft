@@ -14,9 +14,15 @@ public:
 
 	void Execute() {
 		int numWorkersOnMinerals = 0;
+		int numWorkersOnGas = 0;
 		for (auto& unit : BWAPI::Broodwar->self()->getUnits()) {
-			if (unit->getType().isWorker() && unit->isGatheringMinerals()) {
-				numWorkersOnMinerals++;
+			if (unit->getType().isWorker()) {
+				if (unit->isGatheringMinerals()) {
+					numWorkersOnMinerals++;
+				}
+				if (unit->isGatheringGas()) {
+					numWorkersOnGas++;
+				}
 			}
 		}
 
@@ -25,17 +31,20 @@ public:
 			const auto& unit = unitAgent->getUnit();
 			if (unitAgent->getState() == UnitAgent::UnitAgentState::IDLING && unit->isIdle()) {
 				if (unit->getType().isWorker()) {
-					if (numWorkersOnMinerals < pData->nWantedWorkersFarmingMinerals) {
+					if (numWorkersOnMinerals < pData->nWantedWorkersFarmingMineralsBeforeGas
+						|| numWorkersOnGas >= pData->nWantedWorkersFarmingGas) {
 						BWAPI::Unit closestMineral = Tools::GetClosestUnitTo(unit, BWAPI::Broodwar->getMinerals());
 						if (closestMineral) {
-							unit->rightClick(closestMineral);
+							unit->gather(closestMineral);
 							numWorkersOnMinerals++;
 						}
 					}
 					else { // On Vespene
-						BWAPI::Unit closestGeyser = Tools::GetClosestUnitTo(unit, BWAPI::Broodwar->getGeysers());
-						if (closestGeyser) {
-							unit->rightClick(closestGeyser);
+						BWAPI::Broodwar->self()->getUnits();
+						auto assimilatorSet = Tools::GetUnitsOfType(BWAPI::UnitTypes::Protoss_Assimilator);
+						BWAPI::Unit closestAssimilator = Tools::GetClosestUnitTo(unit, assimilatorSet);
+						if (closestAssimilator) {
+							unit->gather(closestAssimilator);
 						}
 					}
 				}

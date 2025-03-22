@@ -9,8 +9,9 @@ namespace Tools
     BWAPI::Unit GetClosestUnitTo(BWAPI::Position p, const BWAPI::Unitset& units);
     BWAPI::Unit GetClosestUnitTo(BWAPI::Unit unit, const BWAPI::Unitset& units);
     BWAPI::TilePosition findOptimizedPositionNexus(BWAPI::TilePosition closestGeyser, const std::vector<BWAPI::Position> unitsMineralPositions);
-    int CountUnitsOfType(BWAPI::UnitType type, const BWAPI::Unitset& units);
+    int CountUnitsOfType(BWAPI::UnitType type, const BWAPI::Unitset& units, bool inProgress = false);
     BWAPI::Unit GetUnitOfType(BWAPI::UnitType type);
+    BWAPI::Unitset GetUnitsOfType(BWAPI::UnitType type);
     BWAPI::Unit GetDepot();
 
     bool BuildBuilding(BWAPI::UnitType type);

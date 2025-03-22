@@ -15,7 +15,8 @@ PMRBot::PMRBot() {
 	pData->currSupply = 0;
 	pData->thresholdSupply = THRESHOLD1_UNUSED_SUPPLY;
 	pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
-	pData->nWantedWorkersFarmingMinerals = NWANTED_WORKERS_FARMING_MINERALS;
+	pData->nWantedWorkersFarmingMineralsBeforeGas = NWANTED_WORKERS_FARMING_MINERALS_BEFORE_GAS;
+	pData->nWantedWorkersFarmingGas= NWANTED_WORKERS_FARMING_GAS;
 
 	pData->m_task_emitter_map[EmitterType::WORKER] = std::make_shared<WorkerTE>();
 	pData->m_task_emitter_map[EmitterType::BUILDORDER] = std::make_shared<BuildOrderTE>();

@@ -12,8 +12,9 @@ class Data;
 #define THRESHOLD1_MINERALS 200
 #define THRESHOLD1_UNUSED_SUPPLY 2
 
-#define NWANTED_WORKERS_TOTAL 20
-#define NWANTED_WORKERS_FARMING_MINERALS 16
+#define NWANTED_WORKERS_TOTAL 25
+#define NWANTED_WORKERS_FARMING_MINERALS_BEFORE_GAS 16
+#define NWANTED_WORKERS_FARMING_GAS 4
 
 class TaskEmitter;
 enum class EmitterType;
@@ -27,7 +28,8 @@ public:
 	int thresholdSupply;
 
 	int nWantedWorkersTotal;
-	int nWantedWorkersFarmingMinerals;
+	int nWantedWorkersFarmingMineralsBeforeGas;
+	int nWantedWorkersFarmingGas;
 
 	std::unordered_set<BWAPI::Unit> unitsFarmingMinerals;
 

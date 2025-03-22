@@ -57,14 +57,15 @@ BWAPI::TilePosition Tools::findOptimizedPositionNexus(BWAPI::TilePosition closes
     return bestPosition;
 }
 
-int Tools::CountUnitsOfType(BWAPI::UnitType type, const BWAPI::Unitset& units)
+int Tools::CountUnitsOfType(BWAPI::UnitType type, const BWAPI::Unitset& units, bool inProgress)
 {
     int sum = 0;
     for (auto& unit : units)
     {
         if (unit->getType() == type)
         {
-            sum++;
+            if (!inProgress || unit->isCompleted())
+                sum++;
         }
     }
 
@@ -95,6 +96,19 @@ BWAPI::Unit Tools::GetUnitOfType(BWAPI::UnitType type)
 
     // If we didn't find a valid unit to return, make sure we return nullptr
     return nullptr;
+}
+
+BWAPI::Unitset Tools::GetUnitsOfType(BWAPI::UnitType type) {
+    BWAPI::Unitset set = {};
+    for (auto& unit : BWAPI::Broodwar->self()->getUnits())
+    {
+        if (unit->getType() == type && unit->isCompleted())
+        {
+            set.insert(unit);
+        }
+    }
+
+    return set;
 }
 
 BWAPI::Unit Tools::GetDepot()

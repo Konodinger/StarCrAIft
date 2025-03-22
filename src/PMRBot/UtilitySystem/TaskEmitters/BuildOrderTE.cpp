@@ -5,8 +5,8 @@
 
 void BuildOrderTE::ExecuteTaskEmissionBT(Data* pData) {
 	const BWAPI::UnitType workerType = BWAPI::Broodwar->self()->getRace().getWorker();
-	const int workersWanted = 20;
 	const int workersOwned = Tools::CountUnitsOfType(workerType, BWAPI::Broodwar->self()->getUnits());
+	const int workersOwnedWithProgress = Tools::CountUnitsOfType(workerType, BWAPI::Broodwar->self()->getUnits(), true);
 
 	if (workersOwned != m_numRegisteredWorkers) {
 		m_numRegisteredWorkers = workersOwned;
@@ -39,7 +39,7 @@ void BuildOrderTE::ExecuteTaskEmissionBT(Data* pData) {
 		std::cout << "Number of workers: " << workersOwned << std::endl;
 	}
 
-	if (workersOwned < workersWanted && pData->resourcesManager->getResourceLeft(ResourceType::MINERALS) >= workerType.mineralPrice()) {
+	if (workersOwnedWithProgress < pData->nWantedWorkersTotal && pData->resourcesManager->getResourceLeft(ResourceType::MINERALS) >= workerType.mineralPrice()) {
 		const BWAPI::Unit myDepot = Tools::GetDepot();
 
 		if (myDepot && !myDepot->isTraining()) { myDepot->train(workerType); }
