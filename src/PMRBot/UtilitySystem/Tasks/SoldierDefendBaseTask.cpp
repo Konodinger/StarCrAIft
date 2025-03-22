@@ -16,7 +16,7 @@ SoldierDefendBaseTask::SoldierDefendBaseTask(std::shared_ptr<TaskEmitter> taskEm
 			BWAPI::UnitTypes::Protoss_Interceptor,
 			BWAPI::UnitTypes::Protoss_Scout };
 
-	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("Entry Point", nullptr));
+	m_taskBT = std::make_shared<BT_DECORATOR>("Entry Point", nullptr);
 
 	// Probably a problem here, I don't understand what it's supposed to do...
 	BT_NODE* pRepeatUntilSeesEnemy = new BT_DECO_REPEATER("Repeat until sees enemy", m_taskBT.get(), 100, false, true, false); // => REPEATER TO CREATE

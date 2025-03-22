@@ -4,7 +4,7 @@ SoldierIdleTask::SoldierIdleTask(std::shared_ptr<TaskEmitter> taskEmitter) : Tas
 	
 	m_compatibilityUnitAgentType = { UnitAgent::GROUNDMOBILE, UnitAgent::FLYINGMOBILE };
 
-	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("Entry Point", nullptr));
+	m_taskBT = std::make_shared<BT_DECORATOR>("Entry Point", nullptr);
 
 	BT_NODE* pSoldierIdleSelector = new BT_SELECTOR("Soldier Idle", m_taskBT.get(), 2);
 

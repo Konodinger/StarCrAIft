@@ -1,6 +1,10 @@
 #include "PMRBot.h"
 #include "Tools.h"
 #include "Data.h"
+
+#include "WorkerTE.h"
+#include "UnitProducerTE.h"
+#include "BuildOrderTE.h"
 #include <algorithm>
 
 #define LOCAL_SPEED 10
@@ -22,6 +26,7 @@ PMRBot::PMRBot() {
 	pData->askingForNewPylonsIdealPosition = BWAPI::TilePositions::None;
 
 	pData->m_task_emitter_map[EmitterType::WORKER] = std::make_shared<WorkerTE>();
+	pData->m_task_emitter_map[EmitterType::UNITPRODUCER] = std::make_shared<UnitProducerTE>();
 	pData->m_task_emitter_map[EmitterType::BUILDORDER] = std::make_shared<BuildOrderTE>();
 	pData->m_eventManagerTE = std::make_shared<EventManagerTE>(pData);
 
@@ -37,9 +42,12 @@ void PMRBot::runBotLoop() {
 	pData->resourcesManager->updateResources();
 
 	// Loop over all task emitters and execute their behaviour tree
-	for (auto& emitter : pData->m_task_emitter_map) {
+	/*for (auto& emitter : pData->m_task_emitter_map) {
 		emitter.second->ExecuteTaskEmissionBT(pData);
-	}
+	}*/
+	pData->m_task_emitter_map[EmitterType::WORKER]->ExecuteTaskEmissionBT(pData);
+	pData->m_task_emitter_map[EmitterType::UNITPRODUCER]->ExecuteTaskEmissionBT(pData);
+	pData->m_task_emitter_map[EmitterType::BUILDORDER]->ExecuteTaskEmissionBT(pData);
 
 	// Same for other TE...
 
@@ -97,10 +105,11 @@ void PMRBot::taskAttribuer() {
 		float bestInterest = -1;
 		for (auto& id_unitAgent_pair : pData->unitAgentsList) {
 			auto& unitAgent = id_unitAgent_pair.second;
-
-			if (unitAgent->getState() != UnitAgent::IDLING)
+			
+			if (!task->isCompatible(unitAgent)
+				|| unitAgent->getState() != UnitAgent::IDLING)
 				continue;
-
+			
 			const float interest = unitAgent->computeInterest(task);
 
 			if (!bestSuited || interest > bestInterest) {

@@ -4,7 +4,7 @@ WorkerFleeTask::WorkerFleeTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task(
 
 	m_compatibilityUnitAgentType = { UnitAgent::WORKER };
 
-	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("EntryPoint", nullptr));
+	m_taskBT = std::make_shared<BT_DECORATOR>("EntryPoint", nullptr);
 
 	BT_NODE* pFleeMainSelector = new BT_SELECTOR("Flee", m_taskBT.get(), 3);
 

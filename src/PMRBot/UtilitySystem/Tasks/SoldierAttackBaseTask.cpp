@@ -4,7 +4,7 @@ SoldierAttackBaseTask::SoldierAttackBaseTask(std::shared_ptr<TaskEmitter> taskEm
 	
 	m_compatibilityUnitAgentType = { UnitAgent::GROUNDMOBILE, UnitAgent::FLYINGMOBILE };
 
-	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("Entry Point", nullptr));
+	m_taskBT = std::make_shared<BT_DECORATOR>("Entry Point", nullptr);
 
 	BT_NODE* pAttackBaseMainSelector = new BT_SELECTOR("Attack base sequencer", m_taskBT.get(), 6);
 

@@ -4,7 +4,7 @@ SoldierFleeTask::SoldierFleeTask(std::shared_ptr<TaskEmitter> taskEmitter) : Tas
 	
 	m_compatibilityUnitAgentType = { UnitAgent::GROUNDMOBILE, UnitAgent::FLYINGMOBILE };
 
-	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("Entry Point", nullptr));
+	m_taskBT = std::make_shared<BT_DECORATOR>("Entry Point", nullptr);
 
 	BT_NODE* pFleeMainSelector = new BT_SELECTOR("Flee selector", m_taskBT.get(), 2);
 

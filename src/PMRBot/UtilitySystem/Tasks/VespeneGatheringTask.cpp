@@ -6,7 +6,7 @@
 VespeneGatheringTask::VespeneGatheringTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task("Vespene Gathering Task", taskEmitter) {
     m_compatibilityUnitAgentType = { UnitAgent::WORKER };
 
-    m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("Entry Point", nullptr));
+    m_taskBT = std::make_shared<BT_DECORATOR>("Entry Point", nullptr);
     BT_NODE* pActionGatherNearestMineral = new BT_ACTION_EXECUTE_METHOD("Action execute gatherNearestVespene", m_taskBT.get(), std::bind(gatherNearestVespene, std::placeholders::_1, this));
 }
 

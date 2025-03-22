@@ -50,7 +50,7 @@ BT_NODE::State BT_ACTION_BUILD_BUILDING::BuildBuilding(void* data)
 						&& !pData->mapTools.isPowered(buildingPosition.x, buildingPosition.y)) {
 						BWAPI::Unit nearestPylon = Tools::GetClosestUnitTo(builder, Tools::GetUnitsOfType(BWAPI::UnitTypes::Protoss_Pylon));
 						if (nearestPylon != nullptr) {
-							buildingPosition = BWAPI::Broodwar->getBuildLocation(m_task->getType(), nearestPylon->getTilePosition(), 8, false);
+							buildingPosition = BWAPI::Broodwar->getBuildLocation(m_task->getType(), nearestPylon->getTilePosition(), 7, false);
 							
 							// If no good position is found, back to first choice.
 							if (!buildingPosition.isValid()) {

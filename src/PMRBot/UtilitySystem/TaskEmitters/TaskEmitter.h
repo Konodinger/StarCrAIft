@@ -15,7 +15,8 @@ enum class EmitterType {
 	SCOUT,
 	ARMY,
 	TECHTREE,
-	BUILDORDER
+	BUILDORDER,
+	UNITPRODUCER,
 };
 
 class TaskEmitter {

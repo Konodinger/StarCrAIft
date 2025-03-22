@@ -4,7 +4,7 @@ ScoutTask::ScoutTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task("Scout Tas
 
 	m_compatibilityUnitAgentType = { UnitAgent::WORKER, UnitAgent::OBSERVER };
 
-	m_taskBT = std::make_shared<BT_DECORATOR>(BT_DECORATOR("EntryPoint", nullptr));
+	m_taskBT = std::make_shared<BT_DECORATOR>("EntryPoint", nullptr);
 	BT_NODE* pScoutMainSelector = new BT_SELECTOR("Scout", m_taskBT.get(), 2); // 2 children
 
 	// Searching for enemy bases

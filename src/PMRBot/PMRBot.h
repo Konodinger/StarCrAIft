@@ -7,8 +7,6 @@ class PMRBot;
 #include "Task.h"
 #include "TaskEmitter.h"
 #include "EventManagerTE.h"
-#include "BuildOrderTE.h"
-#include "WorkerTE.h"
 #include "Idle/IdleManager.h"
 
 class Data;
