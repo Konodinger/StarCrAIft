@@ -18,6 +18,8 @@ PMRBot::PMRBot() {
 	pData->nWantedWorkersFarmingMineralsBeforeGas = NWANTED_WORKERS_FARMING_MINERALS_BEFORE_GAS;
 	pData->nWantedWorkersFarmingGas= NWANTED_WORKERS_FARMING_GAS;
 
+	pData->askingForNewPylons = Data::UNNEEDED;
+
 	pData->m_task_emitter_map[EmitterType::WORKER] = std::make_shared<WorkerTE>();
 	pData->m_task_emitter_map[EmitterType::BUILDORDER] = std::make_shared<BuildOrderTE>();
 	pData->m_eventManagerTE = std::make_shared<EventManagerTE>(pData);
@@ -147,6 +149,20 @@ void PMRBot::onFrame()
 	pData->currMinerals = BWAPI::Broodwar->self()->minerals();
 	pData->currSupply = Tools::GetUnusedSupply(true);
 
+	// Check if constructed unit are completed
+	for (auto& pUnitAgent : pData->constructedUnitAgentsList) {
+		if (pUnitAgent->getUnit()->isCompleted()) {
+			pData->unitAgentsList[pUnitAgent->getUnit()->getID()] = pUnitAgent;
+			pData->constructedUnitAgentsList.erase(pUnitAgent);
+			
+			if (pUnitAgent->getUnit()->getType() == BWAPI::UnitTypes::Protoss_Pylon) {
+				if (pData->askingForNewPylons != Data::TREATED) {
+					BWAPI::Broodwar->printf("Warning: a pylon was constructed without making a request...");
+				}
+				pData->askingForNewPylons = Data::UNNEEDED;
+			}
+		}
+	}
 
 	// Run the bot Loop
 	runBotLoop();

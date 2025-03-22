@@ -11,9 +11,8 @@ void BuildOrderTE::ExecuteTaskEmissionBT(Data* pData) {
 	if (workersOwned != m_numRegisteredWorkers) {
 		m_numRegisteredWorkers = workersOwned;
 		if (workersOwned == 7 || workersOwned == 14 || workersOwned == 22) { // PYLON
-			std::shared_ptr<Task> task = std::make_shared<BuildingTask>(pData->m_task_emitter_map[EmitterType::BUILDORDER], BWAPI::UnitTypes::Protoss_Pylon, pData->resourcesManager);
-			emitTask(pData, task);
-			std::cout << "BuildOrder: Create Pylon" << std::endl;
+			if (pData->askingForNewPylons == Data::UNNEEDED)
+				pData->askingForNewPylons = Data::REQUESTED;
 		}
 		if (workersOwned == 16) { // GATEWAY
 			std::shared_ptr<Task> task = std::make_shared<BuildingTask>(pData->m_task_emitter_map[EmitterType::BUILDORDER], BWAPI::UnitTypes::Protoss_Gateway, pData->resourcesManager);
@@ -43,5 +42,12 @@ void BuildOrderTE::ExecuteTaskEmissionBT(Data* pData) {
 		const BWAPI::Unit myDepot = Tools::GetDepot();
 
 		if (myDepot && !myDepot->isTraining()) { myDepot->train(workerType); }
+	}
+
+	if (pData->askingForNewPylons == Data::REQUESTED) {
+		std::shared_ptr<Task> task = std::make_shared<BuildingTask>(pData->m_task_emitter_map[EmitterType::BUILDORDER], BWAPI::UnitTypes::Protoss_Pylon, pData->resourcesManager);
+		emitTask(pData, task);
+		std::cout << "BuildOrder: Create Pylon" << std::endl;
+		pData->askingForNewPylons = Data::TREATED;
 	}
 }

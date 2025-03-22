@@ -21,6 +21,13 @@ enum class EmitterType;
 
 class Data {
 public:
+	enum Request {
+		UNNEEDED,
+		REQUESTED,
+		TREATED,
+	};
+
+
 	Data() = default;
 	int currMinerals;
 	int thresholdMinerals;
@@ -31,9 +38,12 @@ public:
 	int nWantedWorkersFarmingMineralsBeforeGas;
 	int nWantedWorkersFarmingGas;
 
+	Request askingForNewPylons;
+
 	std::unordered_set<BWAPI::Unit> unitsFarmingMinerals;
 
 	std::vector<std::shared_ptr<Task>> m_taskList;
+	std::unordered_set<std::shared_ptr<UnitAgent>> constructedUnitAgentsList;
 	std::map<int, std::shared_ptr<UnitAgent>> unitAgentsList;
 
 	std::map<EmitterType, std::shared_ptr<TaskEmitter>> m_task_emitter_map;
