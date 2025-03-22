@@ -19,6 +19,7 @@ PMRBot::PMRBot() {
 	pData->nWantedWorkersFarmingGas= NWANTED_WORKERS_FARMING_GAS;
 
 	pData->askingForNewPylons = Data::UNNEEDED;
+	pData->askingForNewPylonsIdealPosition = BWAPI::TilePositions::None;
 
 	pData->m_task_emitter_map[EmitterType::WORKER] = std::make_shared<WorkerTE>();
 	pData->m_task_emitter_map[EmitterType::BUILDORDER] = std::make_shared<BuildOrderTE>();
@@ -134,7 +135,7 @@ void PMRBot::onStart()
 	BWAPI::Broodwar->enableFlag(BWAPI::Flag::UserInput);
 
 	// Call MapTools OnStart
-	m_mapTools.onStart();
+	pData->mapTools.onStart();
 
 	pData->m_eventManagerTE->onStart();
 
@@ -144,7 +145,7 @@ void PMRBot::onStart()
 void PMRBot::onFrame()
 {
 	// Update our MapTools information
-	m_mapTools.onFrame();
+	pData->mapTools.onFrame();
 
 	pData->currMinerals = BWAPI::Broodwar->self()->minerals();
 	pData->currSupply = Tools::GetUnusedSupply(true);
@@ -160,6 +161,7 @@ void PMRBot::onFrame()
 					BWAPI::Broodwar->printf("Warning: a pylon was constructed without making a request...");
 				}
 				pData->askingForNewPylons = Data::UNNEEDED;
+				pData->askingForNewPylonsIdealPosition = BWAPI::TilePositions::None;
 			}
 		}
 	}
@@ -214,7 +216,7 @@ void PMRBot::onSendText(std::string text)
 {
 	if (text == "/map")
 	{
-		m_mapTools.toggleDraw();
+		pData->mapTools.toggleDraw();
 	}
 
 	pData->m_eventManagerTE->onSendText(text);

@@ -6,7 +6,7 @@
 
 class BuildingTask : public Task {
 public:
-	BuildingTask(std::shared_ptr<TaskEmitter> taskEmitter, BWAPI::UnitType type, std::shared_ptr<ResourcesManager> resourcesManager);
+	BuildingTask(std::shared_ptr<TaskEmitter> taskEmitter, BWAPI::UnitType type, std::shared_ptr<ResourcesManager> resourcesManager, BWAPI::TilePosition idealPosition = BWAPI::TilePositions::None);
 	BWAPI::UnitType getType() { return m_type; }
 
 private:

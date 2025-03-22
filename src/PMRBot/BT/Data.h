@@ -7,6 +7,7 @@ class Data;
 #include "Task.h"
 #include "EventManagerTE.h"
 #include "ResourcesManager.h"
+#include "MapTools.h"
 
 
 #define THRESHOLD1_MINERALS 200
@@ -29,6 +30,9 @@ public:
 
 
 	Data() = default;
+
+	MapTools mapTools;
+
 	int currMinerals;
 	int thresholdMinerals;
 	int currSupply;
@@ -39,6 +43,7 @@ public:
 	int nWantedWorkersFarmingGas;
 
 	Request askingForNewPylons;
+	BWAPI::TilePosition askingForNewPylonsIdealPosition;
 
 	std::unordered_set<BWAPI::Unit> unitsFarmingMinerals;
 

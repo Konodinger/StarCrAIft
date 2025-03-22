@@ -9,7 +9,7 @@ class BuildingTask;
 //--------------------
 class BT_ACTION_BUILD_BUILDING : public BT_ACTION {
 public:
-	BT_ACTION_BUILD_BUILDING(std::string name, BT_NODE* parent, BuildingTask* task);
+	BT_ACTION_BUILD_BUILDING(std::string name, BT_NODE* parent, BuildingTask* task, BWAPI::TilePosition idealPosition = BWAPI::TilePositions::None);
 
 private:
 	State Evaluate(void* data) override;
@@ -17,6 +17,9 @@ private:
 	BT_NODE::State BuildBuilding(void* data);
 	BuildingTask* m_task;
 
-	bool have_borrowed = false;
+	bool m_have_borrowed = false;
+	bool m_unitIsConstructing = false;
+	BWAPI::TilePosition m_idealPosition;
+	
 };
 //----------

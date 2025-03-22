@@ -1,6 +1,7 @@
 #include "BuildingTask.h"
 
-BuildingTask::BuildingTask(std::shared_ptr<TaskEmitter> taskEmitter, BWAPI::UnitType type, std::shared_ptr<ResourcesManager> resourcesManager) : Task("Building Task", taskEmitter), m_type(type) {
+BuildingTask::BuildingTask(std::shared_ptr<TaskEmitter> taskEmitter, BWAPI::UnitType type, std::shared_ptr<ResourcesManager> resourcesManager, BWAPI::TilePosition idealPosition)
+	: Task("Building Task", taskEmitter), m_type(type) {
 
 	m_compatibilityUnitAgentType = { UnitAgent::WORKER };
 
@@ -8,7 +9,7 @@ BuildingTask::BuildingTask(std::shared_ptr<TaskEmitter> taskEmitter, BWAPI::Unit
 
 	m_taskBT = std::make_shared<BT_DECO_UNTIL_SUCCESS>("Building Task", nullptr);
 
-	BT_NODE* buildBuildinNode = new BT_ACTION_BUILD_BUILDING("Build at pos", m_taskBT.get(), this);
+	BT_NODE* buildBuildinNode = new BT_ACTION_BUILD_BUILDING("Build at pos", m_taskBT.get(), this, idealPosition);
 
 	//BT_NODE* pBuildAtPos = new BT_SEQUENCER("Build at pos", m_taskBT.get(), 2);
 

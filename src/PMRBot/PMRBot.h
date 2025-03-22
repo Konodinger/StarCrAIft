@@ -15,7 +15,6 @@ class Data;
 
 class PMRBot {
 private:
-	MapTools m_mapTools;
 	Data* pData;
 
 	std::shared_ptr<IdleManager> m_IdleManager;

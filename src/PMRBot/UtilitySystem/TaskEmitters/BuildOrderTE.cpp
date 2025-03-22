@@ -44,8 +44,18 @@ void BuildOrderTE::ExecuteTaskEmissionBT(Data* pData) {
 		if (myDepot && !myDepot->isTraining()) { myDepot->train(workerType); }
 	}
 
+	for (auto building : Tools::GetAllBuildings()) {
+		if (Tools::BuildingNeedPower(building->getType()) && !building->isPowered()) {
+			if (pData->askingForNewPylons == Data::UNNEEDED)
+				pData->askingForNewPylons = Data::REQUESTED;
+			if (pData->askingForNewPylons != Data::TREATED
+				&& pData->askingForNewPylonsIdealPosition != BWAPI::TilePositions::None)
+				pData->askingForNewPylonsIdealPosition = building->getTilePosition();
+		}
+	}
+
 	if (pData->askingForNewPylons == Data::REQUESTED) {
-		std::shared_ptr<Task> task = std::make_shared<BuildingTask>(pData->m_task_emitter_map[EmitterType::BUILDORDER], BWAPI::UnitTypes::Protoss_Pylon, pData->resourcesManager);
+		std::shared_ptr<Task> task = std::make_shared<BuildingTask>(pData->m_task_emitter_map[EmitterType::BUILDORDER], BWAPI::UnitTypes::Protoss_Pylon, pData->resourcesManager, pData->askingForNewPylonsIdealPosition);
 		emitTask(pData, task);
 		std::cout << "BuildOrder: Create Pylon" << std::endl;
 		pData->askingForNewPylons = Data::TREATED;

@@ -74,17 +74,6 @@ int Tools::CountUnitsOfType(BWAPI::UnitType type, const BWAPI::Unitset& units, b
 
 BWAPI::Unit Tools::GetUnitOfType(BWAPI::UnitType type)
 {
-    // For each unit that we own
-    if (type == BWAPI::UnitTypes::Protoss_Probe) {
-        for (auto& unit : BWAPI::Broodwar->self()->getUnits())
-        {
-            // if the unit is of the correct type, and it actually has been constructed, return it
-            if (unit->getType() == type && unit->isCompleted())
-            {
-                return unit;
-            }
-        }
-    }
     for (auto& unit : BWAPI::Broodwar->self()->getUnits())
     {
         // if the unit is of the correct type, and it actually has been constructed, return it
@@ -109,6 +98,28 @@ BWAPI::Unitset Tools::GetUnitsOfType(BWAPI::UnitType type) {
     }
 
     return set;
+}
+
+BWAPI::Unitset Tools::GetAllBuildings() {
+    BWAPI::Unitset set = {};
+    for (auto& unit : BWAPI::Broodwar->self()->getUnits())
+    {
+        if (unit->getType().isBuilding() && unit->isCompleted()
+            && !unit->getType().isMineralField()
+            && !(unit->getType() == BWAPI::UnitTypes::Resource_Vespene_Geyser))
+        {
+            set.insert(unit);
+        }
+    }
+
+    return set;
+}
+
+
+bool Tools::BuildingNeedPower(BWAPI::UnitType type) {
+    return (type != BWAPI::UnitTypes::Protoss_Pylon
+        && type != BWAPI::UnitTypes::Protoss_Nexus
+        && type != BWAPI::UnitTypes::Protoss_Assimilator);
 }
 
 BWAPI::Unit Tools::GetDepot()

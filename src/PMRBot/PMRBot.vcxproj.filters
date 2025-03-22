@@ -55,6 +55,7 @@
     <ClCompile Include="UtilitySystem\TaskEmitters\BuildOrderTE.cpp" />
     <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
+    <ClCompile Include="BT\BT_DECO_MULTIPLEXER.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\Grid.hpp" />
@@ -125,6 +126,7 @@
     <ClInclude Include="UtilitySystem\TaskEmitters\BuildOrderTE.h" />
     <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.h" />
     <ClInclude Include="ResourcesManager.h" />
+    <ClInclude Include="BT\BT_DECO_MULTIPLEXER.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">
