@@ -159,21 +159,27 @@ void PMRBot::onFrame()
 	pData->currMinerals = BWAPI::Broodwar->self()->minerals();
 	pData->currSupply = Tools::GetUnusedSupply(true);
 
+	std::vector<std::shared_ptr<UnitAgent>> unitAgentConstructedList = {};
 	// Check if constructed unit are completed
 	for (auto& pUnitAgent : pData->constructedUnitAgentsList) {
 		if (pUnitAgent->getUnit()->isCompleted()) {
-			pData->unitAgentsList[pUnitAgent->getUnit()->getID()] = pUnitAgent;
-			pData->constructedUnitAgentsList.erase(pUnitAgent);
-			
-			if (pUnitAgent->getUnit()->getType() == BWAPI::UnitTypes::Protoss_Pylon) {
-				if (pData->askingForNewPylons != Data::TREATED) {
-					BWAPI::Broodwar->printf("Warning: a pylon was constructed without making a request...");
-				}
-				pData->askingForNewPylons = Data::UNNEEDED;
-				pData->askingForNewPylonsIdealPosition = BWAPI::TilePositions::None;
-			}
+			unitAgentConstructedList.push_back(pUnitAgent);
 		}
 	}
+
+	for (auto pUnitAgent : unitAgentConstructedList) {
+		pData->unitAgentsList[pUnitAgent->getUnit()->getID()] = pUnitAgent;
+		pData->constructedUnitAgentsList.erase(pUnitAgent);
+
+		if (pUnitAgent->getUnit()->getType() == BWAPI::UnitTypes::Protoss_Pylon) {
+			if (pData->askingForNewPylons != Data::TREATED) {
+				BWAPI::Broodwar->printf("Warning: a pylon was constructed without making a request...");
+			}
+			pData->askingForNewPylons = Data::UNNEEDED;
+			pData->askingForNewPylonsIdealPosition = BWAPI::TilePositions::None;
+		}
+	}
+	unitAgentConstructedList.clear();
 
 	// Run the bot Loop
 	runBotLoop();
