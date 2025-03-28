@@ -12,5 +12,14 @@ class SoldierFleeTask :
 {
 public:
     SoldierFleeTask(std::shared_ptr<TaskEmitter> taskEmitter);
+
+    static bool isArmyFleeing(void* data);
+    static BT_NODE::State moveToNearestArmy(void* data);
+
+    static bool isThereBase(void* data);
+    static BT_NODE::State moveToNearestBase(void* data);
 };
+
+
+
 
