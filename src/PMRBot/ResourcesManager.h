@@ -14,6 +14,10 @@ struct Loan {
 	void* borrower;
 };
 
+
+/*
+* Makes sure the resources are allocated to the most urgent matters, and that no process is uselessly hoarding them.
+*/
 class ResourcesManager {
 
 public:

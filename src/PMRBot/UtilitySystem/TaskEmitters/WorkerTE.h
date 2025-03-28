@@ -3,6 +3,10 @@
 #include "TaskEmitter.h"
 #include "BT.h"
 
+
+/*
+* Uses a Behaviour Tree and the data stored on the Blackboard to emit tasks specific to workers.
+*/
 class WorkerTE : public TaskEmitter {
 public:
 	WorkerTE() {

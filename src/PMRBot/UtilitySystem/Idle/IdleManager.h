@@ -6,12 +6,20 @@
 #include "Data.h"
 #include "Tools.h"
 
+
+
+/*
+* Take care of making all units do something, even in the absence of any task.
+*/
 class IdleManager {
 public:
 	IdleManager(Data* data) : pData(data) {
 
 	}
 
+	/*
+	*	Make sure the number of workers on idle tasks is in agreement with what the blackboard is currently specifying.
+	*/
 	void Execute() {
 		int numWorkersOnMinerals = 0;
 		int numWorkersOnGas = 0;

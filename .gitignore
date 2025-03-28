@@ -407,3 +407,4 @@ windows/visualstudio/Win32
 windows/visualstudio/x64
 #!bin/RunStarterBotAndStarcraft.bat
 #!bin/RunStarterBotAndStarcraftDebug.bat
+/windows/starcraft
