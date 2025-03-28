@@ -14,16 +14,15 @@ class Task;
 
 class TaskEmitter;
 
+
+/*
+* Represent a task to be accomplished.
+* Allow to compute the reward associated with completing it.
+* Holds a Behaviour Tree that states how to accomplish the task.
+*/
 class Task
 {
 public:
-	// � compl�ter pour chaque cat�gorie de t�che
-	enum TaskType
-	{
-		BUILD,
-		SCOUT,
-		FLEE
-	};
 
 	Task() = delete;
 
@@ -34,6 +33,10 @@ public:
 		m_id = count++;
 	}
 
+	/*
+	*	Check if a given unit is compatible with the given task.
+	*	@param unitAgent shared_ptr to the unit.
+	*/
 	bool isCompatible(std::shared_ptr<UnitAgent> unitAgent) const {
 		if (m_compatibilityUnitType.size() != 0)
 			return (std::find(m_compatibilityUnitType.begin(), m_compatibilityUnitType.end(), unitAgent->getUnit()->getType()) != m_compatibilityUnitType.end());
@@ -42,15 +45,27 @@ public:
 		return true;
 	}
 
-	// For now, we should not be able to replace the executor. It could be useful if the current executor died, but this should be checked before.
+	/**
+	* Tells the Task which unit shall execute it.
+	* @param executor shared_ptr to the unit.
+	* @temp For now, we should not be able to replace the executor. It could be useful if the current executor died, but this should be checked before.
+	*/
 	bool setExecutor(std::shared_ptr<UnitAgent> executor) {
 		assert(m_executor == nullptr && ("Can't set a new executor on task " + m_name + std::to_string(m_id)).c_str());
 		m_executor = executor;
 
 		return true;
 	}
+
+	/*
+	*	Returns the agent that is currently handling the task.
+	*/
 	std::shared_ptr<UnitAgent> getExecutor() { return m_executor; }
-	// Should be called only if the executor died.
+
+	/*
+	*	Remove the agent from the task handling.
+	*	Should be called only if it died.
+	*/
 	void removeExecutor() { m_executor = nullptr; }
 
 	const std::shared_ptr<BT_NODE> getBT() { return m_taskBT; }
@@ -60,6 +75,9 @@ public:
 
 	bool ongoing() const;
 
+	/*
+	*	Returns the reward associated with the task.
+	*/
 	float reward(/*pData*/) { return 0.f; };
 
 
@@ -77,6 +95,5 @@ protected:
 	std::shared_ptr<BT_NODE> m_taskBT = std::make_shared<BT_ACTION_EMPTY_BT>("Default task BT", nullptr);
 	std::shared_ptr<TaskEmitter> m_taskEmitter;
 
-	// pr�requis / 
 };
 

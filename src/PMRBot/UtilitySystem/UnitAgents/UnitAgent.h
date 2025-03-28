@@ -12,6 +12,13 @@ class Task;
 #include "BT.h"
 #include <set>
 
+
+
+/* 
+*	Generic class that wraps around BWAPI::Unit.
+*	Holds a reference to the current Task associated with it.
+*	May also wraps around multiple units in order to form a squad.
+*/
 class UnitAgent
 {
 public:
@@ -35,7 +42,7 @@ public:
 	};
 
 	UnitAgent() = delete;
-	UnitAgent(BWAPI::Unit unit)
+	explicit UnitAgent(BWAPI::Unit unit)
 		: m_unit(unit)
 	{
 	}
@@ -49,15 +56,29 @@ public:
 	UnitAgentState getState() const { return m_state; }
 	UnitAgentType getType() const { return m_type; }
 
-	// Called by [] in order to check if the unit is available
+	/*
+		
+	*/
 	virtual bool checkFlee(Data* pData) = 0;
 
+	/*
+	* Execute the Behaviour Tree of the unit.
+	* @param pData pointer to the Data Blackboard. Needed for some of the BT nodes.
+	*/
 	void execute(Data* pData);
 
+	/*
+	* Computes the interest of this unit for a specific task, in order to decide tasks assignement.
+	* @param task shared_ptr to the Task.
+	*/
 	virtual float computeInterest(std::shared_ptr<Task> task /*pData*/) = 0;
 
 	virtual void drawDebug() = 0;
 
+	/*
+	* Assign a Task to the unit.
+	* @param task shared_ptr to the Task.
+	*/
 	void setTask(std::shared_ptr<Task> task) {
 		m_state = UnitAgentState::WORKING;
 		m_task = task;

@@ -13,7 +13,6 @@ void UnitAgent::execute(Data* pData) {
 	// Check if not in a squad.
 	//..
 
-
 	std::shared_ptr<BT_NODE> bt =
 		(m_state == FLEEING) ? m_fleeingBT :
 		(m_state == WORKING) ? m_task->getBT() : nullptr;
@@ -35,7 +34,6 @@ void UnitAgent::execute(Data* pData) {
 			m_task.reset();
 			m_state = IDLING;
 		}
-
 	}
 }
 

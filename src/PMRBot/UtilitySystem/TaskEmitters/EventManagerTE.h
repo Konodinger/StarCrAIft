@@ -7,6 +7,10 @@
 
 class Data;
 
+
+/*
+* Uses a Behaviour Tree and the data stored on the Blackboard to emit tasks specific to events (getting attacked, finding an enemy base).
+*/
 class EventManagerTE : public TaskEmitter {
 private:
 	Data* pData;
