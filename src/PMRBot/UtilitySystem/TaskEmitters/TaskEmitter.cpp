@@ -33,6 +33,7 @@ void TaskEmitter::computeTaskReward() {
 
 void TaskEmitter::emitTask(void* pData, std::shared_ptr<Task> task)
 {
+	BWAPI::Broodwar->printf((m_name + " emits " + task->getName()).c_str());
 	Data* data = static_cast<Data*>(pData);
 	m_taskEmitted.push_back(task);
 	data->m_taskList.push_back(task);

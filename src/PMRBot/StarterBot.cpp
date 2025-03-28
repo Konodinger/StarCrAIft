@@ -10,9 +10,9 @@ StarterBot::StarterBot()
 {
     //pData = new Data();
     pData->currMinerals = 0;
-    pData->thresholdMinerals = THRESHOLD1_MINERALS;
+    pData->thresholdMinerals = THRESHOLD_MINERALS;
     pData->currSupply = 0;
-    pData->thresholdSupply = THRESHOLD1_UNUSED_SUPPLY;
+    pData->thresholdSupply = THRESHOLD_UNUSED_SUPPLY;
 
     pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
     pData->nWantedWorkersFarmingMineralsBeforeGas = NWANTED_WORKERS_FARMING_MINERALS_BEFORE_GAS;
