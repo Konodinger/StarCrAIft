@@ -2,9 +2,7 @@
 #include "Task.h"
 
 BT_ACTION_MONITOR_EXISTING_BASE::BT_ACTION_MONITOR_EXISTING_BASE(std::string name, BT_NODE* parent, std::shared_ptr<int> nbScouts, std::vector<BWAPI::TilePosition>* enemyBaseList, Task* task) :
-	BT_ACTION(name, parent), nbScouts(nbScouts), enemyBaseList(enemyBaseList) {
-	taskPtr = std::make_shared<Task>(*task);
-}
+	BT_ACTION(name, parent), nbScouts(nbScouts), enemyBaseList(enemyBaseList), taskPtr(task) {}
 
 std::string BT_ACTION_MONITOR_EXISTING_BASE::GetDescription()
 {

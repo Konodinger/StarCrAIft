@@ -14,7 +14,7 @@ private:
 	State Evaluate(void* data) override;
 	std::string GetDescription() override;
 
-	std::shared_ptr<Task> taskPtr;
+	Task* taskPtr;
 	std::vector<BWAPI::TilePosition>* enemyBaseList;
 
 	BT_NODE::State SearchEnemyBase(void* data);

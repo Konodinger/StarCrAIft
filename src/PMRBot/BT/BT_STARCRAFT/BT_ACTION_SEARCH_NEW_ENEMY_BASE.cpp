@@ -2,10 +2,7 @@
 #include "Data.h"
 
 BT_ACTION_SEARCH_NEW_ENEMY_BASE::BT_ACTION_SEARCH_NEW_ENEMY_BASE(std::string name, BT_NODE* parent, Task* task, std::vector<BWAPI::TilePosition>* enemyBaseList)
-	: BT_ACTION(name, parent), enemyBaseList(enemyBaseList)
-{
-	taskPtr = std::make_shared<Task>(*task);
-}
+	: BT_ACTION(name, parent), enemyBaseList(enemyBaseList), taskPtr(task) {}
 
 BT_NODE::State BT_ACTION_SEARCH_NEW_ENEMY_BASE::Evaluate(void* data)
 {

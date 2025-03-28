@@ -19,6 +19,6 @@ private:
 
 	std::shared_ptr<int> nbScouts;
 	std::vector<BWAPI::TilePosition>* enemyBaseList;
-	std::shared_ptr<Task> taskPtr;
+	Task* taskPtr;
 };
 
