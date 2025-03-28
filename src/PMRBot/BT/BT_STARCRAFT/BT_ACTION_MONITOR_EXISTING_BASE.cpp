@@ -1,7 +1,10 @@
 #include "BT_ACTION_MONITOR_EXISTING_BASE.h"
+#include "Task.h"
 
-BT_ACTION_MONITOR_EXISTING_BASE::BT_ACTION_MONITOR_EXISTING_BASE(std::string name, BT_NODE* parent, std::shared_ptr<int> nbScouts, std::vector<BWAPI::TilePosition>* enemyBaseList, BWAPI::Unit unit) :
-	BT_ACTION(name, parent), nbScouts(nbScouts), enemyBaseList(enemyBaseList), scout(unit) {}
+BT_ACTION_MONITOR_EXISTING_BASE::BT_ACTION_MONITOR_EXISTING_BASE(std::string name, BT_NODE* parent, std::shared_ptr<int> nbScouts, std::vector<BWAPI::TilePosition>* enemyBaseList, Task* task) :
+	BT_ACTION(name, parent), nbScouts(nbScouts), enemyBaseList(enemyBaseList) {
+	taskPtr = std::make_shared<Task>(*task);
+}
 
 std::string BT_ACTION_MONITOR_EXISTING_BASE::GetDescription()
 {
@@ -20,7 +23,7 @@ BT_NODE::State BT_ACTION_MONITOR_EXISTING_BASE::MonitorEnemyBase(void* data) {
 	for (int i = 0; i < enemyBaseList->size(); i++) {
 		if (nbScoutsTemp == 0) {
 			BWAPI::Position position = BWAPI::Position(enemyBaseList->at(i));
-			scout->move(position);
+			taskPtr->getExecutor()->getUnit()->move(position);
 
 			return BT_NODE::RUNNING;
 		}

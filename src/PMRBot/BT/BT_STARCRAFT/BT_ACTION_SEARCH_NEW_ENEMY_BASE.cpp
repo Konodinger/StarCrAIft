@@ -1,9 +1,10 @@
 #include "BT_ACTION_SEARCH_NEW_ENEMY_BASE.h"
 #include "Data.h"
 
-BT_ACTION_SEARCH_NEW_ENEMY_BASE::BT_ACTION_SEARCH_NEW_ENEMY_BASE(std::string name, BT_NODE* parent, BWAPI::Unit unit, std::vector<BWAPI::TilePosition>* enemyBaseList)
-	: BT_ACTION(name, parent), scout(unit), enemyBaseList(enemyBaseList)
+BT_ACTION_SEARCH_NEW_ENEMY_BASE::BT_ACTION_SEARCH_NEW_ENEMY_BASE(std::string name, BT_NODE* parent, Task* task, std::vector<BWAPI::TilePosition>* enemyBaseList)
+	: BT_ACTION(name, parent), enemyBaseList(enemyBaseList)
 {
+	taskPtr = std::make_shared<Task>(*task);
 }
 
 BT_NODE::State BT_ACTION_SEARCH_NEW_ENEMY_BASE::Evaluate(void* data)
@@ -46,7 +47,7 @@ BT_NODE::State BT_ACTION_SEARCH_NEW_ENEMY_BASE::SearchEnemyBase(void* data) {
 
 			if ((!map.isExplored(tile)) && map.isWalkable(tile)) {
 				BWAPI::Position position = BWAPI::Position(tile);
-				scout->move(position, false);
+				taskPtr->getExecutor()->getUnit()->move(position, false);
 				return BT_NODE::RUNNING;
 			}
 		}

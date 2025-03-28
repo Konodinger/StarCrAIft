@@ -4,10 +4,12 @@
 #include "BT_ACTION.h"
 #include <BWAPI.h>
 
+class Task;
+
 class BT_ACTION_MONITOR_EXISTING_BASE : public BT_ACTION
 {
 public:
-	BT_ACTION_MONITOR_EXISTING_BASE(std::string name, BT_NODE* parent, std::shared_ptr<int> nbScouts, std::vector<BWAPI::TilePosition>* enemyBaseList, BWAPI::Unit unit);
+	BT_ACTION_MONITOR_EXISTING_BASE(std::string name, BT_NODE* parent, std::shared_ptr<int> nbScouts, std::vector<BWAPI::TilePosition>* enemyBaseList, Task* task);
 
 private:
 	State Evaluate(void* data) override;
@@ -17,6 +19,6 @@ private:
 
 	std::shared_ptr<int> nbScouts;
 	std::vector<BWAPI::TilePosition>* enemyBaseList;
-	BWAPI::Unit scout;
+	std::shared_ptr<Task> taskPtr;
 };
 
