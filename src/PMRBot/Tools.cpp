@@ -115,6 +115,19 @@ BWAPI::Unitset Tools::GetAllBuildings() {
     return set;
 }
 
+BWAPI::Unitset Tools::GetAllIncompleteUnits() {
+    BWAPI::Unitset set = {};
+    for (auto& unit : BWAPI::Broodwar->self()->getUnits())
+    {
+        if (!unit->isCompleted())
+        {
+            set.insert(unit);
+        }
+    }
+
+    return set;
+}
+
 
 bool Tools::BuildingNeedPower(BWAPI::UnitType type) {
     return (type != BWAPI::UnitTypes::Protoss_Pylon

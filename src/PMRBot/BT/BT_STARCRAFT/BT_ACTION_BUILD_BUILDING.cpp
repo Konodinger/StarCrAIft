@@ -23,10 +23,9 @@ BT_NODE::State BT_ACTION_BUILD_BUILDING::BuildBuilding(void* data)
 {
 	Data* pData = (Data*)data;
 	BWAPI::Unit builder = m_task->getExecutor()->getUnit();
-
-	for (auto unitAgent : pData->constructedUnitAgentsList) {
-		if (unitAgent->getUnit()->getType() == m_task->getType()
-			&& unitAgent->getUnit()->getTilePosition().getApproxDistance(builder->getTilePosition()) < 4) {
+	for (auto unit : Tools::GetAllIncompleteUnits()) {
+		if (unit->getType() == m_task->getType()
+			&& unit->getTilePosition().getApproxDistance(builder->getTilePosition()) < 6) {
 			// The construction has started...
 			BWAPI::Broodwar->printf("Started Building %s", m_task->getType().getName().c_str());
 			pData->resourcesManager->free_resource(this);
