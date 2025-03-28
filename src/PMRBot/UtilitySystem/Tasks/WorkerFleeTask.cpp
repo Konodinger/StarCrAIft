@@ -19,3 +19,58 @@ WorkerFleeTask::WorkerFleeTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task(
 	//BT_NODE* pMakeNewBase = new BT_ACTION_MAKE_NEW_BASE("Make new base", pFleeMainSelector, ...); // => ACTION TO CREATE
 
 }
+
+bool WorkerFleeTask::isThereBase(void* data)
+{
+	Data* pData = (Data*)data;
+
+	// TODO
+	// 
+	//
+
+	return true;
+}
+
+BT_NODE::State WorkerFleeTask::moveToNearestBase(void* data)
+{
+	Data* pData = (Data*)data;
+
+	// TODO
+	// 
+	//
+
+	return BT_NODE::State::SUCCESS;
+}
+
+bool WorkerFleeTask::isArmyFleeing(void* data)
+{
+	Data* pData = (Data*)data;
+
+	// TODO
+	// 
+	//
+
+	return true;
+}
+
+BT_NODE::State WorkerFleeTask::moveToNearestArmy(void* data)
+{
+	Data* pData = (Data*)data;
+
+	// TODO
+	// 
+	//
+
+	return BT_NODE::State::SUCCESS;
+}
+
+BT_NODE::State WorkerFleeTask::makeNewBase(void* data)
+{
+	Data* pData = (Data*)data;
+
+	// TODO
+	// 
+	//
+
+	return BT_NODE::State::SUCCESS;
+}
