@@ -11,22 +11,27 @@ class SoldierAttackBaseTask :
     public Task
 {
 public:
-    SoldierAttackBaseTask(std::shared_ptr<TaskEmitter> taskEmitter);
 
-    static BT_NODE::State moveToPosition(void* data);
+    SoldierAttackBaseTask(std::shared_ptr<TaskEmitter> taskEmitter, std::vector<BWAPI::TilePosition>* enemyBaseList);
+
+    BT_NODE::State moveToPosition(void* data);
 
     static bool areEnemyInSight(void* data);
-    static BT_NODE::State attackSeenEnemy(void* data);
+    BT_NODE::State attackSeenEnemy(void* data);
 
     static bool areDefensiveBuildingsInSight(void* data);
-    static BT_NODE::State attackDefensiveBuildings(void* data);
+    BT_NODE::State attackDefensiveBuildings(void* data);
 
     static bool areSupplyProviderInSight(void* data);
-    static BT_NODE::State attackSupplyProvider(void* data);
+    BT_NODE::State attackSupplyProvider(void* data);
 
     static bool areWorkerOrRessourceStocksInSight(void* data);
-    static BT_NODE::State attackWorkerOrStocksInSight(void* data);
+    BT_NODE::State attackWorkerOrStocksInSight(void* data);
 
-    static BT_NODE::State attackAll(void* data);
+    BT_NODE::State attackAll(void* data);
+
+    std::vector<BWAPI::TilePosition>* enemyBaseList;
+    BWAPI::Unit soldier;
+
 };
 
