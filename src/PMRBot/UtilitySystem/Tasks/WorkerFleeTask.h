@@ -12,5 +12,13 @@ class WorkerFleeTask :
 {
 public:
     WorkerFleeTask(std::shared_ptr<TaskEmitter> taskEmitter);
+
+    static bool isThereBase(void* data);
+    static BT_NODE::State moveToNearestBase(void* data);
+
+    static bool isArmyFleeing(void* data);
+    static BT_NODE::State moveToNearestArmy(void* data);
+
+    static BT_NODE::State makeNewBase(void* data);
 };
 
