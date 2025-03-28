@@ -18,7 +18,6 @@ private:
 	BuildingTask* m_task;
 
 	bool m_have_borrowed = false;
-	bool m_unitIsConstructing = false;
 	BWAPI::TilePosition m_idealPosition;
 	
 };
