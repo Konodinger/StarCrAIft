@@ -11,7 +11,7 @@ ScoutTask::ScoutTask(std::shared_ptr<TaskEmitter> taskEmitter) : Task("Scout Tas
 	BT_NODE* pSearchEnemyBaseSequencer = new BT_SEQUENCER("Search for enemy base", pScoutMainSelector, 2);
 	int nbEnemyBases = enemyBaseList->size();
 	BT_NODE* pConditionNoEnemyBase = new BT_DECO_COND_LESSER_THAN<int>("Is enemy base not known", pSearchEnemyBaseSequencer, 0, nbEnemyBases, false);
-	//BT_NODE* pSearchForBase = new BT_ACTION_SEARCH_NEW_ENEMY_BASE("Search for a new enemy base position", pSearchEnemyBaseSequencer, ...); // Search base action to implement (according to Miro)
+	BT_NODE* pSearchForBase = new BT_ACTION_SEARCH_NEW_ENEMY_BASE("Search for a new enemy base position", pSearchEnemyBaseSequencer, this->getExecutor()->getUnit(), enemyBaseList); // Search base action to implement (according to Miro)
 
 	//// Monitoring enemy base
 	BT_NODE* pMonitorEnemyBaseSequencer = new BT_SEQUENCER("Monitor enemy base", pScoutMainSelector, 2);

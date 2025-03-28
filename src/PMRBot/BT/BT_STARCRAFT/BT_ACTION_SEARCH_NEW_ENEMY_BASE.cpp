@@ -1,8 +1,8 @@
 #include "BT_ACTION_SEARCH_NEW_ENEMY_BASE.h"
 #include "Data.h"
 
-BT_ACTION_SEARCH_NEW_ENEMY_BASE::BT_ACTION_SEARCH_NEW_ENEMY_BASE(std::string name, BT_NODE* parent, ScoutTask* task, std::vector<BWAPI::TilePosition>* enemyBaseList)
-	: BT_ACTION(name, parent), m_task(task), enemyBaseList(enemyBaseList)
+BT_ACTION_SEARCH_NEW_ENEMY_BASE::BT_ACTION_SEARCH_NEW_ENEMY_BASE(std::string name, BT_NODE* parent, BWAPI::Unit unit, std::vector<BWAPI::TilePosition>* enemyBaseList)
+	: BT_ACTION(name, parent), scout(unit), enemyBaseList(enemyBaseList)
 {
 }
 
@@ -17,9 +17,7 @@ std::string BT_ACTION_SEARCH_NEW_ENEMY_BASE::GetDescription()
 }
 
 BT_NODE::State BT_ACTION_SEARCH_NEW_ENEMY_BASE::SearchEnemyBase(void* data) {
-		
-	BWAPI::Unit scout = m_task->getExecutor()->getUnit();
-
+	
 	Data* pData = (Data*)data;
 	MapTools map = pData->mapTools;
 	
