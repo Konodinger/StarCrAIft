@@ -16,6 +16,7 @@ class Data;
 #define NWANTED_WORKERS_TOTAL 25
 #define NWANTED_WORKERS_FARMING_MINERALS_BEFORE_GAS 16
 #define NWANTED_WORKERS_FARMING_GAS 4
+#define NMIN_WORKERS_BEFORE_SCOUTING 8
 
 class TaskEmitter;
 enum class EmitterType;
@@ -41,6 +42,8 @@ public:
 	int nWantedWorkersTotal;
 	int nWantedWorkersFarmingMineralsBeforeGas;
 	int nWantedWorkersFarmingGas;
+
+	int nMinWorkersBeforeScouting;
 
 	Request askingForNewPylons;
 	BWAPI::TilePosition askingForNewPylonsIdealPosition;

@@ -20,7 +20,8 @@ PMRBot::PMRBot() {
 	pData->thresholdSupply = THRESHOLD1_UNUSED_SUPPLY;
 	pData->nWantedWorkersTotal = NWANTED_WORKERS_TOTAL;
 	pData->nWantedWorkersFarmingMineralsBeforeGas = NWANTED_WORKERS_FARMING_MINERALS_BEFORE_GAS;
-	pData->nWantedWorkersFarmingGas= NWANTED_WORKERS_FARMING_GAS;
+	pData->nWantedWorkersFarmingGas = NWANTED_WORKERS_FARMING_GAS;
+	pData->nMinWorkersBeforeScouting = NMIN_WORKERS_BEFORE_SCOUTING;
 
 	pData->askingForNewPylons = Data::UNNEEDED;
 	pData->askingForNewPylonsIdealPosition = BWAPI::TilePositions::None;
