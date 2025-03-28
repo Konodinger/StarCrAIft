@@ -10,8 +10,8 @@ class Data;
 #include "MapTools.h"
 
 
-#define THRESHOLD1_MINERALS 200
-#define THRESHOLD1_UNUSED_SUPPLY 2
+#define THRESHOLD_MINERALS 200
+#define THRESHOLD_UNUSED_SUPPLY 6
 
 #define NWANTED_WORKERS_TOTAL 25
 #define NWANTED_WORKERS_FARMING_MINERALS_BEFORE_GAS 16
@@ -44,6 +44,16 @@ public:
 	int nWantedWorkersFarmingGas;
 
 	int nMinWorkersBeforeScouting;
+
+	// Ordered by necessity, and paired with the expected number of workers
+	std::vector<std::pair<int, BWAPI::UnitType>> buildOrderTechTree = {
+		{10, BWAPI::UnitTypes::Protoss_Assimilator},
+		{12, BWAPI::UnitTypes::Protoss_Gateway},
+		{14, BWAPI::UnitTypes::Protoss_Forge},
+		{15, BWAPI::UnitTypes::Protoss_Cybernetics_Core},
+		{16, BWAPI::UnitTypes::Protoss_Stargate},
+		{18, BWAPI::UnitTypes::Protoss_Fleet_Beacon},
+	};
 
 	Request askingForNewPylons;
 	BWAPI::TilePosition askingForNewPylonsIdealPosition;
