@@ -10,9 +10,6 @@
 */
 class ScoutTask : public Task {
 public:
-	ScoutTask(std::shared_ptr<TaskEmitter> taskEmitter);
-
-private:
-	std::vector<BWAPI::TilePosition>* enemyBaseList;
+	ScoutTask(std::shared_ptr<TaskEmitter> taskEmitter, std::vector<BWAPI::TilePosition>* enemyBaseList, std::shared_ptr<int> nbScoutsMonitoring);
 
 };

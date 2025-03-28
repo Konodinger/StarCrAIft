@@ -99,7 +99,7 @@ BT_NODE::State WorkerTE::emitScoutingTask(void* pData)
 {
 	Data* data = static_cast<Data*>(pData);
 	std::shared_ptr<TaskEmitter> te = data->m_task_emitter_map[EmitterType::WORKER];
-	std::shared_ptr<Task> t = std::make_shared<ScoutTask>(te);
+	std::shared_ptr<Task> t = std::make_shared<ScoutTask>(te, enemyBaseList, nbScoutsMonitoring);
 	te->emitTask(pData, t);
 	return BT_NODE::State::SUCCESS;
 }

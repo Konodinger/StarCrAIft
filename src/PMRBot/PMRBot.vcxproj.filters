@@ -60,6 +60,7 @@
     <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_ASK_FOR_NEW_PYLONS.cpp" />
     <ClCompile Include="UtilitySystem\Tasks\CreateWorkerTask.cpp" />
     <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_SEARCH_NEW_ENEMY_BASE.cpp" />
+    <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_MONITOR_EXISTING_BASE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include=".\Grid.hpp" />
@@ -135,6 +136,7 @@
     <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_ASK_FOR_NEW_PYLONS.h" />
     <ClInclude Include="UtilitySystem\Tasks\CreateWorkerTask.h" />
     <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_SEARCH_NEW_ENEMY_BASE.h" />
+    <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_MONITOR_EXISTING_BASE.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="BT">

@@ -26,4 +26,7 @@ public:
 private:
 	void createBT();
 
+	static inline std::vector<BWAPI::TilePosition>* enemyBaseList = new std::vector<BWAPI::TilePosition>();
+	static inline std::shared_ptr<int> nbScoutsMonitoring = std::make_shared<int>(0);
+
 };

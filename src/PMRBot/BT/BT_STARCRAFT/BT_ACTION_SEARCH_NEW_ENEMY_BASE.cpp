@@ -21,7 +21,6 @@ BT_NODE::State BT_ACTION_SEARCH_NEW_ENEMY_BASE::SearchEnemyBase(void* data) {
 	Data* pData = (Data*)data;
 	MapTools map = pData->mapTools;
 	
-	//Use references instead of pointers for enemyBaseList ?
 	const BWAPI::Unitset& enemyUnits = BWAPI::Broodwar->enemy()->getUnits();
 	for (auto& unit : enemyUnits) {
 
