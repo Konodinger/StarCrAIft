@@ -18,6 +18,8 @@ class Data;
 #define NWANTED_WORKERS_FARMING_GAS 4
 #define NMIN_WORKERS_BEFORE_SCOUTING 8
 
+#define NMIN_SOLDIERS_BEFORE_ATTACK 10
+
 class TaskEmitter;
 enum class EmitterType;
 
@@ -44,6 +46,10 @@ public:
 	int nWantedWorkersFarmingGas;
 
 	int nMinWorkersBeforeScouting;
+
+	int nMinSoldiersBeforeAttack;
+
+	int numSoldierSent = 0;
 
 	// Ordered by necessity, and paired with the expected number of workers
 	std::vector<std::pair<int, BWAPI::UnitType>> buildOrderTechTree = {

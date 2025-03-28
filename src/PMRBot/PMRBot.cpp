@@ -5,6 +5,7 @@
 #include "WorkerTE.h"
 #include "UnitProducerTE.h"
 #include "BuildOrderTE.h"
+#include "ArmyTE.h"
 #include <algorithm>
 
 #define LOCAL_SPEED 10
@@ -23,12 +24,16 @@ PMRBot::PMRBot() {
 	pData->nWantedWorkersFarmingGas = NWANTED_WORKERS_FARMING_GAS;
 	pData->nMinWorkersBeforeScouting = NMIN_WORKERS_BEFORE_SCOUTING;
 
+	pData->nMinSoldiersBeforeAttack = NMIN_SOLDIERS_BEFORE_ATTACK;
+
+
 	pData->askingForNewPylons = Data::UNNEEDED;
 	pData->askingForNewPylonsIdealPosition = BWAPI::TilePositions::None;
 
 	pData->m_task_emitter_map[EmitterType::WORKER] = std::make_shared<WorkerTE>();
 	pData->m_task_emitter_map[EmitterType::UNITPRODUCER] = std::make_shared<UnitProducerTE>();
 	pData->m_task_emitter_map[EmitterType::BUILDORDER] = std::make_shared<BuildOrderTE>();
+	pData->m_task_emitter_map[EmitterType::ARMY] = std::make_shared<ArmyTE>();
 	pData->m_eventManagerTE = std::make_shared<EventManagerTE>(pData);
 
 	pData->resourcesManager = std::make_shared<ResourcesManager>();
@@ -49,6 +54,7 @@ void PMRBot::runBotLoop() {
 	pData->m_task_emitter_map[EmitterType::WORKER]->ExecuteTaskEmissionBT(pData);
 	pData->m_task_emitter_map[EmitterType::UNITPRODUCER]->ExecuteTaskEmissionBT(pData);
 	pData->m_task_emitter_map[EmitterType::BUILDORDER]->ExecuteTaskEmissionBT(pData);
+	pData->m_task_emitter_map[EmitterType::ARMY]->ExecuteTaskEmissionBT(pData);
 
 	// Same for other TE...
 
@@ -106,11 +112,11 @@ void PMRBot::taskAttribuer() {
 		float bestInterest = -1;
 		for (auto& id_unitAgent_pair : pData->unitAgentsList) {
 			auto& unitAgent = id_unitAgent_pair.second;
-			
+
 			if (!task->isCompatible(unitAgent)
 				|| unitAgent->getState() != UnitAgent::IDLING)
 				continue;
-			
+
 			const float interest = unitAgent->computeInterest(task);
 
 			if (!bestSuited || interest > bestInterest) {

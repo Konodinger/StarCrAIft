@@ -27,13 +27,13 @@ bool UnitProducerTE::checkIfEnoughWorker(void* data)
 	Data* pData = static_cast<Data*>(data);
 	const BWAPI::UnitType workerType = BWAPI::Broodwar->self()->getRace().getWorker();
 	const int workersOwnedWithProgress = Tools::CountUnitsOfType(workerType, BWAPI::Broodwar->self()->getUnits(), true);
-	
+
 	return (workersOwnedWithProgress < pData->nWantedWorkersTotal
-	&& pData->resourcesManager->getResourceLeft(ResourceType::MINERALS) >= workerType.mineralPrice());
+		&& pData->resourcesManager->getResourceLeft(ResourceType::MINERALS) >= workerType.mineralPrice());
 }
 
 bool UnitProducerTE::checkIfEnoughPylonForNewWorker(void* data) {
-	
+
 	return (BWAPI::Broodwar->self()->supplyUsed() + BWAPI::UnitTypes::Protoss_Probe.supplyRequired()
 		< Tools::GetTotalSupply(false));
 }
