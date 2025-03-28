@@ -82,6 +82,7 @@
     <ClInclude Include="BT\BT_DECO_MULTIPLEXER.h" />
     <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_ASK_FOR_NEW_PYLONS.h" />
     <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.h" />
+    <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_SEARCH_NEW_ENEMY_BASE.h" />
     <ClInclude Include="ResourcesManager.h" />
     <ClInclude Include="UtilitySystem\TaskEmitters\BuildOrderTE.h" />
     <ClInclude Include="UtilitySystem\Idle\IdleManager.h" />
@@ -143,6 +144,7 @@
     <ClCompile Include="BT\BT_DECO_MULTIPLEXER.cpp" />
     <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_ASK_FOR_NEW_PYLONS.cpp" />
     <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.cpp" />
+    <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_SEARCH_NEW_ENEMY_BASE.cpp" />
     <ClCompile Include="ResourcesManager.cpp" />
     <ClCompile Include="UtilitySystem\TaskEmitters\BuildOrderTE.cpp" />
     <ClCompile Include="UtilitySystem\TaskEmitters\UnitProducerTE.cpp" />
