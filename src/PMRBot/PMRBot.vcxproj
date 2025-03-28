@@ -89,6 +89,7 @@
     <ClInclude Include="UtilitySystem\Idle\IdleManager.h" />
     <ClInclude Include="UtilitySystem\TaskEmitters\UnitProducerTE.h" />
     <ClInclude Include="UtilitySystem\Tasks\CreateWorkerTask.h" />
+    <ClInclude Include="UtilitySystem\Tasks\CreateUnitTask.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include=".\BT\BT_ACTION.cpp" />
@@ -151,6 +152,7 @@
     <ClCompile Include="UtilitySystem\TaskEmitters\BuildOrderTE.cpp" />
     <ClCompile Include="UtilitySystem\TaskEmitters\UnitProducerTE.cpp" />
     <ClCompile Include="UtilitySystem\Tasks\CreateWorkerTask.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\CreateUnitTask.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectName>PMRBot</ProjectName>

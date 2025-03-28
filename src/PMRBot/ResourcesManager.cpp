@@ -34,7 +34,7 @@ void ResourcesManager::free_resource(void* borrower) {
 bool ResourcesManager::can_borrow(void* borrower) {
 	if (m_loans.empty()) return false; // Didn't borrow anything
 	if (m_loans.front().borrower == borrower) {
-		return getResourceLeft(m_loans.front().resourceType) >= m_loans.front().amount;
+		return m_resources[(int) m_loans.front().resourceType] >= m_loans.front().amount;
 	}
 	return false;
 }

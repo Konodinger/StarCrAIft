@@ -13,6 +13,7 @@ namespace Tools
     BWAPI::Unit GetUnitOfType(BWAPI::UnitType type);
     BWAPI::Unitset GetUnitsOfType(BWAPI::UnitType type);
     BWAPI::Unitset GetAllBuildings();
+    BWAPI::Unitset GetAllIncompleteUnits();
     bool BuildingNeedPower(BWAPI::UnitType type);
     BWAPI::Unit GetDepot();
 

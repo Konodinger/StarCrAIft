@@ -12,5 +12,6 @@ public:
 	CreateWorkerTask(std::shared_ptr<TaskEmitter> taskEmitter);
 
 	static BT_NODE::State trainWorker(void* pData, CreateWorkerTask* task);
-
+private:
+	bool m_have_borrowed = false;
 };
