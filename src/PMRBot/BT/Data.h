@@ -18,6 +18,8 @@ class Data;
 #define NWANTED_WORKERS_FARMING_GAS 4
 #define NMIN_WORKERS_BEFORE_SCOUTING 8
 
+#define NWANTED_ZEALOTS_TOTAL 8
+
 class TaskEmitter;
 enum class EmitterType;
 
@@ -43,12 +45,14 @@ public:
 	int nWantedWorkersFarmingMineralsBeforeGas;
 	int nWantedWorkersFarmingGas;
 
+	int nWantedZealotsTotal;
+
 	int nMinWorkersBeforeScouting;
 
 	// Ordered by necessity, and paired with the expected number of workers
 	std::vector<std::pair<int, BWAPI::UnitType>> buildOrderTechTree = {
 		{10, BWAPI::UnitTypes::Protoss_Assimilator},
-		{12, BWAPI::UnitTypes::Protoss_Gateway},
+		{11, BWAPI::UnitTypes::Protoss_Gateway},
 		{14, BWAPI::UnitTypes::Protoss_Forge},
 		{15, BWAPI::UnitTypes::Protoss_Cybernetics_Core},
 		{16, BWAPI::UnitTypes::Protoss_Stargate},
