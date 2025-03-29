@@ -18,7 +18,9 @@ class Data;
 #define NWANTED_WORKERS_FARMING_GAS 4
 #define NMIN_WORKERS_BEFORE_SCOUTING 8
 
-#define NMIN_SOLDIERS_BEFORE_ATTACK 10
+#define NWANTED_ZEALOTS_TOTAL 16
+
+#define NMIN_SOLDIERS_BEFORE_ATTACK 8
 
 class TaskEmitter;
 enum class EmitterType;
@@ -45,6 +47,8 @@ public:
 	int nWantedWorkersFarmingMineralsBeforeGas;
 	int nWantedWorkersFarmingGas;
 
+	int nWantedZealotsTotal;
+
 	int nMinWorkersBeforeScouting;
 
 	int nMinSoldiersBeforeAttack;
@@ -54,7 +58,7 @@ public:
 	// Ordered by necessity, and paired with the expected number of workers
 	std::vector<std::pair<int, BWAPI::UnitType>> buildOrderTechTree = {
 		{10, BWAPI::UnitTypes::Protoss_Assimilator},
-		{12, BWAPI::UnitTypes::Protoss_Gateway},
+		{11, BWAPI::UnitTypes::Protoss_Gateway},
 		{14, BWAPI::UnitTypes::Protoss_Forge},
 		{15, BWAPI::UnitTypes::Protoss_Cybernetics_Core},
 		{16, BWAPI::UnitTypes::Protoss_Stargate},
@@ -74,6 +78,9 @@ public:
 	std::shared_ptr<EventManagerTE> m_eventManagerTE;
 
 	std::shared_ptr<ResourcesManager> resourcesManager;
+
+	BWAPI::Unit attackTarget = nullptr;
+	bool emitedScoutTask = false;
 
 	int goalMineralGatheringWorkforce = 10;
 	int goalVespeneGatheringWorkforce = 4;

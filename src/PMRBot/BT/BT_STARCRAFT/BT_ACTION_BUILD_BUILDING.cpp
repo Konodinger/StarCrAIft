@@ -25,7 +25,7 @@ BT_NODE::State BT_ACTION_BUILD_BUILDING::BuildBuilding(void* data)
 	BWAPI::Unit builder = m_task->getExecutor()->getUnit();
 	for (auto unit : Tools::GetAllIncompleteUnits()) {
 		if (unit->getType() == m_task->getType()
-			&& unit->getTilePosition().getApproxDistance(builder->getTilePosition()) < 6) {
+			&& unit->getTilePosition().getApproxDistance(builder->getTilePosition()) < 12) {
 			// The construction has started...
 			BWAPI::Broodwar->printf("Started Building %s", m_task->getType().getName().c_str());
 			pData->resourcesManager->free_resource(this);
@@ -51,7 +51,7 @@ BT_NODE::State BT_ACTION_BUILD_BUILDING::BuildBuilding(void* data)
 					BWAPI::Unit nearestPylon = Tools::GetClosestUnitTo(builder, Tools::GetUnitsOfType(BWAPI::UnitTypes::Protoss_Pylon));
 					if (nearestPylon != nullptr) {
 						buildingPosition = BWAPI::Broodwar->getBuildLocation(m_task->getType(), nearestPylon->getTilePosition(), 7, false);
-							
+
 						// If no good position is found, back to first choice.
 						if (!buildingPosition.isValid()) {
 							buildingPosition = BWAPI::Broodwar->getBuildLocation(m_task->getType(), builder->getTilePosition(), 64, false);

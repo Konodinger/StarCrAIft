@@ -14,9 +14,12 @@ public:
 		createBT();
 	};
 
+	static bool checkIfGateway(void* data);
 	static bool checkIfEnoughWorker(void* data);
-	static bool checkIfEnoughPylonForNewWorker(void* data);
+	static bool checkIfEnoughZealot(void* data);
+	static BT_NODE::State checkIfEnoughPylonForNewUnit(void* data, BWAPI::UnitType unitType);
 	static BT_NODE::State emitCreateWorkerTask(void* pData);
+	static BT_NODE::State emitCreateZealotTask(void* pData);
 
 private:
 	void createBT();

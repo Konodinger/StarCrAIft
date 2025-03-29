@@ -6,7 +6,10 @@
 #include "Data.h"
 #include "Tools.h"	
 
+#include "WorkerTE.h"
+
 #include "SoldierAttackBaseTask.h"
+#include "ScoutTask.h"
 
 bool ArmyTE::checkIfEnoughSoldiers(void* data) {
 	Data* pData = static_cast<Data*>(data);
@@ -25,16 +28,40 @@ bool ArmyTE::checkIfEnoughSoldiers(void* data) {
 BT_NODE::State ArmyTE::emitCreateSoldiersTask(void* data) {
 	Data* pData = static_cast<Data*>(data);
 
-	std::cout << "Sending " << pData->nMinSoldiersBeforeAttack << " soldiers to attack" << std::endl;
+	if (!pData->emitedScoutTask) {
+		std::cout << "Emitting scout task" << std::endl;
+		std::shared_ptr<TaskEmitter> te = pData->m_task_emitter_map[EmitterType::WORKER];
+		std::shared_ptr<WorkerTE> workerTE = std::dynamic_pointer_cast<WorkerTE>(te);
+		workerTE->emitScoutingTask(pData);
+		pData->emitedScoutTask = true;
 
-	// Send pData->nMinSoldiersBeforeAttack soldiers to attack
-	for (int i = 0; i < static_cast<Data*>(pData)->nMinSoldiersBeforeAttack; i++) {
-		// Create a soldier task
-		std::shared_ptr<Task> t = std::make_shared <SoldierAttackBaseTask>(pData->m_task_emitter_map[EmitterType::ARMY]);
-		pData->m_task_emitter_map[EmitterType::ARMY]->emitTask(data, t);
 	}
 
-	pData->numSoldierSent += pData->nMinSoldiersBeforeAttack;
+	// Send pData->nMinSoldiersBeforeAttack soldiers to attack
+	//for (int i = 0; i < static_cast<Data*>(pData)->nMinSoldiersBeforeAttack; i++) {
+		// Create a soldier task
+		// Does not work
+		//std::shared_ptr<Task> t = std::make_shared <SoldierAttackBaseTask>(pData->m_task_emitter_map[EmitterType::ARMY]);
+		//pData->m_task_emitter_map[EmitterType::ARMY]->emitTask(data, t);
+	//}
+
+	// Instead, get all ennemy units and attack the first one
+	BWAPI::Unitset zealots = Tools::GetUnitsOfType(BWAPI::UnitTypes::Protoss_Zealot);
+
+	if (pData->attackTarget == nullptr || !pData->attackTarget->exists()) {
+		pData->attackTarget = nullptr;
+		BWAPI::Unitset enemyUnits = BWAPI::Broodwar->enemy()->getUnits();
+
+		if (enemyUnits.size() > 0) {
+			auto position = zealots.getPosition();
+			pData->attackTarget = Tools::GetClosestUnitTo(position, enemyUnits);
+		}
+	}
+
+	if (pData->attackTarget != nullptr)
+		zealots.attack(pData->attackTarget);
+
+	//pData->numSoldierSent += pData->nMinSoldiersBeforeAttack;
 
 	return BT_NODE::State::SUCCESS;
 }

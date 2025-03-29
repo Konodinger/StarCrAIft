@@ -51,7 +51,6 @@ void EventManagerTE::onSendText(std::string text) {
 // Units are created in buildings like barracks before they are visible, 
 // so this will trigger when you issue the build command for most units
 void EventManagerTE::onUnitCreate(BWAPI::Unit unit) {
-	// SIMPLIFIED, WILL NEED TO ADD UNITAGENTTYPES...
 
 	if (unit->getPlayer() == BWAPI::Broodwar->self()) {
 		auto pUnitAgent = UnitAgent::createUnitAgent(unit);
