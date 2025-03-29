@@ -22,7 +22,7 @@ void UnitAgent::execute(Data* pData) {
 		bt->Reset();
 		if (state == BT_NODE::FAILURE)
 		{
-			BWAPI::Broodwar->printf(("Warning: the Unit Agent " + std::to_string(m_unit->getID()) + " ended incorrectly while executing behaviour tree...").c_str());
+			// BWAPI::Broodwar->printf(("Warning: the Unit Agent " + std::to_string(m_unit->getID()) + " ended incorrectly while executing behaviour tree...").c_str());
 		}
 		if (state == BT_NODE::SUCCESS && m_state == WORKING) {
 			if (m_task->getTaskEmitter() == nullptr) {
