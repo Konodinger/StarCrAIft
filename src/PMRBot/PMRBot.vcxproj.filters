@@ -1,12 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include=".\main.cpp" />
-    <ClCompile Include=".\MapTools.cpp" />
-    <ClCompile Include=".\PMRBot.cpp" />
-    <ClCompile Include=".\ReplayParser.cpp" />
-    <ClCompile Include=".\StarterBot.cpp" />
-    <ClCompile Include=".\Tools.cpp" />
     <ClCompile Include=".\BT\BT_ACTION.cpp" />
     <ClCompile Include=".\BT\BT_ACTION_EMPTY_BT.cpp" />
     <ClCompile Include=".\BT\BT_ACTION_IDLE.cpp" />
@@ -37,46 +31,40 @@
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_SUPPLY.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS_FARMING_MINERALS.cpp" />
-    <ClCompile Include=".\UtilitySystem\Tasks\ScoutTask.cpp" />
-    <ClCompile Include=".\UtilitySystem\Tasks\BuildingTask.cpp" />
-    <ClCompile Include=".\UtilitySystem\Tasks\WorkerFleeTask.cpp" />
-    <ClCompile Include=".\UtilitySystem\Tasks\SoldierIdleTask.cpp" />
-    <ClCompile Include=".\UtilitySystem\Tasks\SoldierFleeTask.cpp" />
-    <ClCompile Include=".\UtilitySystem\Tasks\SoldierDefendBaseTask.cpp" />
-    <ClCompile Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.cpp" />
-    <ClCompile Include=".\UtilitySystem\Tasks\VespeneGatheringTask.cpp" />
+    <ClCompile Include=".\main.cpp" />
+    <ClCompile Include=".\MapTools.cpp" />
+    <ClCompile Include=".\ReplayParser.cpp" />
+    <ClCompile Include=".\StarterBot.cpp" />
+    <ClCompile Include=".\Tools.cpp" />
+    <ClCompile Include=".\PMRBot.cpp" />
     <ClCompile Include=".\UtilitySystem\TaskEmitters\EventManagerTE.cpp" />
     <ClCompile Include=".\UtilitySystem\Tasks\Task.cpp" />
     <ClCompile Include=".\UtilitySystem\TaskEmitters\TaskEmitter.cpp" />
-    <ClCompile Include=".\UtilitySystem\TaskEmitters\WorkerTE.cpp" />
-    <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
-    <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
     <ClCompile Include=".\UtilitySystem\UnitAgents\UnitAgent.cpp" />
-    <ClCompile Include="UtilitySystem\TaskEmitters\BuildOrderTE.cpp" />
-    <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.cpp" />
-    <ClCompile Include="ResourcesManager.cpp" />
+    <ClCompile Include=".\UtilitySystem\TaskEmitters\WorkerTE.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierDefendBaseTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierFleeTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\SoldierIdleTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\BuildingTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\ScoutTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\VespeneGatheringTask.cpp" />
+    <ClCompile Include=".\UtilitySystem\Tasks\WorkerFleeTask.cpp" />
+    <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
+    <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
+    <ClCompile Include="UtilitySystem\TaskEmitters\ArmyTE.cpp" />
     <ClCompile Include="BT\BT_DECO_MULTIPLEXER.cpp" />
-    <ClCompile Include="UtilitySystem\TaskEmitters\UnitProducerTE.cpp" />
     <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_ASK_FOR_NEW_PYLONS.cpp" />
-    <ClCompile Include="UtilitySystem\Tasks\CreateWorkerTask.cpp" />
-    <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_SEARCH_NEW_ENEMY_BASE.cpp" />
+    <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.cpp" />
     <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_MONITOR_EXISTING_BASE.cpp" />
+    <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_SEARCH_NEW_ENEMY_BASE.cpp" />
+    <ClCompile Include="ResourcesManager.cpp" />
+    <ClCompile Include="UtilitySystem\TaskEmitters\BuildOrderTE.cpp" />
+    <ClCompile Include="UtilitySystem\TaskEmitters\UnitProducerTE.cpp" />
+    <ClCompile Include="UtilitySystem\Tasks\CreateWorkerTask.cpp" />
     <ClCompile Include="UtilitySystem\Tasks\CreateUnitTask.cpp" />
-    <ClCompile Include="ArmyTE.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include=".\Grid.hpp" />
-    <ClInclude Include=".\MapTools.h" />
-    <ClInclude Include=".\ReplayParser.h" />
-    <ClInclude Include=".\StarterBot.h" />
-    <ClInclude Include=".\Tools.h" />
-    <ClInclude Include=".\UtilitySystem\UnitAgents\UnitAgent.h">
-      <Filter>UtilitySystem</Filter>
-    </ClInclude>
-    <ClInclude Include=".\PMRBot.h" />
-    <ClInclude Include=".\UtilitySystem\UnitAgents\GenericUnitAgent.h">
-      <Filter>UtilitySystem</Filter>
-    </ClInclude>
     <ClInclude Include=".\BT\BT.h" />
     <ClInclude Include=".\BT\BT_ACTION.h" />
     <ClInclude Include=".\BT\BT_ACTION_EMPTY_BT.h" />
@@ -109,48 +97,45 @@
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_DECO_CONDITION_NOT_ENOUGH_WORKERS_FARMING_MINERALS.h" />
     <ClInclude Include=".\BT\Data.h" />
+    <ClInclude Include=".\Grid.hpp" />
+    <ClInclude Include=".\MapTools.h" />
+    <ClInclude Include=".\ReplayParser.h" />
+    <ClInclude Include=".\StarterBot.h" />
+    <ClInclude Include=".\Tools.h" />
+    <ClInclude Include=".\PMRBot.h" />
+    <ClInclude Include=".\UtilitySystem\TaskEmitters\EventManagerTE.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\FarmerUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\FlyingWarriorUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\GenericUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\Task.h" />
+    <ClInclude Include=".\UtilitySystem\TaskEmitters\TaskEmitter.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\GroundWarriorUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\ObserverUnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\UnitAgents\UnitAgent.h" />
+    <ClInclude Include=".\UtilitySystem\TaskEmitters\WorkerTE.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierDefendBaseTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierFleeTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\SoldierIdleTask.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\BuildingTask.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgents\BuildingUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\UnitAgents\MovingUnitAgent.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\ScoutTask.h" />
-    <ClInclude Include=".\UtilitySystem\Tasks\BuildingTask.h" />
-    <ClInclude Include=".\UtilitySystem\Tasks\WorkerFleeTask.h" />
-    <ClInclude Include=".\UtilitySystem\Tasks\SoldierIdleTask.h" />
-    <ClInclude Include=".\UtilitySystem\Tasks\SoldierFleeTask.h" />
-    <ClInclude Include=".\UtilitySystem\Tasks\SoldierDefendBaseTask.h" />
-    <ClInclude Include=".\UtilitySystem\Tasks\SoldierAttackBaseTask.h" />
     <ClInclude Include=".\UtilitySystem\Tasks\VespeneGatheringTask.h" />
-    <ClInclude Include=".\UtilitySystem\TaskEmitters\EventManagerTE.h" />
-    <ClInclude Include=".\UtilitySystem\Tasks\Task.h" />
-    <ClInclude Include=".\UtilitySystem\TaskEmitters\TaskEmitter.h" />
-    <ClInclude Include=".\UtilitySystem\TaskEmitters\WorkerTE.h" />
-    <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.h" />
+    <ClInclude Include=".\UtilitySystem\Tasks\WorkerFleeTask.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.h" />
-    <ClInclude Include=".\UtilitySystem\UnitAgents\FarmerUnitAgent.h" />
-    <ClInclude Include=".\UtilitySystem\UnitAgents\FlyingWarriorUnitAgent.h" />
-    <ClInclude Include=".\UtilitySystem\UnitAgents\GroundWarriorUnitAgent.h" />
-    <ClInclude Include=".\UtilitySystem\UnitAgents\ObserverUnitAgent.h" />
-    <ClInclude Include="UtilitySystem\Idle\IdleManager.h" />
-    <ClInclude Include="UtilitySystem\TaskEmitters\BuildOrderTE.h" />
-    <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.h" />
-    <ClInclude Include="ResourcesManager.h" />
+    <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.h" />
+    <ClInclude Include="UtilitySystem\TaskEmitters\ArmyTE.h" />
     <ClInclude Include="BT\BT_DECO_MULTIPLEXER.h" />
-    <ClInclude Include="UtilitySystem\TaskEmitters\UnitProducerTE.h" />
     <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_ASK_FOR_NEW_PYLONS.h" />
-    <ClInclude Include="UtilitySystem\Tasks\CreateWorkerTask.h" />
-    <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_SEARCH_NEW_ENEMY_BASE.h" />
+    <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.h" />
     <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_MONITOR_EXISTING_BASE.h" />
+    <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_SEARCH_NEW_ENEMY_BASE.h" />
+    <ClInclude Include="ResourcesManager.h" />
+    <ClInclude Include="UtilitySystem\TaskEmitters\BuildOrderTE.h" />
+    <ClInclude Include="UtilitySystem\Idle\IdleManager.h" />
+    <ClInclude Include="UtilitySystem\TaskEmitters\UnitProducerTE.h" />
+    <ClInclude Include="UtilitySystem\Tasks\CreateWorkerTask.h" />
     <ClInclude Include="UtilitySystem\Tasks\CreateUnitTask.h" />
-    <ClInclude Include="ArmyTE.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="BT">
-      <UniqueIdentifier>{9e93f9f9-4795-47a9-a520-25d6276733ec}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="BT\BT_STARCRAFT">
-      <UniqueIdentifier>{f7d3a676-4252-4269-9d78-432aabc0f416}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="UtilitySystem">
-      <UniqueIdentifier>{74aa9ebd-0b56-436c-9100-17f5e3ea42f5}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
 </Project>

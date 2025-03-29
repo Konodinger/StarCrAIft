@@ -1,0 +1,51 @@
+Team members:
+	TREMOLIERES Lou
+	PHILIPPE Telo
+	LOPEZ Toan
+	GELAS Enzo
+	BERGER Jonas
+
+Race : Protoss
+
+Detailed strategy :
+- First, create workers and use a build order to define what building to create at which number of workers.
+- If a building is destroyed, it will be automatically rebuild before the build order can continue.
+- After a certain number of workers is created, send a scout that will move randomly on the map to find the enemy base. It will register the positions of all enemy bases found in a list.
+- Once the Gateway is build, create offensive units when there are enough resources.
+- After a certain threshold of offensive units is reached, all offensive units go into attack mode, they will attack the closest enemy unit they can find. If the scout is dead, send another scout to find enemies and send all soldiers here.
+
+Type of units + Branches of tech tree :
+	Probes + Zealots
+	Protoss_Assimilator -> Protoss_Gateway -> Protoss_Forge -> Protoss_Cybernetics_Core -> Protoss_Stargate -> Protoss_Fleet_Beacon
+
+Data structures and algorithms :
+We used a Utility System based on different "Task Emitters" that emits tasks based on the state of the game. An algorithm in the PMRBot attributes the tasks to the units based on their compatibility and the task importance. The implementations of both the Task Emitters and the Tasks are based on Behaviour Trees (the unit will use the behaviour tree contained in the task to act).
+The tasks are all the actions the units can do: build, train, attack, scout, flee, etc.
+Agents that do not have a task assigned will stay in idle mode.
+The IdleManager gets all idle units, and make them do basic farming of minerals and Vespene, so they are ready to take on tasks.
+For the build order: a list of building types associated with a number of workers required. If the building doesn't exist and there is enough workers, the construction is planned (so the earliest buildings are reconstructed first is they are destroyed).
+
+Abstract classes and their implementation:
+- TaskEmitter: contains a behaviour tree, and methods to register new tasks
+	- BuildOrderTE: build order and rebuilding of destroyed buildings
+	- EventManagerTE: manages game events, for example it registers new UnitAgents and unregisters them when they are destroyed
+	- UnitProducerTE: creates the necessary units (soldiers)
+	- ArmyTE: sends the offensive units to the front
+	- WorkerTE: 
+- Task: a behaviour tree, an executor (UnitAgent), and a reward (importance of the task)
+	- All tasks
+- UnitAgent: a BWAPI::Unit, a state and a task.
+	- GenericUnitAgent: basic implementation, can represent any unit
+		- BuildingUnitAgent: buildings
+		- MovingUnitAgent: workers and soldiers
+
+Utility class: Ressource Manager
+It is a class that allows to allocate resources, and free it. When a task needs a certain amount of resources, it allocates it with the Ressource Manager, and only starts the task when the Ressource Manager allows it.
+The Ressource Manager allows only the first task on the list to take the resources, in a FIFO list. It prevents costly task from never being able to start if cheap tasks continuously spend resources.
+
+Distribution of tasks : 
+	TREMOLIERES Lou : programming, behaviour tree designing and implementing
+	PHILIPPE Telo : programming, system designing and implementing
+	LOPEZ Toan : programming, system designing
+	GELAS Enzo : programming, behaviour tree implementing
+	BERGER Jonas : programming, system designing and implementing

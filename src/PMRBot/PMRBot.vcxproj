@@ -79,7 +79,7 @@
     <ClInclude Include=".\UtilitySystem\Tasks\WorkerFleeTask.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.h" />
     <ClInclude Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.h" />
-    <ClInclude Include="ArmyTE.h" />
+    <ClInclude Include="UtilitySystem\TaskEmitters\ArmyTE.h" />
     <ClInclude Include="BT\BT_DECO_MULTIPLEXER.h" />
     <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_ASK_FOR_NEW_PYLONS.h" />
     <ClInclude Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.h" />
@@ -144,7 +144,7 @@
     <ClCompile Include=".\UtilitySystem\Tasks\WorkerFleeTask.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_ATTACK_CLOSEST_ENEMY.cpp" />
     <ClCompile Include=".\BT\BT_STARCRAFT\BT_ACTION_EXECUTE_METHOD.cpp" />
-    <ClCompile Include="ArmyTE.cpp" />
+    <ClCompile Include="UtilitySystem\TaskEmitters\ArmyTE.cpp" />
     <ClCompile Include="BT\BT_DECO_MULTIPLEXER.cpp" />
     <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_ASK_FOR_NEW_PYLONS.cpp" />
     <ClCompile Include="BT\BT_STARCRAFT\BT_ACTION_BUILD_BUILDING.cpp" />
